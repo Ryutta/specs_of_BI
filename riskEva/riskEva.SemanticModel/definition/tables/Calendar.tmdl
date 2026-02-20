@@ -1,0 +1,86 @@
+table Calendar
+	lineageTag: cb6d1642-6772-4078-86fc-56a73cc41971
+
+	column Date
+		formatString: General Date
+		lineageTag: dd73f0eb-367d-4acc-98ee-3f0dac0f70e0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: f3d35bfb-3fd7-43d1-a891-c5f708dabc6f
+			defaultHierarchy: LocalDateTable_aafd8bc7-1a12-4942-83ba-f8ac3b09c4f4.日付の階層
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: b7f807e0-c25b-4836-b24f-ae6d0bc27251
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: ea60eaf2-b7c8-4503-9d76-ab92fb3d394c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		lineageTag: 39d325e3-187f-4613-8030-01baa7c6de61
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 364c959e-e983-45cc-941e-153c4674c974
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY
+		lineageTag: 7dc7c1d4-4f69-4d2a-b221-3ab4d12e1e83
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FY]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number2'
+		formatString: 0
+		lineageTag: 27b379de-3df8-44ba-8498-19e9715ace09
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number2]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    CALENDAR( DATE( 2018,1,1), DATE(2027,12,31)),
+				    "Month", FORMAT([Date], "MM"),
+				    "Month Number", MONTH( [Date]),
+				    "Year", FORMAT([Date], "YYYY"),
+				    "Quarter", "Q" & QUARTER([Date]),
+				    "FY",
+				    FORMAT(IF(MONTH([Date])<=3,value(FORMAT([Date],"YYYY"))-1,VALUE(FORMAT([Date],"YYYY"))),"General Number"),
+				    "Month Number2",IF(MONTH([Date])<=3,month([Date])+9,MONTH([Date])-3)
+				)
+				
+				```
+
+	annotation PBI_Id = 37d4e90f574a44198763b3b04eb8b087
+

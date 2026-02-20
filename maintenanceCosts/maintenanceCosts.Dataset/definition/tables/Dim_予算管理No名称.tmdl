@@ -1,0 +1,17 @@
+table Dim_予算管理No名称
+	lineageTag: 998271a0-5536-44b8-947a-a88c9a33868d
+
+	column 予算管理名称
+		lineageTag: 67ae979f-6b0a-48ec-9f44-6bc3c652ac09
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 予実管理[予算管理名称]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_予算管理No名称 = calculated
+		mode: import
+		source = VALUES('予実管理'[予算管理名称])
+
+	annotation PBI_Id = fb00899132f64744b42b3589d593409d
+

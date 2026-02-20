@@ -1,0 +1,51 @@
+table 評価ランク_Table
+	lineageTag: 009d8d22-6d61-4781-b111-c555e7f4a2eb
+
+	column 影響度
+		lineageTag: a0e8a322-844a-4924-939e-9edf41bc826b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 影響度[影響度]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発生確率
+		lineageTag: 8680b5b4-4392-4caa-9936-b11a2e12396d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 発生確率[発生確率]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 評価ランク =
+			
+			SWITCH(
+			    TRUE(),
+			    AND('評価ランク_Table'[影響度]="1",'評価ランク_Table'[発生確率]="A"),"A1",
+			    AND('評価ランク_Table'[影響度]="1",'評価ランク_Table'[発生確率]="B"),"A2",
+			    AND('評価ランク_Table'[影響度]="2",'評価ランク_Table'[発生確率]="A"),"A3",
+			    AND('評価ランク_Table'[影響度]="2",'評価ランク_Table'[発生確率]="B"),"A4",
+			    AND('評価ランク_Table'[影響度]="3",'評価ランク_Table'[発生確率]="A"),"A5",
+			    AND('評価ランク_Table'[影響度]="3",'評価ランク_Table'[発生確率]="B"),"A6",
+			    AND('評価ランク_Table'[影響度]="1",'評価ランク_Table'[発生確率]="C"),"B1",
+			    AND('評価ランク_Table'[影響度]="2",'評価ランク_Table'[発生確率]="C"),"B2",
+			    AND('評価ランク_Table'[影響度]="3",'評価ランク_Table'[発生確率]="C"),"B3",
+			    AND('評価ランク_Table'[影響度]="4",'評価ランク_Table'[発生確率]="A"),"B4",
+			    AND('評価ランク_Table'[影響度]="4",'評価ランク_Table'[発生確率]="B"),"B5",
+			    AND('評価ランク_Table'[影響度]="1",'評価ランク_Table'[発生確率]="D"),"C1",
+			    AND('評価ランク_Table'[影響度]="2",'評価ランク_Table'[発生確率]="D"),"C2",
+			    AND('評価ランク_Table'[影響度]="3",'評価ランク_Table'[発生確率]="D"),"C3",
+			    AND('評価ランク_Table'[影響度]="4",'評価ランク_Table'[発生確率]="C"),"C4",
+			    AND('評価ランク_Table'[影響度]="4",'評価ランク_Table'[発生確率]="D"),"C5"
+			)
+		lineageTag: 71e81d65-754a-4dc8-afeb-5f98561e2da3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 評価ランク_Table = calculated
+		mode: import
+		source = CROSSJOIN('影響度','発生確率')
+
+	annotation PBI_Id = bb9b6cc478e543d6a1c707ab4353f721
+

@@ -1,0 +1,11 @@
+expression 'DirectQuery to AS - MoneM_010_起業費・修繕費' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Unique_Digital", "MoneM_010_起業費・修繕費"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: c8c44052-fe2c-4c22-8417-97a26124ec73
+
+	annotation PBI_IncludeFutureArtifacts = True
+

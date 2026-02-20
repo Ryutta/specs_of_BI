@@ -1,0 +1,32 @@
+table 順序_管理区分_Table
+	lineageTag: 6e3f7d2e-40f1-4f57-b39c-c0ae5e6dd2e5
+
+	column 管理区分
+		dataType: string
+		lineageTag: 2a95eea6-4329-40da-a666-e2d5abc38756
+		summarizeBy: none
+		sourceColumn: 管理区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 順序
+		dataType: int64
+		formatString: 0
+		lineageTag: c3231a33-d8dd-4301-acf8-ee5dee74432c
+		summarizeBy: sum
+		sourceColumn: 順序
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 順序_管理区分_Table-eff43952-c95c-4d46-b897-dda4c728dc6b = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8lXSUTJUitWJVnIFsozALE8gyxjMcgayTMAsJyDLFMxyBLLMlGJjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t, 列2 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}, {"列2", Int64.Type}}),
+				    #"名前が変更された列 " = Table.RenameColumns(変更された型,{{"列1", "管理区分"}, {"列2", "順序"}})
+				in
+				    #"名前が変更された列 "
+
+	annotation PBI_ResultType = Table
+

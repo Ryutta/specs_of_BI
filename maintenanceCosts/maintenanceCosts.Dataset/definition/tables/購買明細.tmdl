@@ -1,0 +1,1075 @@
+table 購買明細
+	lineageTag: 0edcc0b3-6979-4e21-b1f4-ebdbf98154c6
+
+	column ファイル名
+		dataType: string
+		lineageTag: b438350e-25a5-4d00-9716-d17cd5bbad64
+		summarizeBy: none
+		sourceColumn: ファイル名
+
+		annotation SummarizationSetBy = Automatic
+
+	column 会社コード
+		dataType: string
+		lineageTag: e755b910-77c2-410e-b0f8-3f28ed66dce0
+		summarizeBy: none
+		sourceColumn: 会社コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 会社名称
+		dataType: string
+		lineageTag: 05d3da0a-7b7f-4b51-b4e1-c9ffa59587b6
+		summarizeBy: none
+		sourceColumn: 会社名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 会社コード＋会社名称
+		dataType: string
+		lineageTag: 27ba0836-215f-4baa-b9a8-067b43a88001
+		summarizeBy: none
+		sourceColumn: 会社コード＋会社名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 事業領域コード
+		dataType: string
+		lineageTag: 6177e7c5-6425-4b66-92dd-d30f0c34393d
+		summarizeBy: none
+		sourceColumn: 事業領域コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 事業領域名称
+		dataType: string
+		lineageTag: fe53b42c-b1e4-49ea-bab5-e3b8f613250c
+		summarizeBy: none
+		sourceColumn: 事業領域名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 事業領域コード＋事業領域名称
+		dataType: string
+		lineageTag: dc1f5af0-d87d-477d-93c2-84b43ed60bba
+		summarizeBy: none
+		sourceColumn: 事業領域コード＋事業領域名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column プラント略号
+		dataType: string
+		lineageTag: d4491089-e8a3-4bdd-9bb1-18e926f9c86b
+		summarizeBy: none
+		sourceColumn: プラント略号
+
+		annotation SummarizationSetBy = Automatic
+
+	column プラント略号名称
+		dataType: string
+		lineageTag: 134578cf-4194-4f9e-b1a7-86955a6da0c9
+		summarizeBy: none
+		sourceColumn: プラント略号名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算年度
+		dataType: int64
+		formatString: 0
+		lineageTag: 004e379e-3ec9-4e7c-8a58-5e43fd35e3f4
+		summarizeBy: sum
+		sourceColumn: 予算年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 専門区分
+		dataType: string
+		lineageTag: d5d1722c-a070-4a66-8527-f7b141d9915c
+		summarizeBy: none
+		sourceColumn: 専門区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 専門区分名称
+		dataType: string
+		lineageTag: 3201ccdb-564a-4880-a9e1-6432e77df5b8
+		summarizeBy: none
+		sourceColumn: 専門区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定コード
+		dataType: string
+		lineageTag: e01da5b0-7565-4510-98e6-91e92fcd8c69
+		summarizeBy: none
+		sourceColumn: 勘定コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定名称
+		dataType: string
+		lineageTag: a9d2056b-9950-45af-a17f-ee43037a95e6
+		summarizeBy: none
+		sourceColumn: 勘定名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分１
+		dataType: string
+		lineageTag: 4cb6cb4a-f993-4475-a9c1-7515baf94191
+		summarizeBy: none
+		sourceColumn: 予算区分１
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分１名称
+		dataType: string
+		lineageTag: 0749bfca-2ce4-433a-8adb-e2e074b4ea1a
+		summarizeBy: none
+		sourceColumn: 予算区分１名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分２
+		dataType: string
+		lineageTag: 8feb2f11-a2e2-485d-a78a-e49dc2bb07dc
+		summarizeBy: none
+		sourceColumn: 予算区分２
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理ＮＯ
+		dataType: string
+		lineageTag: eec8af02-0913-45b8-8ec4-6bd4f53954c8
+		summarizeBy: none
+		sourceColumn: 予算管理ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理名称
+		dataType: string
+		lineageTag: 33092088-5a53-4bc7-b832-430c4b089543
+		summarizeBy: none
+		sourceColumn: 予算管理名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部コード
+		dataType: string
+		lineageTag: b36e5f81-565e-4de4-b5fb-e1b6ff2a9a9b
+		summarizeBy: none
+		sourceColumn: 部コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部名称
+		dataType: string
+		lineageTag: 1eba2502-1e60-45c3-8e06-d5d39967a1ae
+		summarizeBy: none
+		sourceColumn: 部名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部コード＋部名称
+		dataType: string
+		lineageTag: 01ead2ce-4513-4eea-b584-c058a9b4fb44
+		summarizeBy: none
+		sourceColumn: 部コード＋部名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課コード
+		dataType: string
+		lineageTag: 889d3279-ca5b-43ce-9dee-18a792b113f7
+		summarizeBy: none
+		sourceColumn: 課コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課名称
+		dataType: string
+		lineageTag: afcffac9-2e9a-4b75-8462-c97996a45bd8
+		summarizeBy: none
+		sourceColumn: 課名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課コード＋課名称
+		dataType: string
+		lineageTag: afc35ff5-0de0-4fb4-a8dd-fc1b88500cfc
+		summarizeBy: none
+		sourceColumn: 課コード＋課名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 委託区分
+		dataType: string
+		lineageTag: b064cf0e-b9fe-40f2-b93b-75ceebab418c
+		summarizeBy: none
+		sourceColumn: 委託区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算／実績区分
+		dataType: string
+		lineageTag: 048ccc05-2c0c-4fc7-bd9b-b1ab6a49c81a
+		summarizeBy: none
+		sourceColumn: 予算／実績区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 配賦予算区分
+		dataType: string
+		lineageTag: 19cc4b64-e29f-4a71-9be4-829a91d8b702
+		summarizeBy: none
+		sourceColumn: 配賦予算区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 配賦予算区分名称
+		dataType: string
+		lineageTag: 57e8473e-7219-49a1-a67c-f9d56d7ff39e
+		summarizeBy: none
+		sourceColumn: 配賦予算区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 配賦予算金額
+		dataType: string
+		lineageTag: b686aeb7-e5dd-4d32-b9c8-f0e2ec7410e0
+		summarizeBy: none
+		sourceColumn: 配賦予算金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 計画予算金額
+		dataType: string
+		lineageTag: 6b07c8ab-ea71-4890-bede-6d84e58f4478
+		summarizeBy: none
+		sourceColumn: 計画予算金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発券累計金額
+		dataType: string
+		lineageTag: 53510940-21b6-497f-87f8-0eb4c97f42db
+		summarizeBy: none
+		sourceColumn: 発券累計金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注累計金額
+		dataType: string
+		lineageTag: 24b5a7a7-e419-4941-8f5f-f4ca4b1a4564
+		summarizeBy: none
+		sourceColumn: 発注累計金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 検収累計金額
+		dataType: string
+		lineageTag: 0a988166-7699-4458-a755-ab250d9700d7
+		summarizeBy: none
+		sourceColumn: 検収累計金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発券未発注累計金額
+		dataType: string
+		lineageTag: 9621fedc-800f-469b-be78-90aa66e5ee9e
+		summarizeBy: none
+		sourceColumn: 発券未発注累計金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注未検収累計金額
+		dataType: string
+		lineageTag: 98378c58-d3ab-4e55-b229-b3e3f02d4b0b
+		summarizeBy: none
+		sourceColumn: 発注未検収累計金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 実績金額
+		dataType: string
+		lineageTag: 7edb4cdb-36e5-45e2-b780-e628402784d7
+		summarizeBy: none
+		sourceColumn: 実績金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算残金額
+		dataType: string
+		lineageTag: 3e9ecd23-c1c0-4baa-8147-f969473edb2b
+		summarizeBy: none
+		sourceColumn: 予算残金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼ＮＯ
+		dataType: string
+		lineageTag: f5a7d86d-8a69-46f9-b553-2342bd74d45d
+		summarizeBy: none
+		sourceColumn: 購買依頼ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼明細ＮＯ
+		dataType: string
+		lineageTag: 2fdc1f89-29aa-47db-a014-ccf099d68077
+		summarizeBy: none
+		sourceColumn: 購買依頼明細ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注ＮＯ
+		dataType: string
+		lineageTag: e2223c1b-f8ed-4fd6-9409-07c42183f49e
+		summarizeBy: none
+		sourceColumn: 購買発注ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注明細ＮＯ
+		dataType: string
+		lineageTag: c45e2ecd-01fa-4d3c-b784-44ddda4c24ad
+		summarizeBy: none
+		sourceColumn: 購買発注明細ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 品名
+		dataType: string
+		lineageTag: e23d2fa1-7257-4542-b796-371c0fdbd71e
+		summarizeBy: none
+		sourceColumn: 品名
+
+		annotation SummarizationSetBy = Automatic
+
+	column 品目コード
+		dataType: string
+		lineageTag: 920846c5-1f09-45c7-bfe9-c9aea2bba33c
+		summarizeBy: none
+		sourceColumn: 品目コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 仕入先コード
+		dataType: string
+		lineageTag: 92743875-7516-412b-9e4f-95a1430be91e
+		summarizeBy: none
+		sourceColumn: 仕入先コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 仕入先名称
+		dataType: string
+		lineageTag: 66659535-04d4-4509-8ca2-00bb7bb180bf
+		summarizeBy: none
+		sourceColumn: 仕入先名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 単位コード
+		dataType: string
+		lineageTag: acce4fde-d724-4392-9444-6d23fc724939
+		summarizeBy: none
+		sourceColumn: 単位コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 単位名称
+		dataType: string
+		lineageTag: 5f6391c9-495c-492b-905b-be2c74ed3b09
+		summarizeBy: none
+		sourceColumn: 単位名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼納入期日
+		dataType: string
+		lineageTag: 9892f3a3-6e85-4885-bb32-947ba03d1842
+		summarizeBy: none
+		sourceColumn: 購買依頼納入期日
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注納入期日
+		dataType: string
+		lineageTag: ac58c9aa-7eb4-4249-ae69-9eaddc1ae41c
+		summarizeBy: none
+		sourceColumn: 購買発注納入期日
+
+		annotation SummarizationSetBy = Automatic
+
+	column 工事購入区分
+		dataType: string
+		lineageTag: 2fa8794b-a2b5-45e7-bdca-e6f3ffb81e22
+		summarizeBy: none
+		sourceColumn: 工事購入区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 工事購入区分名称
+		dataType: string
+		lineageTag: c5b06ccd-fc8d-4abe-b2d1-bdf1de188acc
+		summarizeBy: none
+		sourceColumn: 工事購入区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 進捗区分
+		dataType: string
+		lineageTag: 5e530b16-d4d2-44e2-894e-2dd7a9690682
+		summarizeBy: none
+		sourceColumn: 進捗区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 進捗区分名称
+		dataType: string
+		lineageTag: f7b22a1e-d6a6-4153-b9c7-e257f95f2252
+		summarizeBy: none
+		sourceColumn: 進捗区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼者
+		dataType: string
+		lineageTag: e046df63-fb89-4ac6-b284-561f5aa1a674
+		summarizeBy: none
+		sourceColumn: 購買依頼者
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼日
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d6385c94-ee59-4d24-8430-56efcd5d7f7d
+		summarizeBy: none
+		sourceColumn: 購買依頼日
+
+		variation Variation
+			isDefault
+			relationship: 5ba9d8d8-5e8c-4dc8-9be0-1bb0f3f287cc
+			defaultHierarchy: LocalDateTable_359d928f-83f0-416a-913f-86c20425cd5e.日付の階層
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 購買依頼数量
+		dataType: string
+		lineageTag: 9de73d1b-84b0-428c-a29c-f2622f168bf4
+		summarizeBy: none
+		sourceColumn: 購買依頼数量
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼単価
+		dataType: string
+		lineageTag: 8cc8865c-a201-45a5-8459-2d3ef799085f
+		summarizeBy: none
+		sourceColumn: 購買依頼単価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼金額
+		dataType: double
+		lineageTag: 43537cb1-f552-46e5-ac9b-b2a51b8f050c
+		summarizeBy: sum
+		sourceColumn: 購買依頼金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 購買発注者
+		dataType: string
+		lineageTag: 9a6a0f37-5a58-4290-8ddd-cdf8f243ea6f
+		summarizeBy: none
+		sourceColumn: 購買発注者
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注日
+		dataType: string
+		lineageTag: e660e066-e47f-46e1-b844-02acacc82cf7
+		summarizeBy: none
+		sourceColumn: 購買発注日
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注数量
+		dataType: string
+		lineageTag: d1d4785b-f9a9-4207-8678-7a0f9a4a25d2
+		summarizeBy: none
+		sourceColumn: 購買発注数量
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注単価
+		dataType: string
+		lineageTag: a4b4d514-e029-4289-8148-cfe5ad66b484
+		summarizeBy: none
+		sourceColumn: 購買発注単価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注金額
+		dataType: string
+		lineageTag: 0a1026b6-8a1f-4ffd-8172-328d58ffe966
+		summarizeBy: none
+		sourceColumn: 購買発注金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫担当者
+		dataType: string
+		lineageTag: e441fd06-3e9e-4a85-a329-b3e415723aa7
+		summarizeBy: none
+		sourceColumn: 入庫担当者
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫日
+		dataType: string
+		lineageTag: e54a709d-085b-451b-a69b-3d3d87c40155
+		summarizeBy: none
+		sourceColumn: 入庫日
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫数量
+		dataType: string
+		lineageTag: 3d6d8e6f-838d-4dff-9ee2-4c876ab2d07b
+		summarizeBy: none
+		sourceColumn: 入庫数量
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫金額
+		dataType: double
+		lineageTag: 217b06f1-f134-4ced-9cde-a21ad1527ee8
+		summarizeBy: sum
+		sourceColumn: 入庫金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 発券未発注金額
+		dataType: string
+		lineageTag: 1eaa7e8e-d226-4b81-b76d-90108b1c3cec
+		summarizeBy: none
+		sourceColumn: 発券未発注金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注未検収金額
+		dataType: string
+		lineageTag: 6f8cfb0e-824b-4d73-acfe-da3e808816c8
+		summarizeBy: none
+		sourceColumn: 発注未検収金額
+
+		annotation SummarizationSetBy = Automatic
+
+	column 実績明細金額
+		dataType: double
+		lineageTag: bf316a02-744e-4fc5-8a1b-ad26495f37ea
+		summarizeBy: sum
+		sourceColumn: 実績明細金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 機番
+		dataType: string
+		lineageTag: 17316c31-f12d-4ec8-a888-e386649f678c
+		summarizeBy: none
+		sourceColumn: 機番
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機種
+		dataType: string
+		lineageTag: d986aef8-de0f-44df-aa36-8064dc0834a9
+		summarizeBy: none
+		sourceColumn: 機種
+
+		annotation SummarizationSetBy = Automatic
+
+	column 用途区分１
+		dataType: string
+		lineageTag: 547acb5a-af26-40ef-b298-367873dcfd97
+		summarizeBy: none
+		sourceColumn: 用途区分１
+
+		annotation SummarizationSetBy = Automatic
+
+	column 用途区分２
+		dataType: string
+		lineageTag: 4301bd6b-6708-4306-9a74-03171734bdae
+		summarizeBy: none
+		sourceColumn: 用途区分２
+
+		annotation SummarizationSetBy = Automatic
+
+	column 用途区分比率１
+		dataType: string
+		lineageTag: 4603ffe2-5136-4f00-ad2f-b233d3ab1e4d
+		summarizeBy: none
+		sourceColumn: 用途区分比率１
+
+		annotation SummarizationSetBy = Automatic
+
+	column 用途区分比率２
+		dataType: string
+		lineageTag: 8c1ad524-1d85-43d7-b0c4-e3d02d6b4d48
+		summarizeBy: none
+		sourceColumn: 用途区分比率２
+
+		annotation SummarizationSetBy = Automatic
+
+	column ＲＤテーマＮＯ
+		dataType: string
+		lineageTag: 37481649-686e-43ce-9d97-83ee9076bb4d
+		summarizeBy: none
+		sourceColumn: ＲＤテーマＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: 206a67de-6d05-432d-95ce-007a685409ec
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 利益センタ
+		dataType: string
+		lineageTag: 5718603f-95a9-4ccb-adb5-34b689dc23b3
+		summarizeBy: none
+		sourceColumn: 利益センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column ＪＯＢNo
+		dataType: string
+		lineageTag: b3872237-4bde-450e-8e31-19763bc64d5a
+		summarizeBy: none
+		sourceColumn: ＪＯＢNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 更新年月日
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f9cd4e58-50ab-4890-912c-e6a781fadaac
+		summarizeBy: none
+		sourceColumn: 更新年月日
+
+		variation Variation
+			isDefault
+			relationship: d17da1a7-bad8-4d9f-9045-8bd7c8e2f3a4
+			defaultHierarchy: LocalDateTable_d4e7c089-48aa-4beb-9e5c-a56f70f4b0d4.日付の階層
+
+		annotation SummarizationSetBy = Automatic
+
+	column 工事開始日付
+		dataType: string
+		lineageTag: e00e59bf-50eb-47e7-a08f-08b85cc2ea06
+		summarizeBy: none
+		sourceColumn: 工事開始日付
+
+		annotation SummarizationSetBy = Automatic
+
+	column 工事終了日付
+		dataType: string
+		lineageTag: cbd3b8c6-b059-4e3e-819f-a3f2f96edd4d
+		summarizeBy: none
+		sourceColumn: 工事終了日付
+
+		annotation SummarizationSetBy = Automatic
+
+	column 期中取得区分
+		dataType: string
+		lineageTag: 258af244-28ae-4b95-89b0-2716cd8952e9
+		summarizeBy: none
+		sourceColumn: 期中取得区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 期中取得区分名称
+		dataType: string
+		lineageTag: 09cde1aa-a593-417b-b1b1-10405f5ded82
+		summarizeBy: none
+		sourceColumn: 期中取得区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者会社コード
+		dataType: string
+		lineageTag: 792678f4-9e07-4a44-8903-02f2c3917839
+		summarizeBy: none
+		sourceColumn: 申請者会社コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者会社名称
+		dataType: string
+		lineageTag: 6b977931-13bd-465b-bf4a-864eb3038c0a
+		summarizeBy: none
+		sourceColumn: 申請者会社名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者場所コード
+		dataType: string
+		lineageTag: e9093aee-c649-4bae-8e29-aa7af33bd186
+		summarizeBy: none
+		sourceColumn: 申請者場所コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者場所名称
+		dataType: string
+		lineageTag: dcd9adaf-3762-4c5a-9bbb-256ec58c8ad9
+		summarizeBy: none
+		sourceColumn: 申請者場所名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者部コード
+		dataType: string
+		lineageTag: 1d8d8c65-9faa-4834-a882-93a3e42564c0
+		summarizeBy: none
+		sourceColumn: 申請者部コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者部名称
+		dataType: string
+		lineageTag: 80df7c5c-c257-4788-9da9-c7ca383909d5
+		summarizeBy: none
+		sourceColumn: 申請者部名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者課職務ＧＲコード
+		dataType: string
+		lineageTag: afe4ba83-0cd6-44c9-8784-347e106d7ffe
+		summarizeBy: none
+		sourceColumn: 申請者課職務ＧＲコード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者課職務ＧＲ名称
+		dataType: string
+		lineageTag: 549bdd7f-1fa8-49db-87a4-a32667f39ce1
+		summarizeBy: none
+		sourceColumn: 申請者課職務ＧＲ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者ＯＡ番号
+		dataType: string
+		lineageTag: 989c50c8-6b3b-40da-a89c-a9d1aa867622
+		summarizeBy: none
+		sourceColumn: 申請者ＯＡ番号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請者漢字名称
+		dataType: string
+		lineageTag: e0e7ab9f-e1d5-4936-8bb6-b056bad82236
+		summarizeBy: none
+		sourceColumn: 申請者漢字名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 件名
+		dataType: string
+		lineageTag: de3016c2-374a-4dd1-a386-9a626dd2d746
+		summarizeBy: none
+		sourceColumn: 件名
+
+		annotation SummarizationSetBy = Automatic
+
+	column 業務分類
+		dataType: string
+		lineageTag: f167931d-5000-4003-9a32-b9159e8b2290
+		summarizeBy: none
+		sourceColumn: 業務分類
+
+		annotation SummarizationSetBy = Automatic
+
+	column 業務分類名
+		dataType: string
+		lineageTag: a2fa9bf8-a6c3-4065-a24a-b6006bc66fa0
+		summarizeBy: none
+		sourceColumn: 業務分類名
+
+		annotation SummarizationSetBy = Automatic
+
+	column 種別
+		dataType: string
+		lineageTag: 8b82f56d-8ad1-4bdc-9a72-3367039bfaa3
+		summarizeBy: none
+		sourceColumn: 種別
+
+		annotation SummarizationSetBy = Automatic
+
+	column 種別名称
+		dataType: string
+		lineageTag: e5be1928-93ea-44fb-a7df-815aa8e2170e
+		summarizeBy: none
+		sourceColumn: 種別名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 見積依頼Ｎｏ
+		dataType: string
+		lineageTag: 88fdcf75-23c8-40ce-b353-2f3dd98e390f
+		summarizeBy: none
+		sourceColumn: 見積依頼Ｎｏ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 見積書Ｎｏ
+		dataType: string
+		lineageTag: 3dd819e3-ab4c-4162-871d-002a6767be32
+		summarizeBy: none
+		sourceColumn: 見積書Ｎｏ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 仕様書Ｎｏ
+		dataType: string
+		lineageTag: f42efc56-2ccd-430a-80a6-47caacf690ec
+		summarizeBy: none
+		sourceColumn: 仕様書Ｎｏ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 社外用特記事項
+		dataType: string
+		lineageTag: 91bb4859-acb5-4675-9037-262471c7293a
+		summarizeBy: none
+		sourceColumn: 社外用特記事項
+
+		annotation SummarizationSetBy = Automatic
+
+	column 社内用特記事項
+		dataType: string
+		lineageTag: 68a7319a-6e40-46f3-86cf-7f5b304e8866
+		summarizeBy: none
+		sourceColumn: 社内用特記事項
+
+		annotation SummarizationSetBy = Automatic
+
+	column 受渡場所
+		dataType: string
+		lineageTag: 0127030d-6158-4f67-bdf0-c92c414203f4
+		summarizeBy: none
+		sourceColumn: 受渡場所
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ名称
+		dataType: string
+		lineageTag: 2131bb09-1312-440e-861b-ae428d3b2e70
+		summarizeBy: none
+		sourceColumn: 原価センタ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 利益センタ名称
+		dataType: string
+		lineageTag: 444b0e93-6cb6-4eae-b0ce-e32516b33324
+		summarizeBy: none
+		sourceColumn: 利益センタ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 配賦予算金額合計
+		dataType: string
+		lineageTag: 370e334c-85c7-4d3d-947b-08838f9d6bc9
+		summarizeBy: none
+		sourceColumn: 配賦予算金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 計画予算金額合計
+		dataType: string
+		lineageTag: d1bb83f5-8f0d-405f-88a8-fba73a6c5827
+		summarizeBy: none
+		sourceColumn: 計画予算金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発券累計金額合計
+		dataType: string
+		lineageTag: faf8a903-2554-402f-83dc-ddc9eef78414
+		summarizeBy: none
+		sourceColumn: 発券累計金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注累計金額合計
+		dataType: string
+		lineageTag: ab536014-61bb-4623-b1b7-781146f841e6
+		summarizeBy: none
+		sourceColumn: 発注累計金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 検収累計金額合計
+		dataType: string
+		lineageTag: 99d9b340-cf0b-4a6c-ad3b-2db3065b2f73
+		summarizeBy: none
+		sourceColumn: 検収累計金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発券未発注累計金額合計
+		dataType: string
+		lineageTag: 4b1aa013-b650-42a0-901d-cdacca03e98d
+		summarizeBy: none
+		sourceColumn: 発券未発注累計金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注未検収累計金額合計
+		dataType: string
+		lineageTag: 93b9e972-136d-4373-91c1-14eeb2196a4c
+		summarizeBy: none
+		sourceColumn: 発注未検収累計金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 実績金額合計
+		dataType: string
+		lineageTag: c09dbf1a-1674-499e-8ad4-899add556a1c
+		summarizeBy: none
+		sourceColumn: 実績金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算残金額合計
+		dataType: string
+		lineageTag: 02961ee3-c718-4df6-9c48-8705395b6df3
+		summarizeBy: none
+		sourceColumn: 予算残金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼金額合計
+		dataType: string
+		lineageTag: e966de29-906b-4f83-911e-813cd3f6ef98
+		summarizeBy: none
+		sourceColumn: 購買依頼金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買発注金額合計
+		dataType: string
+		lineageTag: c4cd2f63-220a-414b-b245-8eceeb3cf375
+		summarizeBy: none
+		sourceColumn: 購買発注金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫金額合計
+		dataType: string
+		lineageTag: 07c828e8-3f72-4aa6-bb3c-9baff60711d3
+		summarizeBy: none
+		sourceColumn: 入庫金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発券未発注金額合計
+		dataType: string
+		lineageTag: fb4f5bba-fd82-4492-9f4e-c129b7d1d07a
+		summarizeBy: none
+		sourceColumn: 発券未発注金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発注未検収金額合計
+		dataType: string
+		lineageTag: d715cafd-6e1f-425a-a689-a35075781fe8
+		summarizeBy: none
+		sourceColumn: 発注未検収金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 実績明細金額合計
+		dataType: string
+		lineageTag: d13fa1c5-f857-4afc-bf13-50d849db26c3
+		summarizeBy: none
+		sourceColumn: 実績明細金額合計
+
+		annotation SummarizationSetBy = Automatic
+
+	column 入庫年月
+		dataType: string
+		lineageTag: b5fbf96d-a502-4cce-b2e0-f6d1494df06f
+		summarizeBy: none
+		sourceColumn: 入庫年月
+
+		annotation SummarizationSetBy = Automatic
+
+	column 区分
+		dataType: string
+		lineageTag: 20295878-70f5-4c46-9807-022ff39f096f
+		summarizeBy: none
+		sourceColumn: 区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼日2 = ```
+			
+			VAR _fy = '購買明細'[予算年度]  -- A列の年度を取得
+			VAR _start = DATE(_fy, 4, 1)  -- 例: 2019/4/1
+			VAR _end = DATE(_fy + 1, 3, 31) -- 例: 2020/3/31
+			VAR _date = '購買明細'[購買依頼日]    -- B列の元の日付を取得
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        -- 1. 年度開始日より前の場合、年度開始日に補正
+			        _date < _start, _start,
+			        
+			        -- 2. 年度終了日より後の場合、年度終了日に補正
+			        _date > _end, _end,
+			        
+			        -- 3. 範囲内の場合、元のまま
+			        _date
+			    )
+			```
+		formatString: General Date
+		lineageTag: 5781e43c-ce73-427b-a435-2e4d03c95a10
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 購買明細 = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e" = Workspaces{[workspaceId="4fb6549a-1744-4efc-b1c8-3ed67e16c00e"]}[Data],
+				    #"8c7302d1-372e-44f6-8bcc-ce8e510317d7" = #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e"{[dataflowId="8c7302d1-372e-44f6-8bcc-ce8e510317d7"]}[Data],
+				    購買明細_ = #"8c7302d1-372e-44f6-8bcc-ce8e510317d7"{[entity="購買明細",version=""]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(購買明細_,{{"予算年度", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,123 @@
+table リスク評価結果
+	lineageTag: e02b2c93-8a15-4e3f-b79f-fc18bc3b8500
+
+	measure QCD申請 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="QCD"
+			)
+		formatString: #,0
+		lineageTag: 9c7c6b52-80ef-48ef-bc39-6aed5de65024
+
+	measure SE申請 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="SE"
+			)
+		formatString: #,0
+		lineageTag: 0d6da622-9917-4461-a369-3d369be39f50
+
+	measure 申請額 = ```
+			
+			VAR
+			_2026budget = 
+			SUM('riskEva2026'[申請予算])/1000
+			RETURN
+			IF(_2026budget=BLANK(),0,_2026budget)
+			```
+		formatString: #,0
+		lineageTag: a85a4a57-ceb1-4845-8137-0ed8a0584c36
+
+	measure カット額 = ```
+			
+			VAR 
+			_tsumiage = SUM('riskEva2026'[積上予算])/1000
+			return
+			IF(
+			    _tsumiage - [申請額] = BLANK(),
+			    0,
+			    _tsumiage - [申請額]
+			)
+			```
+		formatString: #,0
+		lineageTag: f35de2d0-8909-4f24-b586-ab38b7708edc
+
+	measure QCDカット =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="QCD"
+			)
+		formatString: 0
+		lineageTag: 663f402d-7c15-4baa-ad33-86888b70d2e3
+
+	measure SEカット =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="SE"
+			)
+		formatString: #,0
+		lineageTag: 3be6d95d-b9eb-4151-9497-941eb53d79a3
+
+	measure QCD申請_件数 =
+			
+			CALCULATE(
+			    [件数_リスク評価],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="QCD",
+			    'riskEva2026'[申請/カット]="申請"
+			)+0
+		formatString: 0
+		lineageTag: 14e838c8-8438-4217-a915-e42984a192be
+
+	measure SE申請_件数 =
+			
+			CALCULATE(
+			    [件数_リスク評価],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="SE",
+			    'riskEva2026'[申請/カット]="申請"
+			)+0
+		lineageTag: ebb1ec8b-6e6e-48e9-9a1f-d5609c9c163f
+
+	measure QCDカット_件数 =
+			
+			CALCULATE(
+			    [件数_リスク評価],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="QCD",
+			    'riskEva2026'[申請/カット]="カット"
+			)+0
+		formatString: 0
+		lineageTag: b2a12712-a309-4a43-a6db-a8a6a78b726e
+
+	measure SEカット_件数 =
+			
+			CALCULATE(
+			    [件数_リスク評価],
+			    'riskEva2026'[判定ＳＥＱＣＤ]="SE",
+			    'riskEva2026'[申請/カット]="カット"
+			)+0
+		formatString: 0
+		lineageTag: b7d8db95-dd57-4c30-a90e-780bc32a1b23
+
+	measure 'x0.06' = [申請額]*0.06
+		formatString: #,0
+		lineageTag: ebc1ef6b-6816-48ea-bd5b-e35e43e968cb
+
+	measure 'x1.06' = [申請額]*1.06
+		formatString: #,0
+		lineageTag: b17bf402-3b7b-4d66-bafc-bacbb281bca4
+
+	partition リスク評価結果-bda67d51-cae1-47e0-af67-e88a0ea51d94 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,327 @@
+table 推移
+	lineageTag: 8eabe329-0b9b-43d2-a041-22e2734ebf7d
+
+	measure trend_all =
+			
+			VAR
+			_jisseki18to24 =
+			CALCULATE(
+			    SUM('購買明細'[実績明細金額])/1000000,
+			    FILTER('Calendar',VALUE('Calendar'[FY])<2025),
+			    'Dim_区分'[区分]="修繕費",
+			    not '購買明細'[13分類rev] = "SZ"
+			)
+			// ※20251111_リスク評価ベースからMoneMに変更
+			// VAR
+			// _2025yosan =
+			// CALCULATE(
+			//     SUM('Query_2025'[申請予算])/1000,
+			//     TREATAS(VALUES('Calendar'[FY]),'Query_2025'[年度])
+			// )
+			VAR
+			_2026yosan =
+			CALCULATE(
+			    [申請額],
+			    TREATAS(VALUES('Calendar'[FY]),'riskEva2026'[年度])
+			)
+			VAR
+			_other =
+			CALCULATE(
+			    SUM('期中取得/材修'[実績金額])/1000000,
+			    TREATAS(VALUES('Calendar'[FY]),'期中取得/材修'[予算年度]),
+			    TREATAS(VALUES('修繕費対応分類表'[周期性]),'期中取得/材修'[勘定名称2])
+			)
+			VAR
+			_2025plan =
+			CALCULATE(
+			    SUM('起業費・修繕費'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[Date]),'起業費・修繕費'[購買依頼日2]),
+			    '起業費・修繕費'[予算年度]="2025"
+			)
+			
+			RETURN
+			_jisseki18to24+_2026yosan+_other+_2025plan+0
+		formatString: #,0
+		lineageTag: 09244bd1-393a-40e2-88ae-4c5b137afc4a
+
+	measure ratio_13 = ```
+			
+			VAR
+			_mom = 
+			CALCULATE(
+			    [trend_all],
+			    ALL('修繕費対応分類表')
+			)
+			RETURN
+			DIVIDE([trend_all],_mom)
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 4d55f139-a03a-42ee-909a-0eba2711302b
+
+	measure 計画_2024 =
+			
+			CALCULATE(
+			    SUM('予実管理'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'予実管理'[予算年度]),
+			    '予実管理'[予算年度]="2024"
+			)
+		lineageTag: 836426e0-a748-43b0-83b8-05f7fe79fcc6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 申請額_fr24to26 = ```
+			
+			VAR
+			_fy25 = 
+			CALCULATE(
+			    SUM('Query_2025'[申請予算])/1000,
+			    TREATAS(VALUES('Calendar'[FY]),'Query_2025'[年度]),
+			    TREATAS(VALUES('Order_SE/QCD/法/枠/他'[name]),'Query_2025'[SE/QCD/法定/枠/その他])
+			)+0
+			VAR
+			_fy24 = 
+			CALCULATE(
+			    [_申請額_2024],
+			    TREATAS(VALUES('Calendar'[FY]),'Query_2024'[年度]),
+			    TREATAS(VALUES('Order_SE/QCD/法/枠/他'[name]),'Query_2024'[SE/QCD/法定/枠/その他])
+			)+0
+			VAR
+			_fy26 = 
+			CALCULATE(
+			    [申請額],
+			    TREATAS(VALUES('Calendar'[FY]),'riskEva2026'[年度]),
+			    TREATAS(VALUES('Order_SE/QCD/法/枠/他'[name]),'riskEva2026'[SE/QCD/法定/枠/その他])
+			)+0
+			RETURN
+			_fy24+_fy25+_fy26
+			```
+		formatString: #,0
+		lineageTag: d49a04b1-276e-4765-9432-6ea52ed7768f
+
+	measure 件数_リスク評価 = COUNTROWS('riskEva2026')
+		formatString: 0
+		lineageTag: af32a3af-d9d3-4ff7-86cc-cb7a6daf1be8
+
+	measure 予算 =
+			
+			VAR
+			_fr21to24 =
+			CALCULATE(
+			    SUM('予実管理'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[FY]),'予実管理'[予算年度]),
+			    'Dim_区分'[区分]="修繕費",
+			    TREATAS(VALUES('修繕費対応分類表'[13分類]),'予実管理'[予算区分２])
+			)
+			VAR
+			_others =
+			CALCULATE(
+			    SUM('期中取得/材修'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[FY]),'期中取得/材修'[予算年度])
+			)
+			RETURN
+			_fr21to24+_others
+		lineageTag: 4e80be67-8f83-4b58-8efd-8bf55bd27bc6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 実績 =
+			
+			CALCULATE(
+			    SUM('購買明細'[実績明細金額])/1000000,
+			    '区分_Table'[区分]="修繕費"
+			)
+		formatString: #,0
+		lineageTag: 23f917e6-2a32-4229-b353-888302475bec
+
+	measure diff_予実 = [予算]-[実績]
+		formatString: #,0
+		lineageTag: 94716192-353b-4a7d-b16d-3ae927e67699
+
+	measure 実績_事後保全 =
+			
+			VAR
+			_jisseki18to24 =
+			CALCULATE(
+			    SUM('購買明細'[実績明細金額])/1000000,
+			    FILTER('Calendar',VALUE('Calendar'[FY])<2025),
+			    'Dim_区分'[区分]="修繕費",
+			    TREATAS(VALUES('PMorBM_Table'[PM/BM]),'購買明細'[PM/BM])
+			)
+			VAR
+			_2025yosan =
+			CALCULATE(
+			    SUM('Query_2025'[申請予算])/1000,
+			    TREATAS(VALUES('Calendar'[FY]),'Query_2025'[年度]),
+			    TREATAS(VALUES('PMorBM_Table'[PM/BM]),'Query_2025'[PM/BM])
+			)
+			VAR
+			_2026yosan =
+			CALCULATE(
+			    [申請額],
+			    TREATAS(VALUES('Calendar'[FY]),'riskEva2026'[年度]),
+			    TREATAS(VALUES('PMorBM_Table'[PM/BM]),'riskEva2026'[PM/BM])
+			)
+			RETURN
+			_jisseki18to24+_2025yosan+_2026yosan+0
+		formatString: #,0
+		lineageTag: 2ac82890-c91b-4603-8e64-1c24230e2c15
+
+	measure 申請額_2024 =
+			
+			CALCULATE(
+			    [申請額_fr24to26],
+			    'Calendar'[FY]="2024",
+			    TREATAS(VALUES('修繕費対応分類表'[13分類rev]),'Query_2024'[13分類rev])
+			)
+		formatString: #,0
+		lineageTag: 214b43a4-f761-439d-9c84-2e0619da79d4
+
+	measure 申請額_2024_枠管理 =
+			
+			CALCULATE(
+			    [申請額_2024],
+			    'リスク評価表2025'[SE/QCD/法定/枠/その他]="枠取り"||
+			    'リスク評価表2025'[SE/QCD/法定/枠/その他]="その他"
+			)
+		formatString: #,0
+		lineageTag: a9c0409b-7e12-4383-bc0f-8d1cc14f5935
+
+	measure 枠割合_2024 = DIVIDE([申請額_2024_枠管理],[申請額_2024])
+		formatString: 0%;-0%;0%
+		lineageTag: 987441f3-6336-4c6a-9fea-1c0e89e8f05a
+
+	measure _申請額_2024 = SUM('Query_2024'[申請予算])/1000
+		formatString: #,0
+		lineageTag: bf1c0557-0acf-453a-9c3f-423776d36406
+
+	measure 申請額_2024_枠管理2 =
+			
+			CALCULATE(
+			    [_申請額_2024],
+			    'Query_2024'[SE/QCD/法定/枠/その他]="枠取り"
+			    // 'リスク評価表2024'[SE/QCD/法定/枠/その他]="その他"
+			)
+		formatString: #,0
+		lineageTag: d2f50c9f-c639-4d29-8db8-0d63ab53fefe
+
+	measure 枠割合_2024_2nd = DIVIDE([申請額_2024_枠管理2],[_申請額_2024])
+		formatString: 0%;-0%;0%
+		lineageTag: fb2b4b53-202e-430a-9012-16a44c510fab
+
+	measure 計画 = ```
+			
+			var
+			_keikaku = 
+			CALCULATE(
+			    SUM('予実管理'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'予実管理'[予算年度])
+			)
+			VAR
+			_2025yosan =
+			CALCULATE(
+			    SUM('リスク評価表2025'[申請予算])/1000,
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'リスク評価表2025'[年度])
+			)
+			RETURN
+			_keikaku+_2025yosan
+			```
+		lineageTag: 5680296b-fac4-4c12-8bf0-4bcbf0ddacec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _申請額_2025 = SUM('Query_2025'[申請予算])/1000
+		formatString: #,0
+		lineageTag: 45150bfd-30ee-434d-a6f7-941a109d972e
+
+	measure trend_waku = ```
+			
+			CALCULATE(
+			    [trend_all],
+			    // 'Query_2025'[SE/QCD/法定/枠/その他]="枠取り",
+			    LEFT('起業費・修繕費'[予算管理No2],1)="1" || LEFT('起業費・修繕費'[予算管理No2],1)="9",    
+			    'riskEva2026'[SE/QCD/法定/枠/その他]="枠取り",
+			    LEFT('購買明細'[予算管理No2],1)="1" || LEFT('購買明細'[予算管理No2],1)="9"
+			)
+			```
+		formatString: #,0
+		lineageTag: 68f19fa1-0879-4b95-b946-1d4723476a49
+
+	measure trend_ratio = DIVIDE([trend_waku],[trend_all])
+		formatString: 0%;-0%;0%
+		lineageTag: d5e17d0a-bbc8-413a-8473-65cb03e4e6ff
+
+	measure _24vs26 =
+			
+			VAR
+			_24 =
+			CALCULATE(
+			    [trend_waku],
+			    'Calendar'[FY]="2024"
+			)
+			VAR
+			_26 =
+			CALCULATE(
+			    [trend_waku],
+			    'Calendar'[FY]="2026"
+			)
+			RETURN
+			_24-_26
+		formatString: #,0
+		lineageTag: 18e79b41-e84d-4556-afcc-67c548e5fcbd
+
+	measure trend_all_Plan =
+			
+			VAR
+			_plan18to24 =
+			CALCULATE(
+			    SUM('予実管理'[計画予算金額])/1000000,
+			    FILTER('Calendar',VALUE('Calendar'[FY])<2025),
+			    'Dim_区分'[区分]="修繕費",
+			    not '予実管理'[13分類rev] = "SZ"
+			)
+			// ※20251111_リスク評価ベースからMoneMに変更
+			// VAR
+			// _2025yosan =
+			// CALCULATE(
+			//     SUM('Query_2025'[申請予算])/1000,
+			//     TREATAS(VALUES('Calendar'[FY]),'Query_2025'[年度])
+			// )
+			VAR
+			_2026yosan =
+			CALCULATE(
+			    [申請額],
+			    TREATAS(VALUES('Calendar'[FY]),'riskEva2026'[年度])
+			)
+			VAR
+			_other =
+			CALCULATE(
+			    SUM('期中取得/材修'[実績金額])/1000000,
+			    TREATAS(VALUES('Calendar'[FY]),'期中取得/材修'[予算年度]),
+			    TREATAS(VALUES('修繕費対応分類表'[周期性]),'期中取得/材修'[勘定名称2])
+			)
+			VAR
+			_2025plan =
+			CALCULATE(
+			    SUM('起業費・修繕費'[計画予算金額])/1000000,
+			    TREATAS(VALUES('Calendar'[Date]),'起業費・修繕費'[購買依頼日2]),
+			    '起業費・修繕費'[予算年度]="2025"
+			)
+			
+			RETURN
+			_plan18to24+_2026yosan+_other+_2025plan+0
+		lineageTag: f783a64a-3e8e-48f1-a603-8cc42ee53c81
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 推移-91975dea-9069-46fe-9f14-e3bb949bc5dc = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

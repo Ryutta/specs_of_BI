@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "riskEva"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d1295749-7ca1-4cad-95cc-39967e601f07"
+  }
+}

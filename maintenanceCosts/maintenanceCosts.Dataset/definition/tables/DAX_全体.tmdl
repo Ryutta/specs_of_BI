@@ -1,0 +1,266 @@
+table DAX_全体
+	lineageTag: 0122e3d3-d35d-49c3-aae0-43df1b5ac88d
+
+	measure 最終更新日 =
+			
+			CALCULATE(
+			    MAX('起業費・修繕費'[更新年月日]),
+			    ALL('起業費・修繕費')
+			)
+		formatString: General Date
+		lineageTag: dda89389-6c7a-4879-8365-20ad997ccb9a
+
+	measure 計画予算月割 = ```
+			
+			CALCULATE(
+			    [計画予算]/12,
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'予実管理'[予算年度]),
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'起業費・修繕費'[予算年度])    
+			)
+			```
+		formatString: #,0
+		lineageTag: 5343c836-63e9-47d9-9199-a088d83d0a0f
+
+	measure 予算累積 =
+			
+			VAR
+			yosan = [計画予算月割]*MAX('Calendar'[4月始まり])+0
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('予算選択'[予算選択])="月割予算",yosan,
+			    blank()
+			)
+		formatString: #,0
+		lineageTag: e2354274-3d88-40b3-b2d8-e61f5656080e
+
+	measure 実績累積 =
+			
+			IF(MAX('Calendar'[Date])>TODAY(),BLANK(),
+			TOTALYTD([実績],'Calendar'[Date],"3/31")
+			)
+		formatString: #,0
+		lineageTag: 3a3611d2-3ed9-4d48-b97c-f0eed0bfc208
+
+	measure 実績 = ```
+			
+			VAR
+			// 2024年以前
+			_x1 = SUM('購買明細'[実績明細金額])
+			VAR
+			// 2025年以降,moneM利用開始
+			_x2 = 
+			CALCULATE(
+			    SUM('起業費・修繕費'[入出庫金額])+SUM('起業費・修繕費'[発券未発注金額])+SUM('起業費・修繕費'[発注未検収金額]),
+			    TREATAS(VALUES('Calendar'[Date]),'起業費・修繕費'[購買依頼日2]),
+			    '起業費・修繕費'[事業領域コード]="LR",
+			    '起業費・修繕費'[スケール]="",
+			    CONTAINSSTRING('起業費・修繕費'[勘定名称],"固定")
+			)
+			VAR
+			_x = _x1 + _x2
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('単位'[単位])="億円",_x/100000000,
+			    SELECTEDVALUE('単位'[単位])="百万円",_x/1000000,
+			    SELECTEDVALUE('単位'[単位])="千円",_x/1000,
+			    SELECTEDVALUE('単位'[単位])="円",_x,    
+			    _x
+			)
+			```
+		formatString: #,0
+		lineageTag: 3e483d94-dc52-4c21-8400-a873ed6beb9f
+
+	measure 計画予算 = ```
+			
+			VAR
+			_x1 = SUM('予実管理'[計画予算金額])
+			VAR
+			_x2 = 
+			CALCULATE(
+			    SUM('起業費・修繕費'[計画予算金額]),
+			    '起業費・修繕費'[事業領域コード]="LR"
+			)
+			VAR
+			_x = _x1 + _x2
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('単位'[単位])="億円",_x/100000000,
+			    SELECTEDVALUE('単位'[単位])="百万円",_x/1000000,
+			    SELECTEDVALUE('単位'[単位])="千円",_x/1000,
+			    SELECTEDVALUE('単位'[単位])="円",_x,    
+			    _x
+			)
+			```
+		formatString: #,0
+		lineageTag: 027e6d86-3717-4862-abba-07fd7c97fb33
+
+	measure 最終更新日2 = MAX('購買明細'[更新年月日])
+		formatString: General Date
+		lineageTag: 36351295-faf8-4089-a4ab-6e4fbaf673ec
+
+	measure Current_User = USERNAME()
+		lineageTag: 3fc2645f-3f1b-4272-aaa7-f543e2a02aba
+
+	measure Current_User2 = USERPRINCIPALNAME()
+		lineageTag: e5e35454-224c-4790-8a07-91ca183dd04e
+
+	measure 調整予算 = ```
+			
+			var 
+			yosan = SUM('2024予算入力'[値])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('単位'[単位])="億円",yosan/1000000,
+			    SELECTEDVALUE('単位'[単位])="百万円",yosan/1000,
+			    SELECTEDVALUE('単位'[単位])="千円",yosan,
+			    SELECTEDVALUE('単位'[単位])="円",yosan*1000,    
+			    yosan/1000000
+			)
+			```
+		formatString: 0
+		lineageTag: 0a46ce39-9eb0-4a31-8bc6-fffc39f6aa8f
+
+	measure 調整予算_累積 = ```
+			
+			var
+			yosan = 
+			CALCULATE(
+			    [調整予算],
+			    TREATAS(VALUES('Calendar'[YYYYMM]),'2024予算入力'[YYYYMM]),
+			    TREATAS(VALUES('プラント略号辞書'[原価センタ]),'2024予算入力'[原価センタ]),
+			    TREATAS(VALUES('Dim_専門区分'[専門区分]),'2024予算入力'[専門区分])
+			)
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('予算選択'[予算選択])="調整予算",yosan,
+			    ""
+			)
+			```
+		lineageTag: 706824b1-4bb6-4264-8da1-34f77ab18cb7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 調整予算2 = ```
+			
+			var 
+			yosan = SUM('2024予算入力2'[Value])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('単位'[単位])="億円",yosan/1000000,
+			    SELECTEDVALUE('単位'[単位])="百万円",yosan/1000,
+			    SELECTEDVALUE('単位'[単位])="千円",yosan,
+			    SELECTEDVALUE('単位'[単位])="円",yosan*1000,    
+			    yosan/1000000
+			)
+			```
+		lineageTag: bf84c3df-9023-444b-89ca-8beca465826f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 調整予算_累積2 = ```
+			
+			var
+			yosan = 
+			CALCULATE(
+			    [調整予算2],
+			    TREATAS(VALUES('Calendar'[YYYYMM]),'2024予算入力2'[YYYYMM]),
+			    TREATAS(VALUES('プラント略号辞書'[原価センタ]),'2024予算入力2'[原価センタ1]),
+			    TREATAS(VALUES('Dim_専門区分'[専門区分]),'2024予算入力2'[専門区分]),
+			    TREATAS(VALUES('予算区分2'[予算区分2]),'2024予算入力2'[予算区分21])
+			)
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('予算選択'[予算選択])="調整予算",yosan,
+			    BLANK()
+			)
+			```
+		formatString: #,0
+		lineageTag: 1ac42469-c59b-41e2-827a-40851dea7369
+
+	measure 着地予想 = ```
+			
+			VAR known = 
+			FILTER(
+			    SELECTCOLUMNS(
+			        ALLSELECTED('Calendar'), 
+			        "Known[X]", 'Calendar'[4月始まり], 
+			        "Known[Y]", [実績累積]
+			    ), 
+			    AND (
+			        NOT ( ISBLANK ( Known[X]) ), 
+			        NOT ( ISBLANK ( Known[Y]) )
+			    )
+			)
+			VAR _line = LINESTX(known,Known[Y],Known[X])
+			VAR _slope = SELECTCOLUMNS(_line,[Slope1])
+			VAR _intercept = SELECTCOLUMNS(_line, [Intercept])
+			VAR _x = SELECTEDVALUE('Calendar'[4月始まり])
+			RETURN
+			_slope*_x + _intercept
+			```
+		formatString: #,0
+		lineageTag: 2786eabb-c849-4b1b-8634-5c6083f72978
+
+	measure 着地予想2 = ```
+			
+			VAR known = 
+			FILTER(
+			    SELECTCOLUMNS(
+			        ALLSELECTED('Calendar'), 
+			        "Known[X]", 'Calendar'[4月始まり], 
+			        "Known[Y]", [実績累積]
+			    ), 
+			    AND (
+			        NOT ( ISBLANK ( Known[X]) ), 
+			        NOT ( ISBLANK ( Known[Y]) )
+			    )
+			)
+			VAR _line = LINESTX(known,Known[Y],Known[X])
+			VAR _slope = SELECTCOLUMNS(_line,[Slope1])
+			VAR _intercept = SELECTCOLUMNS(_line, [Intercept])
+			VAR _x = SELECTEDVALUE('Calendar'[4月始まり])
+			RETURN
+			_slope*12 + _intercept
+			```
+		lineageTag: 615c8e57-93b2-4abd-b9e6-ac231a8e7bfc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 実績2025 = SUM('起業費・修繕費'[入出庫金額])+SUM('起業費・修繕費'[発券未発注金額])+SUM('起業費・修繕費'[発注未検収金額])
+		formatString: #,0
+		lineageTag: 4f997997-4b09-41f1-9386-9608ddad0971
+
+	measure 2025budget =
+			
+			CALCULATE(
+			    SUM('起業費・修繕費'[計画予算金額]),
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'起業費・修繕費'[予算年度])
+			    // '起業費・修繕費'[予算年度]="2025"
+			)
+		lineageTag: dc6748d3-dd68-4f17-ab14-f0a22a1048f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure test = MAX('Calendar'[4月始まり])*10
+		formatString: 0
+		lineageTag: ebb10761-d99e-46a3-b560-ace62497bdf3
+
+	partition DAX_全体-974be652-977c-4229-a7db-f3c8885c9b2b = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

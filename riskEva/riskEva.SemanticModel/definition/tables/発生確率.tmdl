@@ -1,0 +1,22 @@
+table 発生確率
+	lineageTag: 24998898-2124-4838-af85-2b5e8f23b57e
+
+	column 発生確率
+		dataType: string
+		lineageTag: 1b01c202-84f1-43aa-ad87-38387dc01fdd
+		summarizeBy: none
+		sourceColumn: 発生確率
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 発生確率 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WclSK1YlWcgKTzmDSRSk2FgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [発生確率 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"発生確率", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

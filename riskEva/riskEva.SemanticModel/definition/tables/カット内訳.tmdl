@@ -1,0 +1,57 @@
+table カット内訳
+	lineageTag: c233a871-d372-4bf9-b839-aee6e0aaf76d
+
+	measure カット_枠管理 =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[枠取り/その他]="枠取り"
+			)
+		formatString: 0
+		lineageTag: 0d3d01a6-5d1c-422d-b60a-6bc9016c7f85
+
+	measure カット_その他 =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[SE/QCD/法定/枠/その他]="その他"
+			)
+		formatString: 0
+		lineageTag: b4ef54d2-cdd0-4028-bf47-23fb3ac633aa
+
+	measure リスク評価対象 = [SEカット] + [QCDカット]
+		formatString: #,0
+		lineageTag: 4fd34c23-f591-4801-9b0f-e3cacc38ff45
+
+	measure カット_対象外 =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[対象/対象外/法定]="対象外"
+			)
+		formatString: 0
+		lineageTag: fe29ee1a-4966-4d73-9be6-2e4889517eb0
+
+	measure カット_法定 =
+			
+			CALCULATE(
+			    [カット額],
+			    'riskEva2026'[SE/QCD/法定/枠/その他]="法定"
+			)
+		formatString: 0
+		lineageTag: 56c49f5b-8654-4181-ad77-90a25480e6e9
+
+	partition カット内訳-496f2ed0-f50e-4080-a544-f90cdbf37884 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

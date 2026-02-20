@@ -1,0 +1,472 @@
+table riskEva2026
+	lineageTag: 7be934bb-1444-4531-b97e-435839bc294d
+
+	column 管理区分
+		dataType: string
+		lineageTag: 7c13fa3d-126a-4f97-97e4-868689719ada
+		summarizeBy: none
+		sourceColumn: 管理区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column '予算区分2.1'
+		dataType: string
+		lineageTag: 08ec66c2-e0f3-492a-a8a0-737d84061f29
+		summarizeBy: none
+		sourceColumn: 予算区分2.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 判定ＳＥＱＣＤ
+		dataType: string
+		lineageTag: cbd9a0b6-a3be-462c-b0f0-10c33c8a1dcf
+		summarizeBy: none
+		sourceColumn: 判定ＳＥＱＣＤ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 積上予算
+		dataType: int64
+		formatString: 0
+		lineageTag: a8ab0934-4abf-45a8-8d38-bada1883ecba
+		summarizeBy: sum
+		sourceColumn: 積上予算
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請予算
+		dataType: int64
+		formatString: 0
+		lineageTag: ec4ab740-cb66-4fb8-aa3f-4d1e70d68513
+		summarizeBy: sum
+		sourceColumn: 申請予算
+
+		annotation SummarizationSetBy = Automatic
+
+	column SE/QCD =
+			
+			SWITCH(
+			    TRUE(),
+			    'riskEva2026'[判定ＳＥＱＣＤ]="SE","SE",
+			    'riskEva2026'[判定ＳＥＱＣＤ]="QCD","QCD"
+			)
+		lineageTag: 19423b06-9323-407a-9ee8-cb4476b15a65
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SE/QCD/法定/枠/その他 =
+			
+			SWITCH(
+			    TRUE(),
+			    [対象/対象外/法定]="対象",[SE/QCD],
+			    [対象/対象外/法定]="対象外",[枠取り/その他],
+			    [対象/対象外/法定]
+			)
+		lineageTag: 2683822a-93ce-4fc5-94ae-ea658cb8765f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '予算区分1.1'
+		dataType: string
+		lineageTag: f10cb2ff-b091-4e41-8c05-26ae4f24ac69
+		summarizeBy: none
+		sourceColumn: 予算区分1.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類rev =
+			
+			SWITCH(
+			    TRUE(),
+			    'riskEva2026'[予算区分2.1]="SD",'riskEva2026'[予算区分2.1]&'riskEva2026'[予算区分1.1],
+			    LEFT('riskEva2026'[予算区分2.1])="S",'riskEva2026'[予算区分2.1],
+			    ""
+			)
+		lineageTag: 9b16f297-ec63-4cbe-ba3b-7749e9e31263
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 対象/対象外/法定 =
+			
+			SWITCH(
+			    TRUE(),
+			    // step1 SAのとりわけ
+			    CONTAINSSTRING([13分類rev],"SA"),"法定",
+			    // step2 枠のとりわけ
+			    OR(
+			        AND(
+			            LEN([予算管理No])=3,
+			            LEFT([予算管理No],1)="1"
+			        ),
+			        AND(
+			            LEN([予算管理No])=3,
+			            LEFT([予算管理No],1)="9"
+			        )
+			    ),"対象外",
+			    // step3 リスク対象
+			    LEN([判定ＳＥＱＣＤ])>0,"対象",
+			    // step4 それ以外
+			    "対象外"
+			)
+		lineageTag: 9adb10e7-347a-4acc-8edc-93c981cff7a6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 枠取り/その他 =
+			
+			SWITCH(
+			    TRUE(),
+			    AND(
+			        CONTAINSSTRING([対象/対象外/法定],"外"),
+			        OR(
+			            AND(
+			                LEN([予算管理No])=3,
+			                LEFT([予算管理No],1)="1"
+			            ),
+			            AND(
+			                LEN([予算管理No])=3,
+			                LEFT([予算管理No],1)="9"
+			            )
+			        )
+			    ),"枠取り",
+			    CONTAINSSTRING([対象/対象外/法定],"外"),"その他",
+			    "リスク対象"
+			)
+		lineageTag: f06f0644-25dc-4130-9b3b-2afb884eddec
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請/カット =
+			
+			SWITCH(
+			    TRUE(),
+			    [カット額]>0,"カット",
+			    [申請額]>0,"申請"
+			)
+		lineageTag: 75f040f4-09d8-4223-bd94-9b7729ee6709
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発生確率
+		dataType: string
+		lineageTag: 73c0fc25-7bd7-4ca2-a9ca-6a0fa6af494d
+		summarizeBy: none
+		sourceColumn: 発生確率
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保安評価
+		dataType: string
+		lineageTag: c11b9e35-8d48-4c59-b78c-c6341a5d8f6a
+		summarizeBy: none
+		sourceColumn: 保安評価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 環境評価
+		dataType: string
+		lineageTag: 13e2af4d-bffc-494b-8da1-d2aa69cacd60
+		summarizeBy: none
+		sourceColumn: 環境評価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 生産評価
+		dataType: string
+		lineageTag: e004ed7c-432a-4ce5-90a3-86a5ad1699d5
+		summarizeBy: none
+		sourceColumn: 生産評価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 品質評価
+		dataType: string
+		lineageTag: 52f6355b-7cfc-4b2a-954e-412c23c0d633
+		summarizeBy: none
+		sourceColumn: 品質評価
+
+		annotation SummarizationSetBy = Automatic
+
+	column _影響度 =
+			
+			SWITCH(
+			    TRUE(),
+			    [判定ＳＥＱＣＤ]="QCD",IF([生産評価]<[品質評価],[生産評価],[品質評価]),
+			    [判定ＳＥＱＣＤ]="SE",IF([保安評価]<[環境評価],[保安評価],[環境評価]),
+			    [_min_inf]
+			)
+		lineageTag: 9e0765a6-a59c-4a5b-ad87-77067929569b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column _min_inf =
+			
+			VAR
+			_x1 = MIN([保安評価],[環境評価])
+			VAR
+			_x2 = min([生産評価],[品質評価])
+			RETURN
+			MIN(_x1,_x2)
+		lineageTag: 44cef464-c6fe-4d35-8373-d7c71e12dff8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年度
+		dataType: string
+		lineageTag: 16df19c1-726d-445b-b512-8a7c38f77b27
+		summarizeBy: none
+		sourceColumn: 年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器重要度
+		dataType: string
+		lineageTag: 56253f33-ce9a-4590-9ec2-ce40169a1e6f
+		summarizeBy: none
+		sourceColumn: 機器重要度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保全名称
+		dataType: string
+		lineageTag: 73eaf46b-9025-46da-b432-b51f5a676655
+		summarizeBy: none
+		sourceColumn: 保全名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 優先度
+		dataType: string
+		lineageTag: 8971e58c-e996-48cb-9472-7a757d80ebf8
+		summarizeBy: none
+		sourceColumn: 優先度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 分類
+		dataType: string
+		lineageTag: dac60add-5714-4c65-8e63-03590b510a83
+		summarizeBy: none
+		sourceColumn: 分類
+
+		annotation SummarizationSetBy = Automatic
+
+	column '周 期'
+		dataType: string
+		lineageTag: 92d29f33-cf3e-4044-ac85-510c1656eef3
+		summarizeBy: none
+		sourceColumn: 周 期
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: e8d3408f-a88f-4f3c-894e-81f0f163edbc
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column '勘定コード.1'
+		dataType: string
+		lineageTag: d59d1869-67a2-4b8a-badb-caa3e8cd8a45
+		summarizeBy: none
+		sourceColumn: 勘定コード.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機番情報
+		dataType: string
+		lineageTag: 0bdaf0ff-b03f-45c4-8b67-1125033bea0f
+		summarizeBy: none
+		sourceColumn: 機番情報
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機番
+		dataType: string
+		lineageTag: 6d5ffaa2-9b11-4e50-98c9-6f7fc5cb9ce3
+		summarizeBy: none
+		sourceColumn: 機番
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理No
+		dataType: string
+		lineageTag: c9022ab0-404e-42d4-9f32-4f32d1e3856c
+		summarizeBy: none
+		sourceColumn: 予算管理No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 設備名称(プラント)
+		dataType: string
+		lineageTag: 0fbcf0ac-51a8-4219-84fa-b520007f88ae
+		summarizeBy: none
+		sourceColumn: 設備名称(プラント)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器名称
+		dataType: string
+		lineageTag: 3c528438-e899-4e8b-b263-7f305d9972b8
+		summarizeBy: none
+		sourceColumn: 機器名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発生確率根拠
+		dataType: string
+		lineageTag: 85821da3-dfb6-4011-913d-750d05e59664
+		summarizeBy: none
+		sourceColumn: 発生確率根拠
+
+		annotation SummarizationSetBy = Automatic
+
+	column 想定シナリオ
+		dataType: string
+		lineageTag: 82c9d74f-2420-4059-a374-d573f4508445
+		summarizeBy: none
+		sourceColumn: 想定シナリオ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 周期根拠
+		dataType: string
+		lineageTag: a164ab5e-7764-4493-806c-e55321855349
+		summarizeBy: none
+		sourceColumn: 周期根拠
+
+		annotation SummarizationSetBy = Automatic
+
+	column 見送り理由（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）
+		dataType: string
+		lineageTag: 1d519fc6-5f8f-40c9-8fcc-3ab14e9b5947
+		summarizeBy: none
+		sourceColumn: 見送り理由（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）
+
+		annotation SummarizationSetBy = Automatic
+
+	column メモ欄（PLANTIAへ登録されません）
+		dataType: string
+		lineageTag: a103401a-666e-4efd-ad3d-2e82ceed1d3c
+		summarizeBy: none
+		sourceColumn: メモ欄（PLANTIAへ登録されません）
+
+		annotation SummarizationSetBy = Automatic
+
+	column 周期設定理由
+		dataType: string
+		lineageTag: 08fb9231-ca11-4dd0-ae7e-026160b5c8d6
+		summarizeBy: none
+		sourceColumn: 周期設定理由
+
+		annotation SummarizationSetBy = Automatic
+
+	column PM/BM =
+			
+			IF(
+			    [予算区分2.1] = "SF",
+			    IF(
+			        LEFT([予算管理No],1) = "1","PM","BM"
+			    ),
+			    "SFではない"
+			)
+		lineageTag: 886aa4b8-a491-460d-bcc6-c37aee9bcd0a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ名称
+		dataType: string
+		lineageTag: 162130a5-ac8b-4125-898b-43c76684baf6
+		summarizeBy: none
+		sourceColumn: 原価センタ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタNo_名称 = [原価センタ]&"_"&[原価センタ名称]
+		lineageTag: e73f7684-7211-4488-ab2d-ee0edc8fa32e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition riskEva2026 = m
+		mode: import
+		source =
+				let
+				  ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1", [ApiVersion = 15]),
+				    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+				    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+				    N.予算管理 = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+				    #"N0.投資・修繕費予算編成" = N.予算管理{[Name="N0.投資・修繕費予算編成"]}[Content],
+				    #"2026年度予算編成" = #"N0.投資・修繕費予算編成"{[Name="2026年度予算編成"]}[Content],
+				    #"2.部内用ファイル" = #"2026年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+				    #"05.リスク評価" = #"2.部内用ファイル"{[Name="05.リスク評価"]}[Content],
+				    #"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）" = #"05.リスク評価"{[Name="リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）"]}[Content],
+				    #"Filtered Rows4" = Table.SelectRows(#"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）", each ([Name] <> "一般材修費")),
+				  #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows4", {"Content"}),
+				  #"Expanded Content" = Table.ExpandTableColumn(#"Removed Other Columns", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content.1", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+				  #"Renamed Columns" = Table.RenameColumns(#"Expanded Content", {{"Content.1", "Content"}}),
+				  #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each [Extension] = ""),
+				  #"Removed Other Columns1" = Table.SelectColumns(#"Filtered Rows", {"Content"}),
+				  #"Expanded Content.1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+				  // ここは通常の階層にいるファイルを取り出す。----------②
+				  Excelフィルター = Table.SelectRows(#"Renamed Columns", each [Extension] = ".xlsm" or [Extension] = ".xlsx"),
+				  エクセルとフォルダの結合 = Table.Combine({#"Expanded Content.1", Excelフィルター}),
+				  #"Filtered Hidden Files1" = Table.SelectRows(エクセルとフォルダの結合, each [Attributes]?[Hidden]? <> true),
+				  #"Filtered Rows1" = Table.SelectRows(#"Filtered Hidden Files1", each [Date modified] > #datetimezone(2024, 9, 1, 0, 0, 0, 9, 0)),
+				  #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Rows1", "Transform File", each #"Transform File"([Content])),
+				  #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				  #"Removed Other Columns2" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns2", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+				  #"Renamed Columns2" = Table.RenameColumns(#"Expanded Table Column1", {{"申請#(lf)予算#(lf)[千円]", "申請予算"}, {"積上#(lf)予算#(lf)[千円]", "積上予算"}, {"Column45", "予算管理No"}}),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns2", {{"申請予算", type number}, {"積上予算", type number}, {"工事費#(lf)[千円]", type number}, {"材料費#(lf)[千円]", type number}, {"保安評価", type number}, {"環境評価", type number}, {"生産評価", type number}, {"品質評価", type number}}),
+				  #"Split Column by Delimiter" = Table.SplitColumn(#"Changed Type", "原価センターコード＋名称", Splitter.SplitTextByEachDelimiter({" "}, QuoteStyle.Csv), {"原価センターコード＋名称.1", "原価センターコード＋名称.2"}),
+				  #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter", {{"原価センターコード＋名称.1", type text}, {"原価センターコード＋名称.2", type text}}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Changed Type1",{{"原価センターコード＋名称.1", "原価センタ"}, {"原価センターコード＋名称.2", "原価センタ名称"}}),
+				  #"Filtered Rows2" = Table.SelectRows(#"Renamed Columns3", each [予算区分2.1] <> null and [予算区分2.1] <> "HZ" and [予算区分2.1] <> "KG" and [予算区分2.1] <> "予算目的"),
+				  #"Removed other columns 1" = Table.SelectColumns(#"Filtered Rows2",{"管理区分", "設備名称(プラント)", "機番", "機番情報", "機器名称", "機器#(lf)重要度", "保全名称", "周 期", "積上予算", "申請予算", "原価センタ", "原価センタ名称", "勘定コード.1", "予算区分1.1", "予算区分2.1", "予算管理No", "判定#(lf)ＳＥ#(lf)ＱＣＤ", "優先度", "分類", "発生確率", "発生確率根拠", "保安評価", "環境評価", "生産評価", "品質評価", "想定シナリオ", "周期設定理由", "周期根拠", "見送り理由#(lf)（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）", "メモ欄#(lf)（PLANTIAへ登録されません）"}),
+				    #"Filtered Rows3" = Table.SelectRows(#"Removed other columns 1", each true),
+				  #"Added custom" = Table.TransformColumnTypes(Table.AddColumn(#"Filtered Rows3", "年度", each "2026"), {{"年度", type text}}),
+				  #"Transform columns" = Table.TransformColumnTypes(#"Added custom", {{"管理区分", type text}, {"機番情報", type text}, {"機番", type text}, {"機器#(lf)重要度", type text}, {"保全名称", type text}, {"周 期", type text}, {"勘定コード.1", type text}, {"予算区分1.1", type text}, {"予算区分2.1", type text}, {"予算管理No", type text}, {"判定#(lf)ＳＥ#(lf)ＱＣＤ", type text}, {"優先度", type text}, {"分類", type text}, {"発生確率", type text}}),
+				  #"Replace errors" = Table.ReplaceErrorValues(#"Transform columns", {{"管理区分", null}, {"機番情報", null}, {"機番", null}, {"機器#(lf)重要度", null}, {"保全名称", null}, {"周 期", null}, {"勘定コード.1", null}, {"予算区分1.1", null}, {"予算区分2.1", null}, {"予算管理No", null}, {"判定#(lf)ＳＥ#(lf)ＱＣＤ", null}, {"優先度", null}, {"分類", null}, {"発生確率", null}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Replace errors",{{"管理区分", Text.Upper, type text}}),
+				    #"Replaced value" = Table.ReplaceValue(#"Uppercased Text", "I", "E", Replacer.ReplaceText, {"管理区分"}),
+				  #"Replaced value 1" = Table.ReplaceValue(#"Replaced value", "C", "E", Replacer.ReplaceText, {"管理区分"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Replaced value 1","Y","E",Replacer.ReplaceText,{"管理区分"}),
+				    #"Appended Query" = Table.Combine({#"Replaced Value", riskEva2026_自部門}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Appended Query",{{"申請予算", Int64.Type}, {"積上予算", Int64.Type}})
+				in
+				    #"Changed Type2"
+				
+				// let
+				//     Source = Excel.Workbook(File.Contents("C:\Users\0057769\Desktop\fy26_riskEva.xlsx"), null, true),
+				//     Layout_Sheet = Source{[Item="Layout",Kind="Sheet"]}[Data],
+				//     #"Removed Top Rows" = Table.Skip(Layout_Sheet,4),
+				//     #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				//     #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"予算", "勘定コード"}, {"Column43", "予算区分1"}, {"Column44", "予算区分2"}, {"Column45", "予算管理No"}}),
+				//     #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"管理区分", "設備名称(プラント)", "機番", "機器名称", "機器#(lf)重要度", "保全名称", "積上#(lf)予算#(lf)[千円]", "申請#(lf)予算#(lf)[千円]", "勘定コード", "予算区分1", "予算区分2", "予算管理No", "判定#(lf)ＳＥ#(lf)ＱＣＤ", "優先度", "SE#(lf)優先度", "QCD#(lf)優先度", "分類", "発生確率", "発生確率根拠", "保安評価", "環境評価", "生産評価", "品質評価", "想定シナリオ", "周期設定理由", "周期根拠", "見送り理由#(lf)（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）", "メモ欄#(lf)（PLANTIAへ登録されません）", "原価センター"}),
+				//     #"Removed Top Rows1" = Table.Skip(#"Removed Other Columns",1),
+				//     #"Removed Errors" = Table.RemoveRowsWithErrors(#"Removed Top Rows1", {"勘定コード"}),
+				//     #"Split Column by Delimiter" = Table.SplitColumn(#"Removed Errors", "予算区分2", Splitter.SplitTextByDelimiter(":", QuoteStyle.Csv), {"予算区分2.1", "予算区分2.2"}),
+				//     #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"予算区分2.1", type text}, {"予算区分2.2", type text}, {"積上#(lf)予算#(lf)[千円]", type number}, {"申請#(lf)予算#(lf)[千円]", type number}}),
+				//     #"Renamed Columns1" = Table.RenameColumns(#"Changed Type",{{"積上#(lf)予算#(lf)[千円]", "積上予算"}, {"申請#(lf)予算#(lf)[千円]", "申請予算"}}),
+				//     #"Split Column by Delimiter1" = Table.SplitColumn(#"Renamed Columns1", "予算区分1", Splitter.SplitTextByDelimiter(":", QuoteStyle.Csv), {"予算区分1.1", "予算区分1.2"}),
+				//     #"Added Custom" = Table.AddColumn(#"Split Column by Delimiter1", "年度", each "2026"),
+				//     #"Replaced Value" = Table.ReplaceValue(#"Added Custom","m","M",Replacer.ReplaceText,{"管理区分"})
+				// in
+				//     #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

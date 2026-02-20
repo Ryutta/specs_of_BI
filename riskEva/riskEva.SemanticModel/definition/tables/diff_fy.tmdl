@@ -1,0 +1,25 @@
+table diff_fy
+	lineageTag: 7e6c332a-648d-4feb-9b67-334deb74f230
+
+	column diff
+		dataType: int64
+		formatString: 0
+		lineageTag: 3638afc3-34e0-4f51-8345-75bca190f1af
+		summarizeBy: sum
+		sourceColumn: diff
+
+		annotation SummarizationSetBy = Automatic
+
+	partition diff_fy = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSK1YlWMgKTxmDSBEyaKsXGAgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [diff = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"diff", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

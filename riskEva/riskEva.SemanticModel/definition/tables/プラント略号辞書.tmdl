@@ -1,0 +1,95 @@
+table プラント略号辞書
+	lineageTag: 46d32222-1a04-4929-914b-a547bea1a84f
+
+	column 部コード
+		dataType: string
+		lineageTag: 6003d09f-594a-4b08-8dd3-7abd50b3b67b
+		summarizeBy: none
+		sourceColumn: 部コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部名称
+		dataType: string
+		lineageTag: 2fa138da-54d0-4ee2-aac5-22de4eed0431
+		summarizeBy: none
+		sourceColumn: 部名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課コード
+		dataType: string
+		lineageTag: 54c8fa71-96c2-45eb-845f-cbd272ce5dc8
+		summarizeBy: none
+		sourceColumn: 課コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課名称
+		dataType: string
+		lineageTag: 9a959ce2-e8bd-47d4-952b-383356363f90
+		summarizeBy: none
+		sourceColumn: 課名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column プラント略号
+		dataType: string
+		lineageTag: 08b35fbe-c3a8-41a4-a910-c396e6c000c9
+		summarizeBy: none
+		sourceColumn: プラント略号
+
+		annotation SummarizationSetBy = Automatic
+
+	column プラント略号名称
+		dataType: string
+		lineageTag: 3f03fedc-2050-4719-aaea-ae56824f06cf
+		summarizeBy: none
+		sourceColumn: プラント略号名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: 28df11da-af2b-403e-bfd0-578bf7d2d1a7
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部_課 = [部名称]&"_"&[課名称]
+		lineageTag: 4682860e-faf3-4f58-b5e7-187594cae03a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column プラント略号_名称 = [プラント略号]&"_"&[プラント略号名称]
+		lineageTag: 19eaa217-f366-43de-b3fe-6771b8d27d58
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column BG名称
+		dataType: string
+		lineageTag: a20d78fd-20a6-4ae8-9cc4-70331f8156e5
+		summarizeBy: none
+		sourceColumn: BG名称
+
+		annotation SummarizationSetBy = Automatic
+
+	partition プラント略号辞書 = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e" = Workspaces{[workspaceId="4fb6549a-1744-4efc-b1c8-3ed67e16c00e"]}[Data],
+				    #"8d95c07d-ca5d-4abc-86d3-4720c72c4565" = #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e"{[dataflowId="8d95c07d-ca5d-4abc-86d3-4720c72c4565"]}[Data],
+				    プラント略号辞書_ = #"8d95c07d-ca5d-4abc-86d3-4720c72c4565"{[entity="プラント略号辞書",version=""]}[Data]
+				in
+				    プラント略号辞書_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,84 @@
+table 故障呼出DAX
+	lineageTag: 46ea12e3-0605-42bd-bf7a-03a8aba12bf7
+
+	measure 呼び出し件数 = ```
+			
+			var yobi = 
+			CALCULATE(
+			    COUNTROWS('故障実績'),
+			    LEN('故障実績'[呼出])>0
+			)+0
+			RETURN
+			yobi
+			```
+		formatString: 0
+		lineageTag: ab53c108-1727-490e-bfc0-3157c53e8f5d
+
+	measure 故障件数 =
+			
+			CALCULATE(
+			    COUNTROWS('故障実績'),
+			    not '故障実績'[故障ﾗﾝｸ]="",
+			    not '故障実績'[故障ﾗﾝｸ]="F",
+			    TREATAS(VALUES('故障実績'[故障ﾗﾝｸ]),'故障実績'[故障ﾗﾝｸ]),
+			    TREATAS(VALUES('Dim_専門区分'[専門区分]),'故障実績'[管理区分])
+			)
+		formatString: #,0
+		lineageTag: 7eddf40d-4352-4f28-b5ae-532a21d2f55e
+
+	measure トラブル件数 =
+			
+			CALCULATE(
+			    COUNTROWS('故障実績'),
+			    not '故障実績'[ﾄﾗﾌﾞﾙ分類]="",
+			    not '故障実績'[ﾄﾗﾌﾞﾙ分類]="F",
+			    not '故障実績'[ﾄﾗﾌﾞﾙ分類]="チャンス保全",
+			    TREATAS(VALUES('故障実績'[ﾄﾗﾌﾞﾙ分類]),'故障実績'[ﾄﾗﾌﾞﾙ分類])
+			)
+		formatString: 0
+		lineageTag: 4f0566eb-688e-4b60-83c7-62627bcb73c5
+
+	measure 最新ステータス = MAX('トラブル実績Ｐ１'[属性])
+		lineageTag: 82be7841-fcd2-4d60-91ba-faebbcb30f87
+
+	measure 機器台数 =
+			
+			CALCULATE(
+			    COUNTROWS('機器台帳_推移'),
+			    TREATAS(VALUES('Calendar'[Fiscal Year]),'機器台帳_推移'[年度])
+			)
+		formatString: #,0
+		lineageTag: f630d853-a064-4c92-b88b-2e543208cc01
+
+	measure 機器台数_機械 =
+			
+			CALCULATE(
+			    [機器台数],
+			    '機器台帳_推移'[管理区分]="M"
+			)
+		formatString: #,0
+		lineageTag: 90e33848-6d64-4c45-ac73-77564530d18e
+
+	measure 機器台数_電計 =
+			
+			CALCULATE(
+			    [機器台数],
+			    not '機器台帳_推移'[管理区分]="M"
+			)
+		formatString: #,0
+		lineageTag: 8dfb9042-3a10-4724-811f-5f637813541e
+
+	partition 故障呼出DAX = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

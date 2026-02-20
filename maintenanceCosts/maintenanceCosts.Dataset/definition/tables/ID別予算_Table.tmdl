@@ -1,0 +1,36 @@
+table ID別予算_Table
+	lineageTag: 56558df0-cff7-40f4-97c5-d0f79d4f616c
+
+	column ID
+		lineageTag: e9ad1d4a-8090-4e55-a519-b12195f7766b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 予実管理[ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 計画予算金額
+		lineageTag: 4d5f6982-c99a-425e-90bb-1c57190dec9b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: 予実管理[計画予算金額]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ID別予算_Table-aa87ecc3-93d5-4d66-b82a-e340832d57b3 = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    FILTER(
+				        '予実管理',
+				        NOT('予実管理'[区分]="起業")
+				    ),
+				    '予実管理'[ID],
+				    '予実管理'[計画予算金額]
+				)
+
+	annotation PBI_Id = 27758041fbb9493eb28e0385cc4c6dbd
+

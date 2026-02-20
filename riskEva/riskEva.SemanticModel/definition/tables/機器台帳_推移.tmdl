@@ -1,0 +1,267 @@
+table 機器台帳_推移
+	lineageTag: 39cf8663-94a5-4277-a46d-701e9f4534e3
+
+	column 管理区分
+		dataType: string
+		lineageTag: d14c432b-bd7f-4740-adff-8e184902e8ce
+		summarizeBy: none
+		sourceColumn: 管理区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 設備コード
+		dataType: string
+		lineageTag: 2f7d259f-aa51-48c3-82ea-4c2ce1608963
+		summarizeBy: none
+		sourceColumn: 設備コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 設備名称
+		dataType: string
+		lineageTag: 88949484-cc11-4eaf-855e-35ad327e71ca
+		summarizeBy: none
+		sourceColumn: 設備名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 課名
+		dataType: string
+		lineageTag: 35a998f6-e188-4aab-add6-6f860eaa4b80
+		summarizeBy: none
+		sourceColumn: 課名
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機番
+		dataType: string
+		lineageTag: 813439b9-223a-4272-9b34-a6b9e4911474
+		summarizeBy: none
+		sourceColumn: 機番
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器名称
+		dataType: string
+		lineageTag: c8a98537-e5a9-4ba3-b644-784c91be5f08
+		summarizeBy: none
+		sourceColumn: 機器名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器状態
+		dataType: string
+		lineageTag: 9ab48370-7954-4f2f-9063-a32a3fa5d796
+		summarizeBy: none
+		sourceColumn: 機器状態
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器ファミリ名称
+		dataType: string
+		lineageTag: 4d12da08-803f-4639-b989-f8b32cbe6cf4
+		summarizeBy: none
+		sourceColumn: 機器ファミリ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器カテゴリ名称
+		dataType: string
+		lineageTag: 03de4522-f6bf-4bf5-a02c-1394a3255ff8
+		summarizeBy: none
+		sourceColumn: 機器カテゴリ名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器重要度名称
+		dataType: string
+		lineageTag: 0b942544-b749-408f-9de3-9b6c305c3442
+		summarizeBy: none
+		sourceColumn: 機器重要度名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保全方式:CBM
+		dataType: string
+		lineageTag: c315866d-850a-4ce0-baa2-b908f021b4f5
+		summarizeBy: none
+		sourceColumn: 保全方式:CBM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保全方式:TBM
+		dataType: string
+		lineageTag: fb72918f-055f-4461-82cd-e0d24da6b1d0
+		summarizeBy: none
+		sourceColumn: 保全方式:TBM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保全方式:BM
+		dataType: string
+		lineageTag: b88a16c8-5977-4b8e-a4ca-9f1361525648
+		summarizeBy: none
+		sourceColumn: 保全方式:BM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 設備評価
+		dataType: string
+		lineageTag: 07f8977e-1d2b-418f-a2d6-d720e417b035
+		summarizeBy: none
+		sourceColumn: 設備評価
+
+		annotation SummarizationSetBy = Automatic
+
+	column 最長開放周期
+		dataType: string
+		lineageTag: dceff455-cdac-4ec4-b504-223a01be45e1
+		summarizeBy: none
+		sourceColumn: 最長開放周期
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年度
+		dataType: string
+		lineageTag: fc883b01-5286-4a0e-8bee-4124c12184c7
+		summarizeBy: none
+		sourceColumn: 年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column17
+		dataType: string
+		lineageTag: 4677d5c7-0dbc-44e4-8d39-ec8fbc6a7784
+		summarizeBy: none
+		sourceColumn: Column17
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column18
+		dataType: string
+		lineageTag: 9ff76650-66bf-406b-9124-39cd25a11219
+		summarizeBy: none
+		sourceColumn: Column18
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column19
+		dataType: string
+		lineageTag: c9e13c1d-2a8a-4bce-a0b5-faf11602e628
+		summarizeBy: none
+		sourceColumn: Column19
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column20
+		dataType: string
+		lineageTag: d3f1fadf-7f8e-49f0-bfc1-fac45c3acb32
+		summarizeBy: none
+		sourceColumn: Column20
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column21
+		dataType: string
+		lineageTag: b015c4c4-404e-4cb7-804a-865a18da5633
+		summarizeBy: none
+		sourceColumn: Column21
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column22
+		dataType: string
+		lineageTag: 7e60daa7-e305-4a03-8a53-ef11a2f91c1c
+		summarizeBy: none
+		sourceColumn: Column22
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source.Name.1'
+		dataType: string
+		lineageTag: 6b54d732-0c9d-464d-b608-230887092c4e
+		summarizeBy: none
+		sourceColumn: Source.Name.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部署
+		dataType: string
+		lineageTag: e46f5b3a-80f9-47c7-bc54-63a719fd4cb3
+		summarizeBy: none
+		sourceColumn: 部署
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source.Name.2.2'
+		dataType: string
+		lineageTag: 2b3359bf-c108-452c-9f40-28631df16135
+		summarizeBy: none
+		sourceColumn: Source.Name.2.2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 管理区分2 =
+			
+			SWITCH(
+			    TRUE(),
+			    [管理区分]="M","機械",
+			    [管理区分]="E","電気",
+			    [管理区分]="I","計装",
+			    [管理区分]="C","DCS"
+			)
+		lineageTag: 13d34141-79d2-4c2b-9349-f11234fcf2a4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 機器台帳_推移 = m
+		mode: import
+		source =
+				let
+				    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+				    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+				    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+				    #"N 予算管理" = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+				    #"N0 投資・修繕費予算編成" = #"N 予算管理"{[Name="N0.投資・修繕費予算編成"]}[Content],
+				    #"2025年度予算編成" = #"N0 投資・修繕費予算編成"{[Name="2025年度予算編成"]}[Content],
+				    #"2 部内用ファイル" = #"2025年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+				    PowerBI_リスク評価 = #"2 部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+				    機器台帳_推移1 = PowerBI_リスク評価{[Name="機器台帳_推移"]}[Content],
+				    #"Filtered Hidden Files1" = Table.SelectRows(機器台帳_推移1, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File (2)", each #"Transform File (2)"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File (2)"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File (2)", Table.ColumnNames(#"Transform File (2)"(#"Sample File (2)"))),
+				    #"Replaced Value" = Table.ReplaceValue(#"Expanded Table Column1","年度","",Replacer.ReplaceText,{"年度"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Replaced Value", "Source.Name", Splitter.SplitTextByEachDelimiter({"【"}, QuoteStyle.Csv, false), {"Source.Name.1", "Source.Name.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Source.Name.1", type text}, {"Source.Name.2", type text}}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Changed Type", "Source.Name.2", Splitter.SplitTextByDelimiter("】", QuoteStyle.Csv), {"Source.Name.2.1", "Source.Name.2.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Source.Name.2.1", type text}, {"Source.Name.2.2", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Source.Name.2.1", "部署"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each true)
+				in
+				    #"Filtered Rows"
+				
+				
+				
+				// let
+				//     Source = Folder.Files("C:\Users\0057769\Downloads\機器台帳_推移\機器台帳_推移"),
+				//     #"Filtered Hidden Files1" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+				//     #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File (2)", each #"Transform File (2)"([Content])),
+				//     #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				//     #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File (2)"}),
+				//     #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File (2)", Table.ColumnNames(#"Transform File (2)"(#"Sample File (2)"))),
+				//     #"Replaced Value" = Table.ReplaceValue(#"Expanded Table Column1","年度","",Replacer.ReplaceText,{"年度"}),
+				//     #"Split Column by Delimiter" = Table.SplitColumn(#"Replaced Value", "Source.Name", Splitter.SplitTextByEachDelimiter({"【"}, QuoteStyle.Csv, false), {"Source.Name.1", "Source.Name.2"}),
+				//     #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Source.Name.1", type text}, {"Source.Name.2", type text}}),
+				//     #"Split Column by Delimiter1" = Table.SplitColumn(#"Changed Type", "Source.Name.2", Splitter.SplitTextByDelimiter("】", QuoteStyle.Csv), {"Source.Name.2.1", "Source.Name.2.2"}),
+				//     #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Source.Name.2.1", type text}, {"Source.Name.2.2", type text}}),
+				//     #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Source.Name.2.1", "部署"}})
+				// in
+				//     #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

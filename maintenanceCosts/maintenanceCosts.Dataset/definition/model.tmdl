@@ -1,0 +1,45 @@
+model Model
+	culture: ja-JP
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ja-JP
+	maxParallelismPerRefresh: 12
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Dim_予算区分2","予算区分1","DAX_全体","区分_Table","DAX_発券件数・金額推移","DAX_明細","DAX_年度推移（13分類別）","単位","エリア名称","予算選択","DirectQuery to AS - MoneM_010_起業費・修繕費","プラント略号辞書","購買明細","予実管理"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_fa1c7868-6710-49d2-a797-02dcadee7405
+ref table Dim_勘定名称
+ref table Dim_予算区分2
+ref table 予算区分1
+ref table DAX_全体
+ref table Calendar
+ref table 区分_Table
+ref table DAX_発券件数・金額推移
+ref table DAX_明細
+ref table Dim_専門区分
+ref table DAX_年度推移（13分類別）
+ref table 単位
+ref table ID別予算_Table
+ref table エリア名称
+ref table Dim_予算管理No名称
+ref table 予算選択
+ref table LocalDateTable_bca5b4d5-c2f9-4500-9f80-a1518cf9ddbb
+ref table 起業費・修繕費
+ref table プラント略号辞書
+ref table 購買明細
+ref table LocalDateTable_d4e7c089-48aa-4beb-9e5c-a56f70f4b0d4
+ref table 予実管理
+ref table LocalDateTable_359d928f-83f0-416a-913f-86c20425cd5e
+
+ref role 樹脂製造部
+ref role 設備技術部
+ref role テクノUMG
+
+ref cultureInfo ja-JP
+

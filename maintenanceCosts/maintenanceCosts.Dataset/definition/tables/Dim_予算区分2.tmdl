@@ -1,0 +1,25 @@
+table Dim_予算区分2
+	lineageTag: 76bb826c-3faa-4680-b76e-ff8ee2fb7ade
+
+	column 予算区分2
+		dataType: string
+		lineageTag: cc43b807-8ecc-4440-b44d-2cc9efcf9edd
+		summarizeBy: none
+		sourceColumn: 予算区分2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_予算区分2-d830a721-1e66-4d82-be2e-2bf3900923e8 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("JcVRCoAgEEDBu+x3l0hLQ0oRFTTZ+19D4c3PzCnlFD12hixddJMjTw8FeumjSIkyVWrUadAvqgs=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    #"名前が変更された列 " = Table.RenameColumns(変更された型,{{"列1", "予算区分2"}})
+				in
+				    #"名前が変更された列 "
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

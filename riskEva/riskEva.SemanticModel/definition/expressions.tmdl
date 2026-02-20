@@ -1,0 +1,417 @@
+expression テーブル =
+		let
+		    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUXJUitWJVjICspzALGMgyxnMMgGyXJRiYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [影響度 = _t, 発生確率 = _t])
+		in
+		    ソース
+	lineageTag: 2ee69d45-8b56-4a1c-bb90-70ec4fcdaac4
+
+	annotation PBI_NavigationStepName = ナビゲーション
+
+	annotation PBI_ResultType = Table
+
+expression パラメーター9 = #"サンプル ファイル (9)" meta [IsParameterQuery=true, BinaryIdentifier=#"サンプル ファイル (9)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: e6ce3868-400c-487c-bcf5-2ae3c496bfcc
+	queryGroup: 'ヘルパー クエリ'
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'サンプル ファイル (9)' =
+		// let
+		//     ソース = Folder.Files("C:\Users\0057769\OneDrive - Mitsubishi Chemical Group\その他\PowerBI\リスク評価\OZ6.機器台帳"),
+		//     #"C:\Users\0057769\OneDrive - Mitsubishi Chemical Group\その他\PowerBI\リスク評価\OZ6 機器台帳\_機器リスト纏め【樹脂】 xlsx" = ソース{[#"Folder Path"="C:\Users\0057769\OneDrive - Mitsubishi Chemical Group\その他\PowerBI\リスク評価\OZ6.機器台帳\",Name="機器リスト纏め【樹脂】.xlsx"]}[Content]
+		// in
+		//     #"C:\Users\0057769\OneDrive - Mitsubishi Chemical Group\その他\PowerBI\リスク評価\OZ6 機器台帳\_機器リスト纏め【樹脂】 xlsx"
+		
+		let
+		    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    N.予算管理 = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0.投資・修繕費予算編成" = N.予算管理{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2024年度予算編成" = #"N0.投資・修繕費予算編成"{[Name="2024年度予算編成"]}[Content],
+		    #"2.部内用ファイル" = #"2024年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    PowerBI_リスク評価 = #"2.部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+		    OZ6.機器台帳 = PowerBI_リスク評価{[Name="OZ6.機器台帳"]}[Content],
+		    ナビゲーション1 = OZ6.機器台帳{1}[Content]
+		in
+		    ナビゲーション1
+	lineageTag: a3098c46-9f69-4c05-aa23-981300903871
+	queryGroup: 'ヘルパー クエリ'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = ナビゲーション
+
+expression 'ファイルの変換 (9)' =
+		let
+		    ソース = (パラメーター9 as binary) => let
+		    ソース = Excel.Workbook(パラメーター9, null, true),
+		    電計_Sheet = ソース{[Item="電計",Kind="Sheet"]}[Data],
+		    昇格されたヘッダー数 = Table.PromoteHeaders(電計_Sheet, [PromoteAllScalars=true])
+		in
+		    昇格されたヘッダー数
+		in
+		    ソース
+	lineageTag: 1a1fcc74-535b-40ba-92e2-980ff38bc9ef
+	queryGroup: 'ヘルパー クエリ'
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = ナビゲーション
+
+expression Parameter2 = #"Sample File (2)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (2)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 73a3d4b9-e43f-4ecf-a6dd-675e4c663922
+	queryGroup: 'Transform File from 機器台帳_推移\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File (2)' =
+		let
+		    Source = Excel.Workbook(Parameter2, null, true),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.Contains([Name], "ﾘｽﾄ")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Data"}),
+		    #"Expanded Data" = Table.ExpandTableColumn(#"Removed Other Columns", "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22"}),
+		    #"Filtered Rows1" = Table.SelectRows(#"Expanded Data", each ([Column1] <> null)),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Filtered Rows1", [PromoteAllScalars=true]),
+		    #"Filtered Rows2" = Table.SelectRows(#"Promoted Headers", each ([管理区分] <> "管理区分"))
+		in
+		    #"Filtered Rows2"
+	lineageTag: 756541ec-95da-4267-a6ac-bca602c945aa
+	queryGroup: 'Transform File from 機器台帳_推移'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File (2)' =
+		let
+		    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    #"N 予算管理" = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0 投資・修繕費予算編成" = #"N 予算管理"{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2025年度予算編成" = #"N0 投資・修繕費予算編成"{[Name="2025年度予算編成"]}[Content],
+		    #"2 部内用ファイル" = #"2025年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    PowerBI_リスク評価 = #"2 部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+		    機器台帳_推移1 = PowerBI_リスク評価{[Name="機器台帳_推移"]}[Content],
+		    Navigation1 = 機器台帳_推移1{1}[Content]
+		in
+		    Navigation1
+		
+		
+		// let
+		//     Source = Folder.Files("C:\Users\0057769\Downloads\機器台帳_推移\機器台帳_推移"),
+		//     Navigation1 = Source{1}[Content]
+		// in
+		//     Navigation1
+	lineageTag: e8a9cc1f-0f45-43e3-8c0b-e2b270336c64
+	queryGroup: 'Transform File from 機器台帳_推移\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File (2)' =
+		let
+		    Source = (Parameter2 as binary) => let
+		    Source = Excel.Workbook(Parameter2, null, true),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.Contains([Name], "ﾘｽﾄ")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Data"}),
+		    #"Expanded Data" = Table.ExpandTableColumn(#"Removed Other Columns", "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22"}),
+		    #"Filtered Rows1" = Table.SelectRows(#"Expanded Data", each ([Column1] <> null)),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Filtered Rows1", [PromoteAllScalars=true]),
+		    #"Filtered Rows2" = Table.SelectRows(#"Promoted Headers", each ([管理区分] <> "管理区分"))
+		in
+		    #"Filtered Rows2"
+		in
+		    Source
+	lineageTag: 8304af67-246d-435c-9742-0facef004626
+	queryGroup: 'Transform File from 機器台帳_推移\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression パラメーター11 = #"サンプル ファイル (11)" meta [IsParameterQuery=true, BinaryIdentifier=#"サンプル ファイル (11)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: f60ce31f-ccb4-46b0-95e1-1230a78dda02
+	queryGroup: '機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_ResultType = Binary
+
+expression 'サンプル ファイル (11)' =
+		let
+		    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    #"N 予算管理" = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0 投資・修繕費予算編成" = #"N 予算管理"{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2024年度予算編成" = #"N0 投資・修繕費予算編成"{[Name="2024年度予算編成"]}[Content],
+		    #"2 部内用ファイル" = #"2024年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    PowerBI_リスク評価 = #"2 部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+		    #"2024年修繕費策定前データ" = PowerBI_リスク評価{[Name="2024年修繕費策定前データ"]}[Content],
+		    #"2024年修繕費策定前データ1" = #"2024年修繕費策定前データ"{[Name="2024年修繕費策定前データ"]}[Content],
+		    機器台帳 = #"2024年修繕費策定前データ1"{[Name="機器台帳"]}[Content],
+		    ナビゲーション1 = 機器台帳{0}[Content]
+		in
+		    ナビゲーション1
+		
+		// let
+		//     ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		//     #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		//     #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		//     #"N 予算管理" = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		//     #"N0 投資・修繕費予算編成" = #"N 予算管理"{[Name="N0.投資・修繕費予算編成"]}[Content],
+		//     #"2024年度予算編成" = #"N0 投資・修繕費予算編成"{[Name="2024年度予算編成"]}[Content],
+		//     #"2 部内用ファイル" = #"2024年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		//     PowerBI_リスク評価 = #"2 部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+		//     #"2024年修繕費策定前データ" = PowerBI_リスク評価{[Name="2024年修繕費策定前データ"]}[Content],
+		//     #"2024年修繕費策定前データ1" = #"2024年修繕費策定前データ"{[Name="2024年修繕費策定前データ"]}[Content],
+		//     機器台帳 = #"2024年修繕費策定前データ1"{[Name="機器台帳"]}[Content],
+	lineageTag: a36de1c8-6810-4fc7-9663-fc4d4b7c11cb
+	queryGroup: '機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'ファイルの変換 (11)' =
+		let
+		    ソース = (パラメーター11 as binary) => let
+		    ソース = Excel.Workbook(パラメーター11, null, true),
+		    #"DATA-MAP_Sheet" = ソース{[Item="DATA-MAP",Kind="Sheet"]}[Data],
+		    昇格されたヘッダー数 = Table.PromoteHeaders(#"DATA-MAP_Sheet", [PromoteAllScalars=true])
+		in
+		    昇格されたヘッダー数
+		in
+		    ソース
+	lineageTag: 0399e528-6c0b-49e9-9619-e4385a99558a
+	queryGroup: '機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression 'サンプル ファイルの変換 (11)' =
+		let
+		    ソース = Excel.Workbook(パラメーター11, null, true),
+		    #"DATA-MAP_Sheet" = ソース{[Item="DATA-MAP",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(#"DATA-MAP_Sheet",1),
+		    昇格されたヘッダー数 = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true])
+		in
+		    昇格されたヘッダー数
+	lineageTag: be8b423c-0f08-4628-8f86-e6fdd042bf2b
+	queryGroup: '機器台帳 からファイルを変換する'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression パラメーター16 = #"サンプル ファイル (16)" meta [IsParameterQuery=true, BinaryIdentifier=#"サンプル ファイル (16)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 5de873d2-ad25-4f61-bebe-757bbd247334
+	queryGroup: '【見直し後】機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_ResultType = Binary
+
+expression 'サンプル ファイル (16)' =
+		let
+		    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    #"N 予算管理" = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0 投資・修繕費予算編成" = #"N 予算管理"{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2024年度予算編成" = #"N0 投資・修繕費予算編成"{[Name="2024年度予算編成"]}[Content],
+		    #"2 部内用ファイル" = #"2024年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    PowerBI_リスク評価 = #"2 部内用ファイル"{[Name="PowerBI_リスク評価"]}[Content],
+		    #"【見直し後】機器台帳1" = PowerBI_リスク評価{[Name="【見直し後】機器台帳"]}[Content],
+		    削除された他の列 = Table.SelectColumns(#"【見直し後】機器台帳1",{"Content"}),
+		    #"展開された Content" = Table.ExpandTableColumn(削除された他の列, "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content.1", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+		    #"名前が変更された列 " = Table.RenameColumns(#"展開された Content",{{"Content.1", "Content"}}),
+		    ナビゲーション1 = #"名前が変更された列 "{6}[Content]
+		in
+		    ナビゲーション1
+	lineageTag: 27637dc4-7004-4fd6-ab65-f4c9884ece07
+	queryGroup: '【見直し後】機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_ResultType = Binary
+
+expression 'ファイルの変換 (16)' =
+		let
+		    ソース = (パラメーター16 as binary) => let
+		    ソース = Excel.Workbook(パラメーター16, null, true),
+		    #"DATA-MAP_Sheet" = ソース{[Item="DATA-MAP",Kind="Sheet"]}[Data],
+		    昇格されたヘッダー数 = Table.PromoteHeaders(#"DATA-MAP_Sheet", [PromoteAllScalars=true])
+		in
+		    昇格されたヘッダー数
+		in
+		    ソース
+	lineageTag: 03cbf314-44f1-407d-8cdf-ca32215b7b95
+	queryGroup: '【見直し後】機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_ResultType = Function
+
+expression 'サンプル ファイルの変換 (16)' =
+		let
+		    ソース = Excel.Workbook(パラメーター16, null, true),
+		    #"DATA-MAP_Sheet" = ソース{[Item="DATA-MAP",Kind="Sheet"]}[Data],
+		    削除された最初の行 = Table.Skip(#"DATA-MAP_Sheet",1),
+		    昇格されたヘッダー数 = Table.PromoteHeaders(削除された最初の行, [PromoteAllScalars=true])
+		in
+		    昇格されたヘッダー数
+	lineageTag: eba5ffac-3042-4f8c-b850-d449d48f889e
+	queryGroup: '【見直し後】機器台帳 からファイルを変換する'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Parameter1 =
+		let
+		    Source = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+		in
+		    Source
+	lineageTag: f5cdc295-f289-4a20-812e-ce08d38df6ae
+	queryGroup: 'Transform File from fy2026\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File' =
+		let
+		    Source = Excel.Workbook(Parameter1, null, true),
+		    Layout_Sheet = Source{[Item="Layout",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Layout_Sheet,4),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"予算", "勘定コード"}, {"Column43", "予算区分1"}, {"Column44", "予算区分2"}}),
+		    #"Split Column by Delimiter" = Table.SplitColumn(#"Renamed Columns", "勘定コード", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"勘定コード.1", "勘定コード.2"}),
+		    #"Split Column by Delimiter1" = Table.SplitColumn(#"Split Column by Delimiter", "予算区分1", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"予算区分1.1", "予算区分1.2"}),
+		    #"Split Column by Delimiter2" = Table.SplitColumn(#"Split Column by Delimiter1", "予算区分2", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"予算区分2.1", "予算区分2.2"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Split Column by Delimiter2",{"4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月"}),
+		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Removed Columns", {{"損失合計#(lf)[千円]", "0"}, {"費用対効果(BCR)", "0"}})
+		in
+		    #"Replaced Errors"
+	lineageTag: b51b7999-ed3b-48cb-a84f-c4197e17a80a
+	queryGroup: 'Transform File from fy2026'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File' =
+		let
+		    ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1",[ApiVersion=15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    N.予算管理 = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0.投資・修繕費予算編成" = N.予算管理{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2026年度予算編成" = #"N0.投資・修繕費予算編成"{[Name="2026年度予算編成"]}[Content],
+		    #"2.部内用ファイル" = #"2026年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    #"05.リスク評価" = #"2.部内用ファイル"{[Name="05.リスク評価"]}[Content],
+		    #"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）" = #"05.リスク評価"{[Name="リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）"]}[Content],
+		    #"Removed Other Columns" = Table.SelectColumns(#"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）",{"Content"}),
+		    #"Expanded Content" = Table.ExpandTableColumn(#"Removed Other Columns", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content.1", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Expanded Content",{{"Content.1", "Content"}}),
+		    // ここはもう一つ下の階層にいるファイルを取り出す。---------------①
+		    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([Extension] = "")),
+		    #"Removed Other Columns1" = Table.SelectColumns(#"Filtered Rows",{"Content"}),
+		    #"Expanded Content.1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+		    // ここは通常の階層にいるファイルを取り出す。----------②
+		    Excelフィルター = Table.SelectRows(#"Renamed Columns", each ([Extension] = ".xlsm")),
+		    // ①と②を縦結合
+		    エクセルとフォルダの結合 = Table.Combine({#"Expanded Content.1", Excelフィルター}),
+		    #"Filtered Rows2" = Table.SelectRows(エクセルとフォルダの結合, each ([Extension] = ".xlsm")),
+		    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows2", each [Date modified] > #datetimezone(2024, 9, 1, 0, 0, 0, 9, 0)),
+		    Navigation1 = #"Filtered Rows1"{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 8a788a76-0811-476b-8412-9564239c0a72
+	queryGroup: 'Transform File from fy2026\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File' =
+		let
+		    Source = (Parameter1 as binary) => let
+		    Source = Excel.Workbook(Parameter1, null, true),
+		    Layout_Sheet = Source{[Item="Layout",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Layout_Sheet,4),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Promoted Headers",{{"予算", "勘定コード"}, {"Column43", "予算区分1"}, {"Column44", "予算区分2"}}),
+		    #"Split Column by Delimiter" = Table.SplitColumn(#"Renamed Columns", "勘定コード", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"勘定コード.1", "勘定コード.2"}),
+		    #"Split Column by Delimiter1" = Table.SplitColumn(#"Split Column by Delimiter", "予算区分1", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"予算区分1.1", "予算区分1.2"}),
+		    #"Split Column by Delimiter2" = Table.SplitColumn(#"Split Column by Delimiter1", "予算区分2", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, false), {"予算区分2.1", "予算区分2.2"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Split Column by Delimiter2",{"4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月"}),
+		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Removed Columns", {{"損失合計#(lf)[千円]", "0"}, {"費用対効果(BCR)", "0"}})
+		in
+		    #"Replaced Errors"
+		in
+		    Source
+	lineageTag: fba9148d-7034-460a-9433-abf87ea9e63b
+	queryGroup: 'Transform File from fy2026\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression riskEva2026_自部門 =
+		let
+		  ソース = SharePoint.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1", [ApiVersion = 15]),
+		    #"101P180_Employee" = ソース{[Name="101P180_Employee"]}[Content],
+		    #"101P180 設備技術部 社員" = #"101P180_Employee"{[Name="101P180 設備技術部 社員"]}[Content],
+		    N.予算管理 = #"101P180 設備技術部 社員"{[Name="N.予算管理"]}[Content],
+		    #"N0.投資・修繕費予算編成" = N.予算管理{[Name="N0.投資・修繕費予算編成"]}[Content],
+		    #"2026年度予算編成" = #"N0.投資・修繕費予算編成"{[Name="2026年度予算編成"]}[Content],
+		    #"2.部内用ファイル" = #"2026年度予算編成"{[Name="2.部内用ファイル"]}[Content],
+		    #"05.リスク評価" = #"2.部内用ファイル"{[Name="05.リスク評価"]}[Content],
+		    #"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）" = #"05.リスク評価"{[Name="リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）"]}[Content],
+		    #"Filtered Rows5" = Table.SelectRows(#"リスク評価（各G提出用：拡張子を「.xlsm」に変更してください！）", each ([Name] = "一般材修費")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows5", {"Content"}),
+		  #"Expanded Content" = Table.ExpandTableColumn(#"Removed Other Columns", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content.1", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+		  #"Renamed Columns" = Table.RenameColumns(#"Expanded Content", {{"Content.1", "Content"}}),
+		  #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each [Extension] = ""),
+		  #"Removed Other Columns1" = Table.SelectColumns(#"Filtered Rows", {"Content"}),
+		  #"Expanded Content.1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Content", {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}, {"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+		  // ここは通常の階層にいるファイルを取り出す。----------②
+		  Excelフィルター = Table.SelectRows(#"Renamed Columns", each [Extension] = ".xlsm" or [Extension] = ".xlsx"),
+		  エクセルとフォルダの結合 = Table.Combine({#"Expanded Content.1", Excelフィルター}),
+		    #"Filtered Rows4" = Table.SelectRows(エクセルとフォルダの結合, each ([Name] <> "2026年度保全投資案件リスト（リスク評価）＿＊＊＊部（特別・大口・小口保全投資）.xlsx")),
+		  #"Filtered Hidden Files1" = Table.SelectRows(#"Filtered Rows4", each [Attributes]?[Hidden]? <> true),
+		  #"Filtered Rows1" = Table.SelectRows(#"Filtered Hidden Files1", each [Date modified] > #datetimezone(2024, 9, 1, 0, 0, 0, 9, 0)),
+		  #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Rows1", "Transform File", each #"Transform File"([Content])),
+		  #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+		  #"Removed Other Columns2" = Table.SelectColumns(#"Renamed Columns1",{"Transform File"}),
+		  #"Expanded Transform File" = Table.ExpandTableColumn(#"Removed Other Columns2", "Transform File", {"Column1", "brank", "#(lf)見送#(lf)", "#(lf)回数", "管理区分", "設備コード", "表示順位", "予定開始日", "周期単位", "負担部門#(lf)名称(部)", "工程名称(課)", "設備名称(プラント)", "機番", "機番情報", "機器名称", "機器#(lf)重要度", "設備#(lf)評価", "保全名称", "備考", "周期#(lf)ＩＤ", "周 期", "前回周期#(lf)実施日", "計画種別", "材料費#(lf)[千円]", "26年度予算#(lf)[千円]", "積上#(lf)予算#(lf)[千円]", "申請#(lf)予算#(lf)[千円]", "セクション", "原価センターコード(11桁)", "勘定コード.1", "勘定コード.2", "予算区分1.1", "予算区分1.2", "予算区分2.1", "予算区分2.2", "Column45", "見送(仮)", "判定#(lf)ＳＥ#(lf)ＱＣＤ", "優先度", "SE#(lf)優先度", "QCD#(lf)優先度", "分類", "発生確率", "自信度", "発生確率根拠", "復旧工事に#(lf)掛かる#(lf)日数#(lf)[day]", "★予備機能無#(lf)プラント対応", "保安評価", "環境評価", "生産評価", "品質評価", "予備機切替", "一時レ｜トダウン", "部分停止", "全停止", "運転中修理可", "対応策無し", "その他", "想定シナリオ", "影響度根拠", "Column70", "許容停止日数#(lf)[day]", "復旧工程日数(停止、起動)#(lf)[day]", "１日の損失金額#(lf)[千円]", "稼働率#(lf)[%]", "損失合計#(lf)[千円]", "費用対効果(BCR)", "周期設定理由", "周期根拠", "リスク#(lf)評価日", "発生確率評価者", "見送り理由#(lf)（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）", "メモ欄#(lf)（PLANTIAへ登録されません）", "Column83", "Column84", "Check用。保全投資を除いた申請額#(lf)（保全投資の行は""0""表示）", "型式１", "型式２", "Column88", "前回見送り", "前回見送り登録日付", "Column91", "保全周期_SKEY", "勘定コード_SKEY", "会社_勘定コード", "旧勘定コード", "Column96", "BCR#(lf)Ranking", "元の並び", "Column99", "設備台帳#(lf)SKEY", "型式１_1", "型式２_2", "原価センター", "型式変更したか？#(lf)変更：１、変更なし：０", "Column105", "枠予算#(lf)元値#(lf)予算区分２の９＊＊の金額", "保全台帳の「u_h_repair_bgt_check_bunrui_10#(tab)#(lf)＝修繕費チェック分」類１０を出力。", "Column108", "23年度#(lf)予算#(lf)（千円）", "23年度#(lf)実績#(lf)（千円）", "24年度#(lf)予算#(lf)（千円）", "対23年度#(lf)実績#(lf)（千円）", "対23年度実績#(lf)差額理由#(lf)増加の場合必須", "対24年度#(lf)予算#(lf)（千円）", "対24年度予算#(lf)差額理由#(lf)増加の場合必須"}, {"Column1", "brank", "#(lf)見送#(lf)", "#(lf)回数", "管理区分", "設備コード", "表示順位", "予定開始日", "周期単位", "負担部門#(lf)名称(部)", "工程名称(課)", "設備名称(プラント)", "機番", "機番情報", "機器名称", "機器#(lf)重要度", "設備#(lf)評価", "保全名称", "備考", "周期#(lf)ＩＤ", "周 期", "前回周期#(lf)実施日", "計画種別", "材料費#(lf)[千円]", "26年度予算#(lf)[千円]", "積上#(lf)予算#(lf)[千円]", "申請#(lf)予算#(lf)[千円]", "セクション", "原価センターコード(11桁)", "勘定コード.1", "勘定コード.2", "予算区分1.1", "予算区分1.2", "予算区分2.1", "予算区分2.2", "Column45", "見送(仮)", "判定#(lf)ＳＥ#(lf)ＱＣＤ", "優先度", "SE#(lf)優先度", "QCD#(lf)優先度", "分類", "発生確率", "自信度", "発生確率根拠", "復旧工事に#(lf)掛かる#(lf)日数#(lf)[day]", "★予備機能無#(lf)プラント対応", "保安評価", "環境評価", "生産評価", "品質評価", "予備機切替", "一時レ｜トダウン", "部分停止", "全停止", "運転中修理可", "対応策無し", "その他", "想定シナリオ", "影響度根拠", "Column70", "許容停止日数#(lf)[day]", "復旧工程日数(停止、起動)#(lf)[day]", "１日の損失金額#(lf)[千円]", "稼働率#(lf)[%]", "損失合計#(lf)[千円]", "費用対効果(BCR)", "周期設定理由", "周期根拠", "リスク#(lf)評価日", "発生確率評価者", "見送り理由#(lf)（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）", "メモ欄#(lf)（PLANTIAへ登録されません）", "Column83", "Column84", "Check用。保全投資を除いた申請額#(lf)（保全投資の行は""0""表示）", "型式１", "型式２", "Column88", "前回見送り", "前回見送り登録日付", "Column91", "保全周期_SKEY", "勘定コード_SKEY", "会社_勘定コード", "旧勘定コード", "Column96", "BCR#(lf)Ranking", "元の並び", "Column99", "設備台帳#(lf)SKEY", "型式１_1", "型式２_2", "原価センター", "型式変更したか？#(lf)変更：１、変更なし：０", "Column105", "枠予算#(lf)元値#(lf)予算区分２の９＊＊の金額", "保全台帳の「u_h_repair_bgt_check_bunrui_10#(tab)#(lf)＝修繕費チェック分」類１０を出力。", "Column108", "23年度#(lf)予算#(lf)（千円）", "23年度#(lf)実績#(lf)（千円）", "24年度#(lf)予算#(lf)（千円）", "対23年度#(lf)実績#(lf)（千円）", "対23年度実績#(lf)差額理由#(lf)増加の場合必須", "対24年度#(lf)予算#(lf)（千円）", "対24年度予算#(lf)差額理由#(lf)増加の場合必須"}),
+		  #"Renamed Columns2" = Table.RenameColumns(#"Expanded Transform File",{{"申請#(lf)予算#(lf)[千円]", "申請予算"}, {"積上#(lf)予算#(lf)[千円]", "積上予算"}, {"Column45", "予算管理No"}, {"原価センターコード(11桁)", "原価センタ"}}),
+		  #"Filtered Rows2" = Table.SelectRows(#"Renamed Columns2", each ([予算区分2.1] <> null and [予算区分2.1] <> "HZ" and [予算区分2.1] <> "KG" and [予算区分2.1] <> "予算目的") and ([原価センタ] <> null)),
+		  #"Removed other columns 1" = Table.SelectColumns(#"Filtered Rows2",{"管理区分", "設備名称(プラント)", "機番", "機番情報", "機器名称", "機器#(lf)重要度", "保全名称", "周 期", "積上予算", "申請予算", "原価センタ", "勘定コード.1", "予算区分1.1", "予算区分2.1", "予算管理No", "判定#(lf)ＳＥ#(lf)ＱＣＤ", "優先度", "分類", "発生確率", "発生確率根拠", "保安評価", "環境評価", "生産評価", "品質評価", "想定シナリオ", "周期設定理由", "周期根拠", "見送り理由#(lf)（ボーダ以上で見送る理由、ボーダー未満で実施する理由記載）", "メモ欄#(lf)（PLANTIAへ登録されません）"}),
+		    #"Filtered Rows3" = Table.SelectRows(#"Removed other columns 1", each true),
+		  #"Added custom" = Table.TransformColumnTypes(Table.AddColumn(#"Filtered Rows3", "年度", each "2026"), {{"年度", type text}}),
+		  #"Transform columns" = Table.TransformColumnTypes(#"Added custom", {{"管理区分", type text}, {"機番情報", type text}, {"機番", type text}, {"機器#(lf)重要度", type text}, {"保全名称", type text}, {"周 期", type text}, {"勘定コード.1", type text}, {"予算区分1.1", type text}, {"予算区分2.1", type text}, {"予算管理No", type text}, {"判定#(lf)ＳＥ#(lf)ＱＣＤ", type text}, {"優先度", type text}, {"分類", type text}, {"発生確率", type text}}),
+		  #"Replace errors" = Table.ReplaceErrorValues(#"Transform columns", {{"管理区分", null}, {"機番情報", null}, {"機番", null}, {"機器#(lf)重要度", null}, {"保全名称", null}, {"周 期", null}, {"勘定コード.1", null}, {"予算区分1.1", null}, {"予算区分2.1", null}, {"予算管理No", null}, {"判定#(lf)ＳＥ#(lf)ＱＣＤ", null}, {"優先度", null}, {"分類", null}, {"発生確率", null}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Replace errors",{{"管理区分", Text.Upper, type text}}),
+		    #"Replaced value" = Table.ReplaceValue(#"Uppercased Text", "I", "E", Replacer.ReplaceText, {"管理区分"}),
+		  #"Replaced value 1" = Table.ReplaceValue(#"Replaced value", "C", "E", Replacer.ReplaceText, {"管理区分"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Replaced value 1","Y","E",Replacer.ReplaceText,{"管理区分"})
+		in
+		    #"Replaced Value"
+	lineageTag: 95406e78-8755-4a61-9c93-7ef645458d20
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'DirectQuery to AS - MoneM_010_起業費・修繕費' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Unique_Digital", "MoneM_010_起業費・修繕費"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 37eaf57b-acaf-403f-a27c-e348c04a4a74
+
+	annotation PBI_IncludeFutureArtifacts = True
+

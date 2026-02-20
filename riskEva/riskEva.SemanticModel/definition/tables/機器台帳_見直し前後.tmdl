@@ -1,0 +1,78 @@
+table 機器台帳_見直し前後
+	lineageTag: d58ffaee-af53-49f2-9748-bbf54e78479a
+
+	column 管理区分
+		lineageTag: 9268eb8d-bc8d-4bac-86d3-2f182520023d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[管理区分]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器重要度
+		lineageTag: be6a6eed-5d56-41e4-b5e0-3f798340e0f2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[機器重要度]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器識別ID
+		lineageTag: fe7a7985-882e-41fc-b37d-31f5f86a9b85
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[機器識別ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Before/After
+		lineageTag: 1b85ada6-4545-46c4-8d4e-dbf5c6db564a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[Before/After]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部署
+		lineageTag: 489e5459-4937-4b27-9111-9557b57dccac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[部署]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 設備名称
+		lineageTag: f842263f-e9c7-4ace-b51f-5dc4c5e257cb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Before_機器重要度[設備名称]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 機器台帳_見直し前後 = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    SUMMARIZE(
+				        'Before_機器重要度',
+				        'Before_機器重要度'[管理区分],
+				        'Before_機器重要度'[機器重要度],
+				        'Before_機器重要度'[機器識別ID],
+				        'Before_機器重要度'[Before/After],
+				        'Before_機器重要度'[部署],
+				        'Before_機器重要度'[設備名称]
+				    ),
+				    SUMMARIZE(
+				        'After_機器重要度',
+				        'After_機器重要度'[管理区分],
+				        'After_機器重要度'[機器重要度],
+				        'After_機器重要度'[機器識別ID],
+				        'After_機器重要度'[Before/After],
+				        'After_機器重要度'[部署],
+				        'After_機器重要度'[設備名称]
+				    )
+				)
+
+	annotation PBI_Id = 02bf6be0f9894b24a93b30b8e8413c8f
+

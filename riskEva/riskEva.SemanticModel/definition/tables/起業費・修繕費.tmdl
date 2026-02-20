@@ -1,0 +1,1436 @@
+table 起業費・修繕費
+	lineageTag: cabd1b19-4e4f-437d-9b59-5ca05dcded97
+	sourceLineageTag: 289d8ac0-90eb-4068-a82e-74d6fbcac9a6
+
+	column 区分
+		dataType: string
+		displayFolder: 01.共通
+		lineageTag: 5eacc3fe-b68d-4cf5-b1e3-8db889c5f695
+		sourceLineageTag: 1435ddde-1730-4f21-a3ca-e6d1cd4d1643
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 区分
+
+		annotation SummarizationSetBy = User
+
+	column 会社コード
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: eea6bdb7-c2f4-4fa8-9e68-d62adfbb0035
+		sourceLineageTag: 3d986a40-5a6e-492c-8f20-45bd5aca9b3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 会社コード
+
+		annotation SummarizationSetBy = User
+
+	column 会社名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 4d37167a-d38a-446d-bbe0-ec38bedb959c
+		sourceLineageTag: 7cabdfbd-a2b4-4c12-a934-d5ec9afd5108
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 会社名称
+
+		annotation SummarizationSetBy = User
+
+	column 事業領域コード
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 2f8b57dd-de13-4a29-98b4-3b829b97a69b
+		sourceLineageTag: 52876e4d-bc18-4bbe-9a1a-da0dd6bedd32
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 事業領域コード
+
+		annotation SummarizationSetBy = User
+
+	column 事業領域名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: dc3c7d4c-cb1b-404d-81d8-599454d678b0
+		sourceLineageTag: 612f295d-5753-4317-b9c8-a16d7695a43c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 事業領域名称
+
+		annotation SummarizationSetBy = User
+
+	column 起業略号
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 022f0ef4-9a5d-4e27-8a6d-779b67992ab5
+		sourceLineageTag: 1d071444-d1a0-4769-a1be-97141aabbad8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 起業略号
+
+		annotation SummarizationSetBy = User
+
+	column 起業略号名称
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 9241314d-eb9b-4dce-bba8-8485db51a78c
+		sourceLineageTag: 5efc75d4-602b-4006-971d-6d1c88f2d78f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 起業略号名称
+
+		annotation SummarizationSetBy = User
+
+	column プラント略号
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: a8d3b10f-47d1-484f-8779-5a516e6b9254
+		sourceLineageTag: 53f33ed6-9571-4e86-a76c-5e5707c0f296
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: プラント略号
+
+		annotation SummarizationSetBy = User
+
+	column プラント略号名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: ab5842be-cf9f-4868-9d81-cc97ae9e3102
+		sourceLineageTag: cc821b4c-c0da-42dc-99e1-d269e14a2761
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: プラント略号名称
+
+		annotation SummarizationSetBy = User
+
+	column 起業費目
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 81ab08a2-ece8-40e9-9090-bcef6711c35c
+		sourceLineageTag: d828dea9-a31b-4bf9-9ee5-d361e4a6ff1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 起業費目
+
+		annotation SummarizationSetBy = User
+
+	column 起業費目名称
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 59d40ae2-9de6-49c2-a3b4-21adfd26f467
+		sourceLineageTag: c156633d-6569-4d55-89b7-cbb4f8d67cb4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 起業費目名称
+
+		annotation SummarizationSetBy = User
+
+	column 部コード
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: f489154a-4909-431c-ad90-14c4e6b9187d
+		sourceLineageTag: 47ae5390-8c02-41b9-8dd5-c9417c9b7f1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 部コード
+
+		annotation SummarizationSetBy = User
+
+	column 部名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 0ed5d3df-d4da-4372-9c78-ed070fac440e
+		sourceLineageTag: 7f84632a-4d59-413c-94c6-213e8ff31662
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 部名称
+
+		annotation SummarizationSetBy = User
+
+	column 課コード
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 579d9545-da07-47d6-88de-fa563e9e5410
+		sourceLineageTag: 7d85778d-3557-47e0-872c-3f1e1b5c7e77
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 課コード
+
+		annotation SummarizationSetBy = User
+
+	column 課名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: a7f37c48-6e53-4ae0-a9d2-4757c4ac10fd
+		sourceLineageTag: c56f6549-2349-4ad2-b7fb-bc49b9852602
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 課名称
+
+		annotation SummarizationSetBy = User
+
+	column 予算年度
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: 7e47497f-f4ea-4151-999d-71783bda032d
+		sourceLineageTag: 89b2b5da-9325-4c17-9fd8-7e0ab2dcbd71
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算年度
+
+		annotation SummarizationSetBy = User
+
+	column 予算／実績区分
+		dataType: string
+		displayFolder: 01.共通
+		lineageTag: a29c4ef4-c99d-4fb6-8f2a-1fbddbd54efb
+		sourceLineageTag: cc32c1ce-8614-4311-a5b0-6c886cee1178
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算／実績区分
+
+		annotation SummarizationSetBy = User
+
+	column 予算管理名称
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: c15e4e94-24e7-4f07-a2a8-bc8a7b8350b9
+		sourceLineageTag: 027c09d1-8b45-4f20-a971-8441a82b845c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算管理名称
+
+		annotation SummarizationSetBy = User
+
+	column 勘定コード
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 2ae0c149-e1a7-4b26-b0f3-02569a9e8219
+		sourceLineageTag: b043f2b2-24e2-4a02-93f9-35cd38b039ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 勘定コード
+
+		annotation SummarizationSetBy = User
+
+	column 勘定名称
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 6dff79c6-0d05-4bc9-9839-bd84124b8254
+		sourceLineageTag: 2105e015-5cfb-4409-b937-b54fb4e99b50
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 勘定名称
+
+		annotation SummarizationSetBy = User
+
+	column 原価センタ
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 3c304135-61e8-4d4b-b50f-69611a85cb44
+		sourceLineageTag: 7f1bac16-4f03-4af6-8cd4-ae0e7852df4c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = User
+
+	column 原価センタ名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: f69a582a-fed5-4b0c-be72-aaf97c97cb91
+		sourceLineageTag: 327d59b5-35f5-4084-8447-bf2a73ca8539
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 原価センタ名称
+
+		annotation SummarizationSetBy = User
+
+	column 利益センタ
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 97b54eff-99a0-4605-9ce2-070e99c93e31
+		sourceLineageTag: a153e23b-ddb9-44a7-b80b-0d547c0f6672
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 利益センタ
+
+		annotation SummarizationSetBy = User
+
+	column 利益センタ名称
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: 32182526-f4b4-435b-b646-974a72e32c55
+		sourceLineageTag: 281825f9-47db-4bfc-bd7b-aac4e67d5fa3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 利益センタ名称
+
+		annotation SummarizationSetBy = User
+
+	column 専門区分
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: a7047a71-f27f-4128-81ce-d761e18d45f5
+		sourceLineageTag: de231252-9b4a-4169-bc93-c93aa736d6d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 専門区分
+
+		annotation SummarizationSetBy = User
+
+	column 専門区分名称
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: bab59269-a80b-40d0-bf24-b5dc0c585faa
+		sourceLineageTag: 0ff730f0-8a63-4733-9d5f-21da864c7b10
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 専門区分名称
+
+		annotation SummarizationSetBy = User
+
+	column 委託区分
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: d5e136fe-3443-4315-87e5-877fa3b4ad44
+		sourceLineageTag: c99e5af9-2253-4f21-8322-843055b7911b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 委託区分
+
+		annotation SummarizationSetBy = User
+
+	column 予算金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: cca9e6bc-aeec-41a9-8f02-c6029ced45b1
+		sourceLineageTag: 5f12b4a0-bb80-48d9-9ea1-fe3e8b943555
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 予算金額
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 526ee099-7a5c-4096-9921-63fe58f4143a
+		sourceLineageTag: d9f03c1f-aee0-405d-9b2c-a2bbbbf659f1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買依頼累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 3b0903da-3e71-4a62-9112-58f33d5b1e0f
+		sourceLineageTag: 95820d9b-47e8-4644-8c89-c0333c0db9df
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買発注累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 検収累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 94f288a8-ef15-4db5-92a7-32cd0bcf4ef2
+		sourceLineageTag: 7cac7181-38c2-43c1-876c-2ef1e1beee3c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 検収累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 発券未発注累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 090251a3-7afd-4e09-af03-4efd191e61c4
+		sourceLineageTag: 773a05e0-832e-4008-a66e-b64058ff9ef6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発券未発注累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 発注未検収累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: d8d4fff3-24e7-4ae1-ab07-3583b8a4f089
+		sourceLineageTag: 659eefe9-2ced-4144-9802-a8aede395990
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発注未検収累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 実績金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: ac5f9f51-66e2-4bcc-b848-3a586c8a183d
+		sourceLineageTag: 31ae3243-25a2-4e8b-b640-a03609cb153c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 実績金額
+
+		annotation SummarizationSetBy = User
+
+	column 予算残金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 46b15727-3c16-4b08-9797-9a24271f09b4
+		sourceLineageTag: 069bf90b-3914-4c8e-9f85-0796e391ada8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 予算残金額
+
+		annotation SummarizationSetBy = User
+
+	column 品目コード
+		dataType: string
+		displayFolder: 08.品目
+		lineageTag: afddc1d3-858f-48af-800b-85574fd975e7
+		sourceLineageTag: a35a882d-fa55-4171-b15e-f73c73f94a7a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 品目コード
+
+		annotation SummarizationSetBy = User
+
+	column 仕入先コード
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: a9629435-9e1b-4912-80ce-9325fd2c1c77
+		sourceLineageTag: 6c8c4382-90ba-477d-8535-5458410b2081
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 仕入先コード
+
+		annotation SummarizationSetBy = User
+
+	column 仕入先名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: f61af1b7-02ce-4926-9838-5621e021ef16
+		sourceLineageTag: 2e867ae7-a6ad-4ace-b1ec-bafed2325bea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 仕入先名称
+
+		annotation SummarizationSetBy = User
+
+	column 単位コード
+		dataType: string
+		displayFolder: 10.数量
+		lineageTag: e9f77a5f-e404-4b5a-a71c-cfb8c811d736
+		sourceLineageTag: 2344d2bf-7761-4fe3-af3c-c13bc39d2f52
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 単位コード
+
+		annotation SummarizationSetBy = User
+
+	column 単位名称
+		dataType: string
+		displayFolder: 10.数量
+		lineageTag: aedf2b67-a08c-4e50-bfbc-574df26a7a1c
+		sourceLineageTag: 8270da70-d5b1-4e55-9ba0-f1bf1f82c9c6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 単位名称
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼納入期日
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: 329e8471-df02-40fd-a6ee-82b73bed32b5
+		sourceLineageTag: b0ffc66c-0bfe-4b87-99bf-7425f1feeb16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買依頼納入期日
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注納入期日
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: c2351f65-a3ca-49ee-b6ba-0b5147e8e7da
+		sourceLineageTag: b6d4863f-b695-466e-8045-f5732fa83e3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注納入期日
+
+		annotation SummarizationSetBy = User
+
+	column 工事購入区分
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: f08b1dbe-9893-4767-943c-15d95c6c0a68
+		sourceLineageTag: b57e1d4f-72c0-49c0-9a17-5246b866a069
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工事購入区分
+
+		annotation SummarizationSetBy = User
+
+	column 工事購入区分名称
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 0572696b-20a5-4d5d-b8d0-60b83fb30768
+		sourceLineageTag: a1db8447-8bef-4b61-9843-7a5eb1f85a0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工事購入区分名称
+
+		annotation SummarizationSetBy = User
+
+	column 進捗区分
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 77740a40-01e5-4072-bec0-225c175817f6
+		sourceLineageTag: 48f2b7c9-5907-44c6-912a-ad703148dbee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 進捗区分
+
+		annotation SummarizationSetBy = User
+
+	column 進捗区分名称
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 8a56bfe6-8ad3-48ff-a3ba-62fbb08cbfa1
+		sourceLineageTag: 81935e96-c724-4a2b-a187-043ec1778735
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 進捗区分名称
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼日
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: 210afc4f-cc3d-48b1-a673-3a7747255bc0
+		sourceLineageTag: 8edee43f-df7c-4d94-be0d-a6182c4f1d3c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買依頼日
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼数量
+		dataType: double
+		formatString: #,0.000
+		displayFolder: 10.数量
+		lineageTag: f46ee1f6-51be-4c79-bd5b-dbb28bb8de4a
+		sourceLineageTag: 18908385-9eb9-4f5b-8891-5d65f2d54019
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買依頼数量
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼単価
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: d4c28359-bd73-4813-8ade-66a743055957
+		sourceLineageTag: 7f5ff7e7-ac24-4ef2-9a7e-0fb0dff9caa3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買依頼単価
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 0bbe6c1c-a0bb-45fd-baee-a65dc73e7550
+		sourceLineageTag: 15fc2515-b111-4a4e-bf5e-8e7807c8b924
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買依頼金額
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注日
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: d05a2e98-0160-465a-a9f7-2955082a7a44
+		sourceLineageTag: f283c41b-492d-4220-a7b0-c5e5f1414e03
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注日
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注数量
+		dataType: double
+		formatString: #,0.000
+		displayFolder: 10.数量
+		lineageTag: 5abacb6d-e48e-4250-afcb-94c0db4ebcce
+		sourceLineageTag: 4920ffaf-2959-4810-a112-a09ab60f2b9e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買発注数量
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注単価
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 81d4ba5c-241e-4b10-9821-a2a28ec8491a
+		sourceLineageTag: 1b58e9c5-28b2-4345-85d0-8ad3c5573c12
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注単価
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 68bd1f8b-bb00-4914-8728-a38f48a35608
+		sourceLineageTag: 101cb161-57c4-4e98-b279-9bd9513a8010
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 購買発注金額
+
+		annotation SummarizationSetBy = User
+
+	column 入出庫担当者
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 7b16fcf2-32c0-4246-a8ef-9e9d7dcac54f
+		sourceLineageTag: 3ac6552f-68d5-46e5-b010-b6310b8cccce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 入出庫担当者
+
+		annotation SummarizationSetBy = User
+
+	column 入出庫日
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: d6723050-23ae-4932-9b58-819bb60d7d57
+		sourceLineageTag: 7ef71679-de14-425c-9423-288f74e4659c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 入出庫日
+
+		annotation SummarizationSetBy = User
+
+	column 入出庫数量
+		dataType: double
+		formatString: #,0.000
+		displayFolder: 10.数量
+		lineageTag: 13fb77b5-fcb3-4dc0-87fe-2b62ceefbeb7
+		sourceLineageTag: 61c4fa23-2f53-43c7-8a99-bf90dde5d8c6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 入出庫数量
+
+		annotation SummarizationSetBy = User
+
+	column 入出庫金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: af2b7100-a39b-45cb-b2d4-2385f60974ba
+		sourceLineageTag: 21590331-f45b-4691-bbe2-272d12b8641f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 入出庫金額
+
+		annotation SummarizationSetBy = User
+
+	column 発券未発注金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 412e5d3b-5edc-409a-a637-7d302d4a1f47
+		sourceLineageTag: a043261f-5f2b-4a17-9e49-6416d5eaa619
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発券未発注金額
+
+		annotation SummarizationSetBy = User
+
+	column 発注未検収金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 7d7617d5-af53-4327-b433-663b1c5570df
+		sourceLineageTag: f8ff794d-2657-422a-b283-180761787e40
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発注未検収金額
+
+		annotation SummarizationSetBy = User
+
+	column 更新年月日
+		dataType: dateTime
+		formatString: yyyy/mm/dd
+		displayFolder: 05.日付
+		lineageTag: cdba0f0b-3c27-4f88-bc15-921a03602150
+		sourceLineageTag: 6bd60adf-ec09-4d17-a49c-0d9db88651e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 更新年月日
+
+		annotation SummarizationSetBy = User
+
+	column 工事開始日付
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: 35db91f5-e61e-4752-967c-2318e9ff5edf
+		sourceLineageTag: 2b6b4eef-a99d-49bc-8d0f-581e948680ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工事開始日付
+
+		annotation SummarizationSetBy = User
+
+	column 工事終了日付
+		dataType: string
+		displayFolder: 05.日付
+		lineageTag: c4d0849b-f5b3-4b51-a9f4-4124557df08f
+		sourceLineageTag: 9ca33be3-72e2-4d5c-984c-f86defd37f88
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工事終了日付
+
+		annotation SummarizationSetBy = User
+
+	column 申請者会社コード
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 5561bdd7-9828-45c7-ab18-75b986e9f535
+		sourceLineageTag: 8f7cf6b7-2fa1-4870-ba91-f5220de53311
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者会社コード
+
+		annotation SummarizationSetBy = User
+
+	column 申請者会社名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: d006ee53-b617-42cd-b67e-44a3f13d7d93
+		sourceLineageTag: c107041e-1c84-4635-95c6-780c67a97c9c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者会社名称
+
+		annotation SummarizationSetBy = User
+
+	column 申請者場所コード
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: ba680912-d4db-45c7-839e-25f4e8edd5a5
+		sourceLineageTag: 03670b79-b708-4e61-9599-2f48a658cecb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者場所コード
+
+		annotation SummarizationSetBy = User
+
+	column 申請者場所名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 1a9bfd9f-0267-436b-98d4-1e18256ae528
+		sourceLineageTag: 5ec85bc8-51e8-4e2b-b7c4-00ae7b3edaf0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者場所名称
+
+		annotation SummarizationSetBy = User
+
+	column 申請者部コード
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: c177017d-ed98-4501-9c38-700432167d0e
+		sourceLineageTag: 35301f49-6ebf-4294-890e-55e4d0a2a8e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者部コード
+
+		annotation SummarizationSetBy = User
+
+	column 申請者部名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: c9240f0d-1191-4566-bd89-ebfed424b434
+		sourceLineageTag: 40a65c46-a6b5-49de-8914-a56bb948fb97
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者部名称
+
+		annotation SummarizationSetBy = User
+
+	column 申請者漢字名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 0b44355b-1e97-44ce-a126-be8e7ed45f82
+		sourceLineageTag: 0b498449-a429-4419-81fc-09ca59d7b092
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者漢字名称
+
+		annotation SummarizationSetBy = User
+
+	column 品名
+		dataType: string
+		displayFolder: 08.品目
+		lineageTag: 205f327d-756e-475a-b90d-dbd945459081
+		sourceLineageTag: 4d46d7d0-b4ed-4cde-b65e-bd7275ccfdb7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 品名
+
+		annotation SummarizationSetBy = User
+
+	column 業務分類
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: f659bf54-9a25-4896-bfd6-d8584c7f7f51
+		sourceLineageTag: 0123e30d-1609-4754-83b1-a4c2132b6f84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 業務分類
+
+		annotation SummarizationSetBy = User
+
+	column 業務分類名
+		dataType: string
+		displayFolder: 06.組織
+		lineageTag: aa413bf4-9e87-4be3-a138-bd9fdb424a1f
+		sourceLineageTag: 3ce4b79d-5810-49b6-8476-bb7dea0b1e47
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 業務分類名
+
+		annotation SummarizationSetBy = User
+
+	column 種別
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 12297b93-9bd0-49aa-b906-3ea69dfce1b1
+		sourceLineageTag: 14c4459d-9c4b-4502-8ff0-921dca01c950
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 種別
+
+		annotation SummarizationSetBy = User
+
+	column 種別名称
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: f4fb4ead-0200-4ef3-bac6-6ac2433d09ce
+		sourceLineageTag: d0cb4ca8-9903-45c8-a01f-019a175849d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 種別名称
+
+		annotation SummarizationSetBy = User
+
+	column 社外用特記事項
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 6a83dabe-7310-4512-a819-b4cc5c0bf575
+		sourceLineageTag: 3c81823c-7930-4e0b-9422-607f084948cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 社外用特記事項
+
+		annotation SummarizationSetBy = User
+
+	column 社内用特記事項
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 99a7a9a3-b81e-4684-83c4-fedd728fcb62
+		sourceLineageTag: 4e473381-5ee6-4f68-a184-83bba4e77902
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 社内用特記事項
+
+		annotation SummarizationSetBy = User
+
+	column 受渡場所
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 6c3a8227-2035-4fb4-9c78-ad35e98c5f59
+		sourceLineageTag: f5899aa9-8df0-4d57-8843-efef0f2f292d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 受渡場所
+
+		annotation SummarizationSetBy = User
+
+	column スケール
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: be123201-bc7b-49aa-a4eb-7cf87cbd2288
+		sourceLineageTag: 3d9e1309-f71a-42bc-8f32-fe8a33df36bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: スケール
+
+		annotation SummarizationSetBy = User
+
+	column 配賦予算区分名称
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: 1c4f373e-b444-4cfd-a203-d8eccee3fcc8
+		sourceLineageTag: 96ffe72a-e7af-4f75-bbc7-b4cb761353b5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 配賦予算区分名称
+
+		annotation SummarizationSetBy = User
+
+	column 配賦予算金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 7fc31c07-5d85-43e9-b413-097d5a7cbe1a
+		sourceLineageTag: 12ead1b9-cd20-4121-9b62-c2d6b940e7e0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 配賦予算金額
+
+		annotation SummarizationSetBy = User
+
+	column 計画予算金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: edf655a7-6191-40d5-9a37-e40dcf3a5046
+		sourceLineageTag: a662a4f2-1f2c-4da4-b428-5ca38f797d6d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 計画予算金額
+
+		annotation SummarizationSetBy = User
+
+	column 発券累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: e1bf2b1a-cdec-4104-9107-e44ce68c8d6e
+		sourceLineageTag: 362899ec-9cf7-425f-b185-64b35ffee530
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発券累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 発注累計金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 02144d2d-2e25-46e1-8bbb-d960ece5da96
+		sourceLineageTag: 8e7df686-1b7b-47c8-b491-b3855cdd8762
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発注累計金額
+
+		annotation SummarizationSetBy = User
+
+	column 機番
+		dataType: string
+		displayFolder: 08.品目
+		lineageTag: bfc16aeb-6796-4182-bb51-5596aa20e4ea
+		sourceLineageTag: 1c68383a-afd6-40cb-ac93-2209e1497342
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 機番
+
+		annotation SummarizationSetBy = User
+
+	column 機種
+		dataType: string
+		displayFolder: 08.品目
+		lineageTag: 57c68c21-578d-47b1-8baa-a2b93373d54e
+		sourceLineageTag: d5e7058e-f74d-4993-8736-74f3323f4c66
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 機種
+
+		annotation SummarizationSetBy = User
+
+	column '修繕費区分　　※1：修繕費、2：期中取得'
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: cb73007e-35a4-4476-ad8d-99a02eb10717
+		sourceLineageTag: 0760ffc0-5453-4b8c-bd94-7812702f1a2e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 修繕費区分　　※1：修繕費、2：期中取得
+
+		annotation SummarizationSetBy = User
+
+	column 期中取得区分
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 3b9bd9f5-b72d-482b-842e-ccf200ab69d4
+		sourceLineageTag: 7a994772-c234-46f1-9af2-1c08821dfa7b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 期中取得区分
+
+		annotation SummarizationSetBy = User
+
+	column 期中取得区分名称
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 630bdd70-094c-4a20-b35c-7647cb681e0b
+		sourceLineageTag: cde881bb-c54a-4894-9ab1-d99abaae7303
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 期中取得区分名称
+
+		annotation SummarizationSetBy = User
+
+	column 起業予算認可年度
+		dataType: dateTime
+		formatString: Long Date
+		displayFolder: 05.日付
+		lineageTag: 15ed1f69-677e-4651-9950-de40767991e8
+		sourceLineageTag: 26975217-c3d1-4c2e-b1ca-7d0887230e50
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 起業予算認可年度
+
+		annotation SummarizationSetBy = User
+
+	column 予算区分1
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: 763503e1-204e-423d-9807-210608338148
+		sourceLineageTag: 0addac7f-7b8a-4dbe-9c77-690b395ddd0b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算区分1
+
+		annotation SummarizationSetBy = User
+
+	column 予算区分1名称
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: e622ead2-c761-4891-9932-83c03706def3
+		sourceLineageTag: 7afbc7cb-08fa-4d29-ac16-5b1a56e3b4b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算区分1名称
+
+		annotation SummarizationSetBy = User
+
+	column 予算区分2
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: 765039e9-87fd-47a6-a633-d32d5b0245de
+		sourceLineageTag: 51fbeeda-6ca5-4f4e-9d6e-17b7208747dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算区分2
+
+		annotation SummarizationSetBy = User
+
+	column 予算管理No
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: fb05bd44-0532-478e-aa81-c8c5484be375
+		sourceLineageTag: 20617ea3-d9db-4656-bb35-2ae0d7bd8202
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算管理No
+
+		annotation SummarizationSetBy = User
+
+	column 工期(自)
+		dataType: string
+		isHidden
+		displayFolder: 05.日付
+		lineageTag: 8f1fd8b1-e970-4a39-957e-9bb4f29ce2c6
+		sourceLineageTag: 8061f3d2-353c-4f2e-a6f6-8f61755a6807
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工期(自)
+
+		annotation SummarizationSetBy = User
+
+	column 工期(至)
+		dataType: string
+		isHidden
+		displayFolder: 05.日付
+		lineageTag: bd4659cb-524d-4c32-8135-233d7ebe6310
+		sourceLineageTag: 9f75a346-cb72-4ce6-a9ee-3e7eb265c08a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 工期(至)
+
+		annotation SummarizationSetBy = User
+
+	column リース区分(X：リース)
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 6b3867cb-2c8d-43b4-86ef-1ed2a361b03e
+		sourceLineageTag: 84b26ff6-732c-4ee4-bab2-e5668d617eb9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: リース区分(X：リース)
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 92b9a417-d72a-4866-95ef-57ffc3f50c79
+		sourceLineageTag: bbcaf129-41cb-4785-b6c8-f0cf5fa041c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買依頼No
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼明細No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 74a3b6e8-67b6-457c-8f0e-7ae98077467b
+		sourceLineageTag: c4027828-2f7b-48f8-a4ed-9d750f2a8ee3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買依頼明細No
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 1b273937-961c-4c3e-8fe5-d4937572c6d8
+		sourceLineageTag: 81525d60-7dde-470a-9536-58182b0d03f6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注No
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注明細No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 8c1ab31e-ad16-40cd-8ec6-86cc46ffeb99
+		sourceLineageTag: 0864a006-60bb-442e-97d6-15677020ec85
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注明細No
+
+		annotation SummarizationSetBy = User
+
+	column 品名(テキスト(短))
+		dataType: string
+		displayFolder: 08.品目
+		lineageTag: 5255b6e7-44e5-4937-ba45-1883b4f10102
+		sourceLineageTag: fa2383d6-2bcf-46dd-9567-965ca2a5c3aa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 品名(テキスト(短))
+
+		annotation SummarizationSetBy = User
+
+	column 購買発注者(購買グループ)
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 28ddb5dc-8496-4b00-9937-8e7fa4dc42df
+		sourceLineageTag: 208e2c06-47af-4c57-9264-3b824e3e0d6e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 購買発注者(購買グループ)
+
+		annotation SummarizationSetBy = User
+
+	column 統計的納期
+		dataType: dateTime
+		formatString: Long Date
+		displayFolder: 05.日付
+		lineageTag: c76faaa7-38f5-4e09-a3a7-f23e1982f119
+		sourceLineageTag: bb25f281-c7c6-462d-bd55-6866c95d839a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 統計的納期
+
+		annotation SummarizationSetBy = User
+
+	column 申請者課職務GRコード
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 3042009d-d5a4-43c2-bf54-db0434f57d51
+		sourceLineageTag: 9c3e72ee-deff-4855-afcd-e59b0b757eda
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者課職務GRコード
+
+		annotation SummarizationSetBy = User
+
+	column 申請者課職務GR名称
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: 7920f806-3306-4e24-a47c-5e7fc794123e
+		sourceLineageTag: be44d7b8-de1e-4f42-9f1c-f0b3f0f37336
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者課職務GR名称
+
+		annotation SummarizationSetBy = User
+
+	column 申請者OA番号
+		dataType: string
+		displayFolder: 07.取引先
+		lineageTag: b42d303f-89ab-46de-a324-8ffa1fdf0561
+		sourceLineageTag: 7ad647d9-2614-4f3e-b545-1decddd81c96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 申請者OA番号
+
+		annotation SummarizationSetBy = User
+
+	column 見積依頼No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: fd87a161-cc47-46b0-9f30-00431b520bc9
+		sourceLineageTag: 133e5140-670c-4b7e-8081-f4f970fe1555
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 見積依頼No
+
+		annotation SummarizationSetBy = User
+
+	column 見積書No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: d7f4010e-26d0-4ea1-9bd8-e543a393b912
+		sourceLineageTag: f4cb3e31-bdfb-4233-ae9f-20dbee908020
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 見積書No
+
+		annotation SummarizationSetBy = User
+
+	column 仕様書No
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 482dd723-aceb-4920-a449-30c0e8ccbc4e
+		sourceLineageTag: fd95567a-0707-4af0-bb9c-ae6dcb0c3ec0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 仕様書No
+
+		annotation SummarizationSetBy = User
+
+	column 配賦予算区分(0:計画予算，1:配賦予算)
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: 3b81c775-991a-4972-95e9-6ba31c654b3e
+		sourceLineageTag: 2c668583-cc9c-4811-a117-406f00ebf011
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 配賦予算区分(0:計画予算，1:配賦予算)
+
+		annotation SummarizationSetBy = User
+
+	column 用途区分1
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: f797b75b-fc9b-4798-8db8-70b1903a0164
+		sourceLineageTag: ba59795c-321f-4498-972f-1f9e2df94d02
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 用途区分1
+
+		annotation SummarizationSetBy = User
+
+	column 用途区分2
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: e8491342-15f3-4eef-beb1-a7b280530d30
+		sourceLineageTag: fcbc37ff-6c71-4433-85b5-365c1f55d9a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 用途区分2
+
+		annotation SummarizationSetBy = User
+
+	column 用途区分比率1
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: c5ffde59-66ab-4506-a05c-0746085bdba7
+		sourceLineageTag: d419402f-f793-4b5f-be79-0fa9beb42874
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 用途区分比率1
+
+		annotation SummarizationSetBy = User
+
+	column 用途区分比率2
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: c0a7a088-b71c-4f27-877a-9c9cd98d5f1c
+		sourceLineageTag: bb0353b2-d17f-486e-aff6-3328f7c62f39
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 用途区分比率2
+
+		annotation SummarizationSetBy = User
+
+	column RDテーマNo
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 5a95aa4d-fe11-4a1e-ad62-f1bd69aeb388
+		sourceLineageTag: 94625a55-0cfa-4251-a3c5-8d5912d62f30
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RDテーマNo
+
+		annotation SummarizationSetBy = User
+
+	column JOBNo
+		dataType: string
+		displayFolder: 03.会計
+		lineageTag: 43f249ec-9b8b-46bd-a401-099782b540ef
+		sourceLineageTag: 62861d55-b743-4195-895a-50675a437b3a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: JOBNo
+
+		annotation SummarizationSetBy = User
+
+	column 予算区分1＋予算区分2
+		dataType: string
+		displayFolder: 02.予算
+		lineageTag: 12ca8753-87e6-47d0-aa62-43d86fad341f
+		sourceLineageTag: 2c92db79-798d-4513-9e48-56538c86314f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 予算区分1＋予算区分2
+
+		annotation SummarizationSetBy = User
+
+	column 発注累計金額(千円)
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 40797615-02a9-4607-a513-a213a4fbbed8
+		sourceLineageTag: 3107b637-3ab9-41b4-860b-44e3f5f7411b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発注累計金額(千円)
+
+		annotation SummarizationSetBy = User
+
+	column 発注累計金額(百万円)
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 5fb7759b-e8cf-4d88-9d5e-65f7aaa8c52c
+		sourceLineageTag: 89f7a8e6-228a-44ef-921f-d658f652e917
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 発注累計金額(百万円)
+
+		annotation SummarizationSetBy = User
+
+	column 実績明細金額
+		dataType: double
+		formatString: #,0.00
+		displayFolder: 09.金額
+		lineageTag: 3a212305-c335-4a9f-bded-9f3c78b807e2
+		sourceLineageTag: fa794a78-164c-4cc6-9d94-0151d2cc2d8e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: 実績明細金額
+
+		annotation SummarizationSetBy = User
+
+	column スケール名
+		dataType: string
+		displayFolder: 04.取引情報
+		lineageTag: 2ccb1c79-a888-4850-9c12-984154a7520a
+		sourceLineageTag: 04888e16-dcff-4dab-81ae-a17321bd8b76
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: スケール名
+
+		annotation SummarizationSetBy = User
+
+	column 購買依頼日2 =
+			
+			SWITCH(
+			    TRUE(),
+			    [計画予算金額]>0,DATE(VALUE([予算年度]),4,1),
+			    DATE(VALUE(LEFT([購買依頼日],4)),VALUE(MID([購買依頼日],5,2)),VALUE(RIGHT([購買依頼日],2)))
+			)
+		formatString: General Date
+		displayFolder: 05.日付
+		lineageTag: 282b774f-3b9b-4aeb-8f42-ce34740d1910
+		summarizeBy: none
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類rev =
+			
+			SWITCH(
+			    TRUE(),
+			    [予算区分2]="SD",[予算区分2]&[予算区分1],
+			    LEFT([予算区分2],1)="S",[予算区分2],
+			    ""
+			)
+		displayFolder: 02.予算
+		lineageTag: cf2cbfc9-88c4-4aac-8732-12586a4a8a83
+		summarizeBy: none
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理No2 =
+			
+			SWITCH(
+			    TRUE(),
+			    LEN([予算管理No])=1, CONCATENATE("00",[予算管理No]),
+			    LEN([予算管理No])=2, CONCATENATE("0",[予算管理No]),
+			    [予算管理No]
+			)
+		displayFolder: 02.予算
+		lineageTag: 2da9a8fb-874c-462e-9c95-e3bf599012f2
+		summarizeBy: none
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 起業費・修繕費 = entity
+		mode: directQuery
+		source
+			entityName: 起業費・修繕費
+			expressionSource: 'DirectQuery to AS - MoneM_010_起業費・修繕費'
+

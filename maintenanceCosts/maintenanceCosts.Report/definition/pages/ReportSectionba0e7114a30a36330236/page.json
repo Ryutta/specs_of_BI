@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSectionba0e7114a30a36330236",
+  "displayName": "月度推移（専門区分別）",
+  "displayOption": "ActualSize",
+  "height": 2000,
+  "width": 3000,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterf380b8b85b4c0e988300",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "予算選択"
+              }
+            },
+            "Property": "予算選択"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "予",
+              "Entity": "予算選択",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "予"
+                          }
+                        },
+                        "Property": "予算選択"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'月割予算'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "d945b258800d038ae690",
+      "target": "f97da643e1010a240a66",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d945b258800d038ae690",
+      "target": "f39355a334e454c5cd31",
+      "type": "DataFilter"
+    }
+  ]
+}

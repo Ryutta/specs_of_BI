@@ -1,0 +1,311 @@
+table Query_2025
+	lineageTag: 066a569b-070d-45c8-a30e-1a90649f7672
+
+	column 管理区分
+		dataType: string
+		lineageTag: ccf5d7d8-9604-4973-9ce3-f313a72f3849
+		summarizeBy: none
+		sourceColumn: 管理区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器番号
+		dataType: string
+		lineageTag: 2084a637-8e55-49dc-86a2-fa193aa8634a
+		summarizeBy: none
+		sourceColumn: 機器番号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: ecf94de9-1d04-4fd6-8229-5d9b06c60180
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column '勘定コード.1'
+		dataType: string
+		lineageTag: 51489bb8-10bb-4a55-a02b-1c9f8fc99ee8
+		summarizeBy: none
+		sourceColumn: 勘定コード.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保全名称
+		dataType: string
+		lineageTag: 9aa2a18e-0d69-4b49-914c-7cb107ad2abc
+		summarizeBy: none
+		sourceColumn: 保全名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column '周 期'
+		dataType: string
+		lineageTag: 48076bbd-b32b-4765-a05f-5d16f45b3d36
+		summarizeBy: none
+		sourceColumn: 周 期
+
+		annotation SummarizationSetBy = Automatic
+
+	column 申請予算
+		dataType: double
+		lineageTag: eb4c3c48-4079-445a-81c4-683339979557
+		summarizeBy: sum
+		sourceColumn: 申請予算
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '予算区分1.1'
+		dataType: string
+		lineageTag: 66e7cdd2-0c01-4a6f-9287-7c81aff9b52a
+		summarizeBy: none
+		sourceColumn: 予算区分1.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column '予算区分2.1'
+		dataType: string
+		lineageTag: 79852e1b-ff86-4f07-a79e-9aca43e01599
+		summarizeBy: none
+		sourceColumn: 予算区分2.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理No
+		dataType: string
+		lineageTag: 979d47d7-3ab7-42d4-b09e-2c66ef6801cd
+		summarizeBy: none
+		sourceColumn: 予算管理No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 判定ＳＥＱＣＤ
+		dataType: string
+		lineageTag: 28196866-b639-4b95-a3ed-1712c66695fb
+		summarizeBy: none
+		sourceColumn: 判定ＳＥＱＣＤ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 優先度
+		dataType: string
+		lineageTag: 018e9456-2771-4f54-9a1b-8d83b38a7591
+		summarizeBy: none
+		sourceColumn: 優先度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 分類
+		dataType: string
+		lineageTag: a0eeb0fd-f5df-4d68-88df-7ac1c4759d3a
+		summarizeBy: none
+		sourceColumn: 分類
+
+		annotation SummarizationSetBy = Automatic
+
+	column 発生確率
+		dataType: string
+		lineageTag: c0bd6d6e-0361-4aab-8b11-a5bba276b6c7
+		summarizeBy: none
+		sourceColumn: 発生確率
+
+		annotation SummarizationSetBy = Automatic
+
+	column 機器重要度
+		dataType: string
+		lineageTag: d430b78d-db6d-48c4-a8bb-4b706077f21c
+		summarizeBy: none
+		sourceColumn: 機器重要度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 新機番
+		dataType: string
+		lineageTag: 57d2729d-7b5a-4fa0-9d0e-1f32b1b88747
+		summarizeBy: none
+		sourceColumn: 新機番
+
+		annotation SummarizationSetBy = Automatic
+
+	column 保安評価
+		dataType: double
+		lineageTag: b4bbce1e-fc5e-42b9-b16c-776150090e27
+		summarizeBy: sum
+		sourceColumn: 保安評価
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 環境評価
+		dataType: double
+		lineageTag: 64e950cb-bcb7-470f-94d5-c2883d7c5e5b
+		summarizeBy: sum
+		sourceColumn: 環境評価
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 生産評価
+		dataType: double
+		lineageTag: 733e72c8-417b-43df-911b-1f361c4ee544
+		summarizeBy: sum
+		sourceColumn: 生産評価
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 品質評価
+		dataType: double
+		lineageTag: 93446fe2-1e87-4522-81a5-feaefaac8d86
+		summarizeBy: sum
+		sourceColumn: 品質評価
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 年度
+		dataType: string
+		lineageTag: 5cb35cf3-8088-4e78-8f5f-e51211f0bd00
+		summarizeBy: none
+		sourceColumn: 年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類rev =
+			
+			SWITCH(
+			    TRUE(),
+			    [予算区分2.1]="SD",[予算区分2.1]&[予算区分1.1],
+			    LEFT([予算区分2.1])="S",[予算区分2.1],
+			    ""
+			)
+		lineageTag: 6a49acde-05ea-45ec-ae80-585a987296d4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SE/QCD =
+			
+			SWITCH(
+			    TRUE(),
+			    [判定ＳＥＱＣＤ]="SE","SE",
+			    [判定ＳＥＱＣＤ]="QCD","QCD"
+			)
+		lineageTag: 4c53462e-2b41-40b6-bad9-5013d7729ec6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SE/QCD/法定/枠/その他 =
+			
+			SWITCH(
+			    TRUE(),
+			    [対象/対象外/法定]="対象",[SE/QCD],
+			    [対象/対象外/法定]="対象外",[枠取り/その他],
+			    [対象/対象外/法定]
+			)
+		lineageTag: e5fb5b80-a122-42df-a4cf-c2f81ec5477c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 対象/対象外/法定 =
+			
+			SWITCH(
+			    TRUE(),
+			    // step1 SAのとりわけ
+			    CONTAINSSTRING([13分類rev],"SA"),"法定",
+			    // step2 枠のとりわけ
+			    OR(
+			        AND(
+			            LEN([予算管理No])=3,
+			            LEFT([予算管理No],1)="1"
+			        ),
+			        AND(
+			            LEN([予算管理No])=3,
+			            LEFT([予算管理No],1)="9"
+			        )
+			    ),"対象外",
+			    // step3 リスク対象
+			    LEN([判定ＳＥＱＣＤ])>0,"対象",
+			    // step4 それ以外
+			    "対象外"
+			)
+		lineageTag: 2d896694-473a-4715-89c0-bd3a239b630b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 枠取り/その他 =
+			
+			SWITCH(
+			    TRUE(),
+			    AND(
+			        CONTAINSSTRING([対象/対象外/法定],"外"),
+			        OR(
+			            AND(
+			                LEN([予算管理No])=3,
+			                LEFT([予算管理No],1)="1"
+			            ),
+			            AND(
+			                LEN([予算管理No])=3,
+			                LEFT([予算管理No],1)="9"
+			            )
+			        )
+			    ),"枠取り",
+			    CONTAINSSTRING([対象/対象外/法定],"外"),"その他",
+			    "リスク対象"
+			)
+		lineageTag: f1d7558d-5a9b-4518-be9f-2482a4de9fb4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 積上予算
+		dataType: double
+		lineageTag: da82fea1-359d-4c10-b29e-08e4beb7bd4e
+		summarizeBy: sum
+		sourceColumn: 積上予算
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PM/BM =
+			
+			IF(
+			    [予算区分2.1] = "SF",
+			    IF(
+			        LEFT([予算管理No],1) = "1","PM","BM"
+			    ),
+			    "SFではない"
+			)
+		lineageTag: fba8aa03-cd42-4024-9c5b-46cadd20a330
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Query_2025 = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e" = Workspaces{[workspaceId="4fb6549a-1744-4efc-b1c8-3ed67e16c00e"]}[Data],
+				    #"598cd14b-bed0-4271-94bb-b6122e1fd313" = #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e"{[dataflowId="598cd14b-bed0-4271-94bb-b6122e1fd313"]}[Data],
+				    Query_2025_ = #"598cd14b-bed0-4271-94bb-b6122e1fd313"{[entity="Query_2025",version=""]}[Data]
+				in
+				    Query_2025_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

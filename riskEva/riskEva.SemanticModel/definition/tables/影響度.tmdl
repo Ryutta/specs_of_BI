@@ -1,0 +1,24 @@
+table 影響度
+	lineageTag: bedaf9d0-377d-408f-b5c9-4e30599972ea
+
+	column 影響度
+		dataType: string
+		lineageTag: 93f5ab67-247a-4956-b576-a29ff4745ba1
+		summarizeBy: none
+		sourceColumn: 影響度
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 影響度 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSK1YlWMgKTxmDSRCk2FgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [影響度 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"影響度", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

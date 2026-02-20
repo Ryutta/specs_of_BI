@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "riskEva"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "215e3837-733f-4ba9-b993-f5129c1676fe"
+  }
+}

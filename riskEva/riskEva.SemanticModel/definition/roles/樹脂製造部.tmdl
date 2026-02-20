@@ -1,0 +1,9 @@
+role 樹脂製造部
+	modelPermission: read
+
+	tablePermission 機器台帳_推移 = [部署] == "樹脂"
+
+	tablePermission プラント略号辞書 = [部名称] == "樹脂製造部"
+
+	annotation PBI_Id = 2a230c70bf2047d18b72eb54e410d0bc
+

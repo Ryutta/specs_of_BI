@@ -1,0 +1,19 @@
+table PMorBM_Table
+	lineageTag: fd7c2b5b-d59d-4888-9d76-1b404e14fa75
+
+	column PM/BM
+		lineageTag: 9866430d-2207-4cb1-97f0-8b8595d89efd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: riskEva2026[PM/BM]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PMorBM_Table = calculated
+		mode: import
+		source =
+				
+				VALUES('riskEva2026'[PM/BM])
+
+	annotation PBI_Id = fa67e4891cc84dd3b76d6970edd374de
+

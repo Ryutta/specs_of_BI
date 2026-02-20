@@ -1,0 +1,42 @@
+table 横軸_年度
+	lineageTag: ee914fca-21d3-489a-a745-940172d9fd63
+
+	column 年度
+		dataType: string
+		lineageTag: ed3a1433-5939-4eae-a391-7700857dc3c5
+		summarizeBy: none
+		sourceColumn: 年度
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 横軸
+		dataType: string
+		lineageTag: cd4a2ab4-7858-42d6-a310-8970e483c32f
+		summarizeBy: none
+		sourceColumn: 横軸
+
+		annotation SummarizationSetBy = Automatic
+
+	column 横軸_予算ver
+		dataType: string
+		lineageTag: 049b75bb-d9f3-413e-b9f8-1cb82bc37e34
+		summarizeBy: none
+		sourceColumn: 横軸_予算ver
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 横軸_年度-2423d16c-871b-4812-8a70-519d2a91a24b = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Zcq9CYAwEEDhVSS1Re7yQzKLZB8HsLe1srJQBLcJOoaeiuS88j2+plGoIahaQcjLVOWx3+fty2No925Vqb5ZpB85i4Khvj5qxp7kDOgDZyAZ0kfOUDJD33BmJLP0LWdWMkffFf+XL/P0PWdlpnQC", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [年度 = _t, 横軸 = _t, 横軸_予算ver = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"年度", Int64.Type}, {"横軸", type text}})
+				in
+				    変更された型
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

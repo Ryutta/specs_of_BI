@@ -1,0 +1,5 @@
+role 設備技術部
+	modelPermission: read
+
+	annotation PBI_Id = 267cb359bed545189dc91bf1aa8f6160
+

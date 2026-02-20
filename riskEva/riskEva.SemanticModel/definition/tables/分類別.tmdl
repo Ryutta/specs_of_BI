@@ -1,0 +1,96 @@
+table 分類別
+	lineageTag: 39f4ba25-7960-4eec-a32c-774403a05c60
+
+	measure 2024実績 =
+			
+			CALCULATE(
+			    [trend_all],
+			    'Calendar'[FY] = "2024"
+			)
+		formatString: #,0
+		lineageTag: 98cd2039-ba28-418f-a053-4983822c489e
+
+	measure 2025予算 =
+			
+			CALCULATE(
+			    [trend_all],
+			    'Calendar'[FY] = "2025"
+			)
+		formatString: #,0
+		lineageTag: f8b73cb2-cfc4-4084-99c7-64d0bbb8ef15
+
+	measure 2026予算 =
+			
+			CALCULATE(
+			    [trend_all],
+			    'Calendar'[FY] = "2026"
+			)
+		formatString: #,0
+		lineageTag: ced59253-2de4-428a-a213-a644e7fb6f49
+
+	measure 2026予算/2024実績 = [2024実績]-[2026予算]
+		formatString: #,0
+		lineageTag: 659608da-57fe-4e60-a1cb-1314f6e35665
+
+	measure 2026_定修材修 =
+			
+			CALCULATE(
+			    [2026予算],
+			    CONTAINSSTRING('riskEva2026'[勘定コード.1],"定修")
+			)
+		formatString: #,0
+		lineageTag: 42877695-62ed-41ca-b36f-77bff2115a79
+
+	measure 2026_修繕費機械 =
+			
+			CALCULATE(
+			    [2026予算],
+			    CONTAINSSTRING('riskEva2026'[勘定コード.1],"修繕費")
+			)
+		formatString: #,0
+		lineageTag: af5c26b2-98fe-4ca2-bff9-b2f7ab30bc5d
+
+	measure 2026比率 = ```
+			
+			VAR
+			_mom = 
+			CALCULATE(
+			    [2026予算],
+			    ALL('修繕費対応分類表')
+			)
+			RETURN
+			DIVIDE([2026予算],_mom)
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: b856034a-88ff-4de2-9df7-3ff64b4a4396
+
+	measure 2026_一般材修 =
+			
+			CALCULATE(
+			    [2026予算],
+			    CONTAINSSTRING('riskEva2026'[勘定コード.1],"一般材修")
+			)
+		formatString: 0
+		lineageTag: 5dd87605-b5c3-416e-89c8-2195c53b2cd4
+
+	measure 2026_福利材修 =
+			
+			CALCULATE(
+			    [2026予算],
+			    CONTAINSSTRING('riskEva2026'[勘定コード.1],"福利材修")
+			)
+		formatString: 0
+		lineageTag: e4465bf4-4b5d-4481-8481-0199b41036c4
+
+	partition 分類別-eb57b7e7-6459-4bab-af42-225c8961261a = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

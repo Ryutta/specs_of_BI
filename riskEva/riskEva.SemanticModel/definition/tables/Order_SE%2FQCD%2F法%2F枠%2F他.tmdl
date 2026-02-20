@@ -1,0 +1,37 @@
+table Order_SE/QCD/法/枠/他
+	lineageTag: d479c0b8-3883-4ddc-97aa-b745d31afd6b
+
+	column name
+		dataType: string
+		lineageTag: b31155e2-3ae3-46b0-b67d-0db3a1827f9b
+		summarizeBy: none
+		sourceColumn: name
+		sortByColumn: order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column order
+		dataType: double
+		lineageTag: 51ed9f46-6798-46bd-8013-745c4a04f448
+		summarizeBy: sum
+		sourceColumn: order
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Order_SE/QCD/法/枠/他-5d8c1f2d-a15c-41d4-ab24-a61d5dcf12d9 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCnZV0lEyVIrViVYKdHYBso3A7GfzFjztn/a4qQsoYgwWedw493Hjuie7pwFFTCBqNk99um4WkGuqFBsLAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [name = _t, order = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(ソース,{{"order", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

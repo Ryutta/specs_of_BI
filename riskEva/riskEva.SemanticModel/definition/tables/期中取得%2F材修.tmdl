@@ -1,0 +1,150 @@
+table 期中取得/材修
+	lineageTag: 9cbb757f-45fd-44d8-a922-1218fe38523e
+
+	column 予算年度
+		dataType: string
+		lineageTag: 1b782e70-74fc-446e-91d5-3f8d5a2874d4
+		summarizeBy: none
+		sourceColumn: 予算年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 専門区分
+		dataType: string
+		lineageTag: b9dc8d62-63db-4f34-ac8d-9635b238ec2c
+		summarizeBy: none
+		sourceColumn: 専門区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 専門区分名称
+		dataType: string
+		lineageTag: b369689c-6f26-4819-a5ed-c9a27c6a4e7d
+		summarizeBy: none
+		sourceColumn: 専門区分名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定コード
+		dataType: string
+		lineageTag: 40ca9ace-e35a-486d-902e-ada639aaf0b2
+		summarizeBy: none
+		sourceColumn: 勘定コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定名称
+		dataType: string
+		lineageTag: 7c0bfd71-a3b4-491f-81a2-ad5ef920cd0b
+		summarizeBy: none
+		sourceColumn: 勘定名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分１
+		dataType: string
+		lineageTag: 6768bf1d-d225-4143-8925-0a869d6ca58e
+		summarizeBy: none
+		sourceColumn: 予算区分１
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分１名称
+		dataType: string
+		lineageTag: 94ce3ee6-acf1-4a33-abea-43e83296075f
+		summarizeBy: none
+		sourceColumn: 予算区分１名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分２
+		dataType: string
+		lineageTag: 17391593-1aa1-4f97-828b-133dd5db4ae3
+		summarizeBy: none
+		sourceColumn: 予算区分２
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理ＮＯ
+		dataType: string
+		lineageTag: 34114af3-0422-46d0-8e6c-1db340d0f2b7
+		summarizeBy: none
+		sourceColumn: 予算管理ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理名称
+		dataType: string
+		lineageTag: 39fccb18-d4c8-4872-894f-ad54a9bcffa2
+		summarizeBy: none
+		sourceColumn: 予算管理名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: 1b43aec1-aea7-4324-9099-059d619ec3e6
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 実績金額
+		dataType: double
+		lineageTag: 6b6c8bb4-f35b-46a0-a88b-d5680e86d025
+		summarizeBy: sum
+		sourceColumn: 実績金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 勘定名称2 =
+			
+			SWITCH(
+			    TRUE(),
+			    CONTAINSSTRING([勘定名称],"一般"), "自部門修繕費",
+			    "期中取得"
+			)
+		lineageTag: 681af9e4-5e59-48bc-b275-3dab5bb3e4e7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 部名称
+		dataType: string
+		lineageTag: e78be2c4-2b9e-4ec3-85d9-d0e629dfe4ac
+		summarizeBy: none
+		sourceColumn: 部名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 計画予算金額
+		dataType: double
+		lineageTag: 5c682a08-7e28-481a-807f-f018a8a362cc
+		summarizeBy: sum
+		sourceColumn: 計画予算金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 期中取得/材修 = m
+		mode: import
+		source =
+				let
+				    ソース = Excel.Workbook(Web.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1/101P180_Employee/101P180%20%E8%A8%AD%E5%82%99%E6%8A%80%E8%A1%93%E9%83%A8%20%E7%A4%BE%E5%93%A1/N.%E4%BA%88%E7%AE%97%E7%AE%A1%E7%90%86/N0.%E6%8A%95%E8%B3%87%E3%83%BB%E4%BF%AE%E7%B9%95%E8%B2%BB%E4%BA%88%E7%AE%97%E7%B7%A8%E6%88%90/2026%E5%B9%B4%E5%BA%A6%E4%BA%88%E7%AE%97%E7%B7%A8%E6%88%90/2.%E9%83%A8%E5%86%85%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB/P1.PowerBI%E8%A6%81%E6%9C%9B/%E4%BA%8B%E6%A5%AD%E6%89%80%E3%80%80%E4%B8%80%E8%88%AC%E6%9D%90%E9%9B%86%E8%B2%BB%E3%83%BB%E6%9C%9F%E4%B8%AD%E5%8F%96%E5%BE%97%EF%BC%BF%E4%BA%88%E5%AE%9F%E7%AE%A1%E7%90%86(20250808%E6%8A%BD%E5%87%BA)_2017%E5%B9%B4%E5%BA%A6%E4%BB%A5%E9%99%8D.xlsx"), null, true),
+				    #"Filtered Rows" = Table.SelectRows(ソース, each ([Name] = "レポート 1")),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Data"}),
+				    #"Expanded Data" = Table.ExpandTableColumn(#"Removed Other Columns", "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Column29", "Column30", "Column31", "Column32", "Column33", "Column34", "Column35", "Column36", "Column37", "Column38", "Column39", "Column40", "Column41", "Column42", "Column43", "Column44", "Column45", "Column46", "Column47", "Column48", "Column49", "Column50", "Column51", "Column52", "Column53", "Column54", "Column55", "Column56", "Column57", "Column58", "Column59", "Column60", "Column61", "Column62", "Column63", "Column64", "Column65", "Column66", "Column67", "Column68", "Column69", "Column70", "Column71", "Column72", "Column73"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Column29", "Column30", "Column31", "Column32", "Column33", "Column34", "Column35", "Column36", "Column37", "Column38", "Column39", "Column40", "Column41", "Column42", "Column43", "Column44", "Column45", "Column46", "Column47", "Column48", "Column49", "Column50", "Column51", "Column52", "Column53", "Column54", "Column55", "Column56", "Column57", "Column58", "Column59", "Column60", "Column61", "Column62", "Column63", "Column64", "Column65", "Column66", "Column67", "Column68", "Column69", "Column70", "Column71", "Column72", "Column73"}),
+				    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Promoted Headers",{"予算年度", "専門区分", "専門区分名称", "勘定コード", "勘定名称", "予算区分１", "予算区分１名称", "予算区分２", "予算管理ＮＯ", "予算管理名称", "部名称", "計画予算金額", "実績金額", "原価センタ"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns1",{{"実績金額", type number}, {"計画予算金額", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

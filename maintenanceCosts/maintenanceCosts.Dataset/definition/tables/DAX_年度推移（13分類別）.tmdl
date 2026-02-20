@@ -1,0 +1,592 @@
+table DAX_年度推移（13分類別）
+	lineageTag: 562e7bdc-5858-4b66-8e9f-0c6fa22bdcb9
+
+	measure SA_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SA"
+			)
+		formatString: #,0
+		lineageTag: 33d3fde8-ef63-45f5-845e-89d857136ca1
+
+	measure SA_予算累積 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SA"
+			)
+		formatString: #,0
+		lineageTag: 00baae2f-65c2-41bc-9385-e98ac90d6f76
+
+	measure SA_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SA"
+			)
+		formatString: #,0
+		lineageTag: 822a9c95-b2e9-467b-b554-d287bc665aa9
+
+	measure SB_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SB"
+			)
+		formatString: #,0
+		lineageTag: 11a02ca4-5d56-41c5-97ac-df2adbd4f0bd
+
+	measure SB_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SB"
+			)
+		formatString: #,0
+		lineageTag: 01443f67-98e1-408e-b165-62a64d2fb023
+
+	measure SB_予算累積 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SB"
+			)
+		formatString: #,0
+		lineageTag: 29bcc784-e675-4bbd-8ac3-bab6da4aaabd
+
+	measure SC_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SC"
+			)
+		formatString: #,0
+		lineageTag: 6932b6af-ff22-4e94-9f92-eb97a76d5e61
+
+	measure SC_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SC"
+			)
+		formatString: #,0
+		lineageTag: ccbe4ad9-39f7-465d-badd-261f670b8f66
+
+	measure SC_予算累積 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SC"
+			)
+		formatString: #,0
+		lineageTag: b0724c24-d566-4372-8207-d75ce55ba2e7
+
+	measure SD_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SD"
+			)
+		formatString: #,0
+		lineageTag: d3145a9a-7019-4a58-8db8-6ff563cfe776
+
+	measure SD_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SD"
+			)
+		formatString: #,0
+		lineageTag: 2bd6b250-a2c9-4fde-955a-53ed756ae236
+
+	measure SD_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SD"
+			)
+		formatString: #,0
+		lineageTag: 92a6cc5e-5b6d-48f2-9237-ba5d7acbb5d6
+
+	measure SF_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SF"
+			)
+		formatString: #,0
+		lineageTag: 9d0dd11d-660f-4d98-9d97-fd70ba9d62be
+
+	measure SF_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SF"
+			)
+		formatString: #,0
+		lineageTag: 5c1e53ce-9d09-487b-af94-3221817d3bad
+
+	measure SF_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SF"
+			)
+		formatString: #,0
+		lineageTag: ac376d8d-62f4-48bc-b0ef-c0255809cb06
+
+	measure SG_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SG"
+			)
+		formatString: #,0
+		lineageTag: 7b538c65-fcef-43e4-a94b-3ea5a1d9440a
+
+	measure SG_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SG"
+			)
+		formatString: #,0
+		lineageTag: 475ab349-039f-4dc6-8e7b-c1083c064126
+
+	measure SG_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SG"
+			)
+		formatString: #,0
+		lineageTag: 310c3a35-4c19-4829-8c5b-0b1f540ec6f4
+
+	measure SH_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SH"
+			)
+		formatString: #,0
+		lineageTag: f311d26e-ca31-4e54-9faa-c5d6b18a57cb
+
+	measure SH_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SH"
+			)
+		formatString: #,0
+		lineageTag: 7dfcf93a-3663-4836-a64b-4f078638c87c
+
+	measure SH_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SH"
+			)
+		formatString: #,0
+		lineageTag: 9b097637-b5d1-4acf-b24a-502869e533ee
+
+	measure SJ_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SJ"
+			)
+		formatString: #,0
+		lineageTag: 477350c1-b8cd-4eac-b97f-55702b63f8a5
+
+	measure SJ_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SJ"
+			)
+		formatString: #,0
+		lineageTag: d0f6a031-d9ed-4d4f-b568-c18305249b85
+
+	measure SJ_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SJ"
+			)
+		formatString: #,0
+		lineageTag: 970eca51-2dd2-42ef-8647-2a059d6d5dd2
+
+	measure SL_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SL"
+			)
+		formatString: #,0
+		lineageTag: 7fb06b51-e7db-4502-a444-b641c04f9073
+
+	measure SL_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SL"
+			)
+		formatString: #,0
+		lineageTag: ea624a76-c6e3-481c-8c09-123d241e5db7
+
+	measure SL_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SL"
+			)
+		formatString: #,0
+		lineageTag: 6b5db44a-b734-443b-8b82-f6ae991a9011
+
+	measure SM_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SM"
+			)
+		formatString: #,0
+		lineageTag: 31531b52-e3a1-4511-baba-195c6d584001
+
+	measure SM_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SM"
+			)
+		formatString: #,0
+		lineageTag: 8ae3305d-8a66-482a-9b0e-494a3ca75091
+
+	measure SM_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SM"
+			)
+		formatString: #,0
+		lineageTag: cad32d63-6333-4660-9c67-57ab559a9586
+
+	measure SN_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SN"
+			)
+		formatString: #,0
+		lineageTag: aadda9d6-696e-450f-9aac-4c8745ca0220
+
+	measure SN_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SN"
+			)
+		formatString: #,0
+		lineageTag: 4dd1f9d2-5680-48bf-8889-69b7a54c53e8
+
+	measure SN_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SN"
+			)
+		formatString: #,0
+		lineageTag: 95fe7682-89d9-4ec1-bf8c-b41191c3a9a2
+
+	measure SO_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SO"
+			)
+		formatString: #,0
+		lineageTag: 8be3487b-99fe-46a1-bc8e-0fd398979217
+
+	measure SO_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SO"
+			)
+		formatString: #,0
+		lineageTag: 3856a187-2056-4ebb-9585-85d06cec541c
+
+	measure SO_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SO"
+			)
+		formatString: #,0
+		lineageTag: 8b9205e8-60e7-4418-94e3-7e2d75fcbc07
+
+	measure SQ_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SQ"
+			)
+		formatString: #,0
+		lineageTag: a5fcf766-fd59-447c-bd42-fe93f727f7b0
+
+	measure SQ_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SQ"
+			)
+		formatString: #,0
+		lineageTag: 0dc2ab7f-a8ad-40c5-b7aa-e41a016d2a2a
+
+	measure SQ_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SQ"
+			)
+		formatString: #,0
+		lineageTag: eda17152-047d-482e-a2c8-19d22155a64b
+
+	measure ST_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="ST"
+			)
+		formatString: #,0
+		lineageTag: 4240b5bb-0d00-4061-87b4-cc0c480d9e8b
+
+	measure ST_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="ST"
+			)
+		formatString: #,0
+		lineageTag: 61bc2690-5ad5-4ae9-a958-394dd8f76ff5
+
+	measure ST_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="ST"
+			)
+		formatString: #,0
+		lineageTag: 8937d350-e0b0-427b-9a0c-1c3d4cd21346
+
+	measure SU_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SU"
+			)
+		formatString: #,0
+		lineageTag: db5180d6-0a5a-4ea3-818a-bdb0d74714b2
+
+	measure SU_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SU"
+			)
+		formatString: 0
+		lineageTag: e7e86ba8-c956-4ab8-9c61-8e1ee03668cb
+
+	measure SU_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SU"
+			)
+		formatString: #,0
+		lineageTag: 61f5cf76-e8ce-47da-abf5-c46eb7fe6241
+
+	measure SZ_実績月別 =
+			
+			CALCULATE(
+			    [全体_実績月別_固定],
+			    '予算区分2'[予算区分2]="SZ"
+			)
+		formatString: #,0
+		lineageTag: 0c121ed7-7ae2-4e20-b6b7-569fce88282b
+
+	measure SZ_実績累積 =
+			
+			CALCULATE(
+			    [全体_実績累積_固定],
+			    '予算区分2'[予算区分2]="SZ"
+			)
+		formatString: #,0
+		lineageTag: f759173a-2e4f-4b3a-b7dc-7662ed2871d3
+
+	measure SZ_予算累積_固定 =
+			
+			CALCULATE(
+			    [全体_予算累積_固定],
+			    '予算区分2'[予算区分2]="SZ"
+			)
+		formatString: #,0
+		lineageTag: c16c8cdd-3672-4dca-99f8-32f5289136d9
+
+	measure SA_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SA"
+			)
+		formatString: #,0
+		lineageTag: abc1df3d-1240-46b8-b2ae-c941189406ea
+
+	measure SB_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SB"
+			)
+		lineageTag: 9431dd6a-6b79-41e1-83b5-9a680ef6b43b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure SC_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SC"
+			)
+		formatString: #,0
+		lineageTag: 250778c5-0ff9-4f7f-aa07-87cfdf057ddc
+
+	measure SD_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SD"
+			)
+		formatString: #,0
+		lineageTag: fd8bcfcb-f73f-417f-96ab-e4597afd3087
+
+	measure SF_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SF"
+			)
+		formatString: #,0
+		lineageTag: 802bd94a-16da-4657-bec5-61891477d56c
+
+	measure SG_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SG"
+			)
+		formatString: #,0
+		lineageTag: 3553fd8e-5cc1-44bf-9c7e-82fcdb61aa6c
+
+	measure SH_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SH"
+			)
+		formatString: #,0
+		lineageTag: 498dd71f-ff3c-4392-bda3-fd9bf55e6aa2
+
+	measure SJ_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SJ"
+			)
+		formatString: #,0
+		lineageTag: 192fa168-df82-48d6-8751-acb7faa8f754
+
+	measure SL_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SL"
+			)
+		formatString: #,0
+		lineageTag: 41704f27-fcd2-4706-b2bd-ddf532deb8c8
+
+	measure SM_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SM"
+			)
+		formatString: #,0
+		lineageTag: a55e1511-e354-4b51-88bf-4f722e28f215
+
+	measure SN_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SN"
+			)
+		formatString: #,0
+		lineageTag: 6c0573f5-92b7-4a84-abad-4a4aa917f010
+
+	measure SO_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SO"
+			)
+		formatString: #,0
+		lineageTag: b4490e9c-6e9b-419d-9912-54976a081afd
+
+	measure SQ_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SQ"
+			)
+		formatString: #,0
+		lineageTag: c76c3fd6-1e90-4ce2-a9de-1ce66694ee43
+
+	measure ST_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="ST"
+			)
+		formatString: #,0
+		lineageTag: 7adeda4c-e48e-4d04-8477-aa251da9a4a5
+
+	measure SU_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SU"
+			)
+		formatString: #,0
+		lineageTag: d2e62da8-3ab3-4ab4-a708-9b765d9e526f
+
+	measure SZ_調整予算 =
+			
+			CALCULATE(
+			    [調整予算_累積2],
+			    'Dim_予算区分2'[予算区分2]="SZ"
+			)
+		formatString: #,0
+		lineageTag: 39fd5edd-252f-4084-8ad8-17e74f40a7b4
+
+	partition DAX_年度推移（13分類別）-aa6fcedc-3b1c-4743-bf8d-b67bc9e59a22 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

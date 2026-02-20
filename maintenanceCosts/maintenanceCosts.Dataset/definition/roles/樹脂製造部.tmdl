@@ -1,0 +1,7 @@
+role 樹脂製造部
+	modelPermission: read
+
+	tablePermission プラント略号辞書 = [部名称] == "樹脂製造部"
+
+	annotation PBI_Id = 32e6524ed89946a2878bd373675e7a92
+

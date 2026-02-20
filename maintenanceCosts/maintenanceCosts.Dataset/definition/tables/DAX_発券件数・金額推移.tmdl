@@ -1,0 +1,159 @@
+table DAX_発券件数・金額推移
+	lineageTag: 553275cc-cf05-4e8c-879e-3579f7aa0a95
+
+	measure 発券件数_設備技術部 =
+			
+			CALCULATE(
+			    COUNTROWS('購買明細'),
+			    AND('購買明細'[申請者場所コード]="P1",'購買明細'[申請者部コード]="80")
+			)
+		formatString: #,0
+		lineageTag: dbe1305f-3937-4c44-a2b9-7be451a09746
+
+	measure 松江東_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"松江東")
+			)
+		formatString: 0
+		lineageTag: c3de795b-c443-4f34-b202-e103585dbaae
+
+	measure 松江東_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"松江東")
+			)
+		formatString: #,0
+		lineageTag: 125d24fa-7d4a-4945-a4af-4bbcd85c5a0e
+
+	measure 機械１_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械１")
+			)
+		formatString: 0
+		lineageTag: 3e2ca8c8-4070-406d-bca4-60a855fc40ab
+
+	measure 機械２_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械２")
+			)
+		formatString: 0
+		lineageTag: cac858f7-07b5-406c-a192-62627e8baad1
+
+	measure 機械３_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械３")
+			)
+		formatString: 0
+		lineageTag: 8e8ad87e-3c5f-496d-9c8e-056eb40f6219
+
+	measure 機械４_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械４")
+			)
+		formatString: 0
+		lineageTag: 33585649-8df7-46f7-b588-b9c01d19f7a4
+
+	measure 電計１_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"電計１")
+			)
+		formatString: 0
+		lineageTag: a884c01b-ac3e-49e5-98d8-aa2e4215b620
+
+	measure 発券金額_設備技術部 =
+			
+			CALCULATE(
+			    [実績月別],
+			    AND('購買明細'[申請者場所コード]="P1",'購買明細'[申請者部コード]="80")
+			)
+		formatString: #,0
+		lineageTag: a730f255-ad58-4e8c-9e11-20150c548e21
+
+	measure 機械１_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械１")
+			)
+		formatString: #,0
+		lineageTag: 57992096-9d89-43c9-9a00-ec6edc0ea780
+
+	measure 機械２_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械２")
+			)
+		formatString: #,0
+		lineageTag: 32c0114d-fc3b-4391-837b-1053f1309819
+
+	measure 機械３_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械３")
+			)
+		formatString: #,0
+		lineageTag: 8ddbdbf3-8a12-496a-9cc5-ee8def7ee09d
+
+	measure 機械４_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"機械４")
+			)
+		formatString: #,0
+		lineageTag: 5d75399a-64d7-445f-8f60-f0271d83e03e
+
+	measure 電計１_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"電計１")
+			)
+		formatString: #,0
+		lineageTag: 9cebe3df-2f19-4b11-9a58-164ff5344a60
+
+	measure 電計２_発券金額 =
+			
+			CALCULATE(
+			    [発券金額_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"電計２")
+			)
+		formatString: #,0
+		lineageTag: f86d903b-23d4-4644-8968-90e689dc64c0
+
+	measure 電計２_発券件数 =
+			
+			CALCULATE(
+			    [発券件数_設備技術部],
+			    CONTAINSSTRING('購買明細'[申請者課職務ＧＲ名称],"電計２")
+			)
+		formatString: 0
+		lineageTag: 61921b7d-c96a-4b44-90df-04bfc51d4dea
+
+	partition DAX_発券件数・金額推移-212131f2-1539-47da-94f7-51527fbc1f63 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

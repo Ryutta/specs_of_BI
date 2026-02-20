@@ -1,0 +1,186 @@
+table 購買明細
+	lineageTag: 7c752a0d-0486-4e48-882c-ac6c7d60d5b8
+
+	column 予算年度
+		dataType: int64
+		formatString: 0
+		lineageTag: f2dcb82d-cfff-4864-8bde-f2a6539a4e19
+		summarizeBy: sum
+		sourceColumn: 予算年度
+
+		annotation SummarizationSetBy = Automatic
+
+	column 専門区分
+		dataType: string
+		lineageTag: 13256370-028c-4ecd-9062-3b2278b5ccfb
+		summarizeBy: none
+		sourceColumn: 専門区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定コード
+		dataType: string
+		lineageTag: 94df9e8c-9835-45ad-a4fc-b970610d19df
+		summarizeBy: none
+		sourceColumn: 勘定コード
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分１
+		dataType: string
+		lineageTag: 1f68ebba-ee47-42f5-93d4-fc225965fdbd
+		summarizeBy: none
+		sourceColumn: 予算区分１
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算区分２
+		dataType: string
+		lineageTag: 064af866-7668-40f2-97fa-c456e830b22b
+		summarizeBy: none
+		sourceColumn: 予算区分２
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼日
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f98f3dcb-0dbc-4294-b8b8-07d586e5002c
+		summarizeBy: none
+		sourceColumn: 購買依頼日
+
+		variation Variation
+			isDefault
+			relationship: ad8591ac-ac7a-4699-a7d8-15188030cc4b
+			defaultHierarchy: LocalDateTable_3fe42189-4189-4c15-b8de-c1c605d90329.日付の階層
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 実績明細金額
+		dataType: double
+		lineageTag: b95d2d37-d78d-4bef-ab11-4b2037085c51
+		summarizeBy: sum
+		sourceColumn: 実績明細金額
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 区分
+		dataType: string
+		lineageTag: aae43d2d-64c9-482e-8366-5df40bd3298c
+		summarizeBy: none
+		sourceColumn: 区分
+
+		annotation SummarizationSetBy = Automatic
+
+	column 勘定名称
+		dataType: string
+		lineageTag: 7aa6caf6-bfd7-4e80-a741-9c326d63709a
+		summarizeBy: none
+		sourceColumn: 勘定名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理ＮＯ
+		dataType: string
+		lineageTag: 1d98107c-93bc-4e63-ba67-a2d381998446
+		summarizeBy: none
+		sourceColumn: 予算管理ＮＯ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 予算管理No2 =
+			
+			SWITCH(
+			    TRUE(),
+			    LEN([予算管理ＮＯ])=1, CONCATENATE("00",[予算管理ＮＯ]),
+			    LEN([予算管理ＮＯ])=2, CONCATENATE("0",[予算管理ＮＯ]),
+			    [予算管理ＮＯ]
+			)
+		lineageTag: 8c4a56d6-420d-4308-84e0-17a6fb9e9df4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 原価センタ
+		dataType: string
+		lineageTag: b21067ab-39cf-464a-aefd-6fdb94606395
+		summarizeBy: none
+		sourceColumn: 原価センタ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 購買依頼日2 = ```
+			
+			VAR _fy = '購買明細'[予算年度]  -- A列の年度を取得
+			VAR _start = DATE(_fy, 4, 1)  -- 例: 2019/4/1
+			VAR _end = DATE(_fy + 1, 3, 31) -- 例: 2020/3/31
+			VAR _date = '購買明細'[購買依頼日]    -- B列の元の日付を取得
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        -- 1. 年度開始日より前の場合、年度開始日に補正
+			        _date < _start, _start,
+			        
+			        -- 2. 年度終了日より後の場合、年度終了日に補正
+			        _date > _end, _end,
+			        
+			        -- 3. 範囲内の場合、元のまま
+			        _date
+			    )
+			```
+		formatString: General Date
+		lineageTag: 75cb41ea-31d0-46ff-a861-a8c1bf1a57c3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類rev =
+			
+			SWITCH(
+			    TRUE(),
+			    [予算区分２]="SD",[予算区分２]&[予算区分１],
+			    LEFT([予算区分２],1)="S",[予算区分２],
+			    ""
+			)
+		lineageTag: 28a29a7c-ff0b-4427-b6d6-3c13438ab140
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PM/BM =
+			
+			IF(
+			    [予算区分２] = "SF",
+			    IF(
+			        LEFT([予算管理No2],1) = "1","PM","BM"
+			    ),
+			    "SFではない"
+			)
+		lineageTag: 05c3dcc5-2fe9-4219-b56a-8415e034d87a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 購買明細 = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e" = Workspaces{[workspaceId="4fb6549a-1744-4efc-b1c8-3ed67e16c00e"]}[Data],
+				    #"8c7302d1-372e-44f6-8bcc-ce8e510317d7" = #"4fb6549a-1744-4efc-b1c8-3ed67e16c00e"{[dataflowId="8c7302d1-372e-44f6-8bcc-ce8e510317d7"]}[Data],
+				    購買明細_ = #"8c7302d1-372e-44f6-8bcc-ce8e510317d7"{[entity="購買明細",version=""]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(購買明細_,{"予算年度", "専門区分", "勘定コード", "勘定名称", "予算区分１", "予算区分２", "予算管理ＮＯ", "購買依頼日", "実績明細金額", "原価センタ", "区分"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"予算年度", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

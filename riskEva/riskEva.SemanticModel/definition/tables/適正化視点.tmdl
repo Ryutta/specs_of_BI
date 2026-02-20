@@ -1,0 +1,80 @@
+table 適正化視点
+	lineageTag: 98d0ef2a-254f-4802-93ef-a643700f5a1a
+
+	column 視点記号
+		dataType: string
+		lineageTag: 5f476a98-961c-4dcb-b717-2c2c0efa1693
+		summarizeBy: none
+		sourceColumn: 視点記号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 適正化視点
+		dataType: string
+		lineageTag: 5f1e838b-b9fd-4948-bb7a-0e6d5a84fd48
+		summarizeBy: none
+		sourceColumn: 適正化視点
+
+		annotation SummarizationSetBy = Automatic
+
+	column 視点番号
+		dataType: string
+		lineageTag: f62774ea-4df8-4406-865c-386a04bc0635
+		summarizeBy: none
+		sourceColumn: 視点番号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 施策名
+		dataType: string
+		lineageTag: 44da0186-c726-4947-86c6-f5c0bdd8f0c3
+		summarizeBy: none
+		sourceColumn: 施策名
+
+		annotation SummarizationSetBy = Automatic
+
+	column E列＋F列
+		dataType: string
+		lineageTag: 17860964-6419-4bdc-bd04-9e0f6f358503
+		summarizeBy: none
+		sourceColumn: E列＋F列
+
+		annotation SummarizationSetBy = Automatic
+
+	column 概要
+		dataType: string
+		lineageTag: 623351a2-dc58-404c-8045-34200920b31b
+		summarizeBy: none
+		sourceColumn: 概要
+
+		annotation SummarizationSetBy = Automatic
+
+	column 対象機器
+		dataType: string
+		lineageTag: 1bb9bfd2-8ad7-486b-bd97-36e627e3dbe4
+		summarizeBy: none
+		sourceColumn: 対象機器
+
+		annotation SummarizationSetBy = Automatic
+
+	column 留意点
+		dataType: string
+		lineageTag: 7f7a6301-df36-4dd5-86a4-1abbf69812a9
+		summarizeBy: none
+		sourceColumn: 留意点
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 適正化視点-7aa12612-ec03-4884-9592-e1d42d3aa541 = m
+		mode: import
+		source =
+				let
+				    ソース = Excel.Workbook(Web.Contents("https://mchcgr.sharepoint.com/sites/MCJP-DP-101P1/101P180_Employee/101P180%20%E8%A8%AD%E5%82%99%E6%8A%80%E8%A1%93%E9%83%A8%20%E7%A4%BE%E5%93%A1/N.%E4%BA%88%E7%AE%97%E7%AE%A1%E7%90%86/N0.%E6%8A%95%E8%B3%87%E3%83%BB%E4%BF%AE%E7%B9%95%E8%B2%BB%E4%BA%88%E7%AE%97%E7%B7%A8%E6%88%90/2024%E5%B9%B4%E5%BA%A6%E4%BA%88%E7%AE%97%E7%B7%A8%E6%88%90/2.%E9%83%A8%E5%86%85%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB/PowerBI_%E3%83%AA%E3%82%B9%E3%82%AF%E8%A9%95%E4%BE%A1/Rev1%E3%80%90CR%E8%AA%B2%E3%80%912024%E5%B9%B4%E5%BA%A6%E3%83%AA%E3%82%B9%E3%82%AF%E8%A9%95%E4%BE%A1-%20%E7%B7%A8%E9%9B%86%E5%8F%AF%E8%83%BD.xlsm"), null, true),
+				    適正化視点_Sheet = ソース{[Item="適正化視点",Kind="Sheet"]}[Data],
+				    昇格されたヘッダー数 = Table.PromoteHeaders(適正化視点_Sheet, [PromoteAllScalars=true]),
+				    下方向へコピー済み = Table.FillDown(昇格されたヘッダー数,{"視点記号", "適正化視点"})
+				in
+				    下方向へコピー済み
+
+	annotation PBI_ResultType = Table
+

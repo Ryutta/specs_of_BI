@@ -1,0 +1,154 @@
+table 中計_実績_計画_マトリックス
+	lineageTag: c09ff979-262e-438f-91d7-0523b2e8381b
+
+	measure 実績_21 =
+			
+			CALCULATE(
+			    [trend_all],
+			    '横軸_年度'[年度] = "2021"
+			)
+		formatString: #,0
+		lineageTag: ea14c39c-ef26-441d-a0cd-f5487af80d3b
+
+	measure 実績_22 =
+			
+			CALCULATE(
+			    [trend_all],
+			    '横軸_年度'[年度] = "2022"
+			)
+		formatString: #,0
+		lineageTag: 8d8ae251-35c8-420d-8f44-9ba7c0400fa4
+
+	measure 実績_23 =
+			
+			CALCULATE(
+			    [trend_all],
+			    '横軸_年度'[年度] = "2023"
+			)
+		formatString: #,0
+		lineageTag: 70d8e48e-da46-45a2-bdb2-7c12bfb908ce
+
+	measure 実績_24 =
+			
+			CALCULATE(
+			    [trend_all],
+			    '横軸_年度'[年度] = "2024"
+			)
+		formatString: #,0
+		lineageTag: bd7ef284-1da6-4655-be22-96b8e9e8dd14
+
+	measure 計画_25 =
+			
+			CALCULATE(
+			    [trend_all],
+			    '横軸_年度'[年度] = "2025"
+			)
+		formatString: #,0
+		lineageTag: f86ada8a-956f-4945-8039-bb9ee433fce8
+
+	measure 実績_計画_合計 = [実績_21]+[実績_22]+[実績_23]+[実績_24]+[計画_25]
+		formatString: #,0
+		lineageTag: 6f8bec9d-d982-44b4-90ca-a1ff502c1d4d
+
+	measure 予算_21 =
+			
+			CALCULATE(
+			    [予算],
+			    'Calendar'[FY]="2021"
+			)
+		formatString: #,0
+		lineageTag: 028c717e-e76a-479e-9062-1d61aff413e4
+
+	measure 予算_22 =
+			
+			CALCULATE(
+			    [予算],
+			    'Calendar'[FY]="2022"
+			)
+		formatString: #,0
+		lineageTag: 7f1df94c-8756-4c70-be70-6184b9c7722c
+
+	measure 予算_23 =
+			
+			CALCULATE(
+			    [予算],
+			    'Calendar'[FY]="2023"
+			)
+		formatString: #,0
+		lineageTag: c9de6d17-8524-4770-ae52-cda17ba8c401
+
+	measure 予算_24 =
+			
+			CALCULATE(
+			    [予算],
+			    'Calendar'[FY]="2024"
+			)
+		formatString: #,0
+		lineageTag: d6928ca3-f404-4815-98e0-599562782e29
+
+	measure diff_予実_21 =
+			
+			VAR
+			_diff = [予算_21]-[実績_21]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _diff>=0,_diff,
+			    "▲"&FORMAT(_diff*-1,0)
+			)
+		formatString: 0
+		lineageTag: 613161b5-71d1-4d1f-abb9-856b4b7ec07d
+
+	measure diff_予実_22_rule = [予算_22]-[実績_22]
+		formatString: 0
+		lineageTag: bd48ba8e-8778-4263-9e43-2128df2877eb
+
+	measure diff_予実_23_rule = [予算_23]-[実績_23]
+		formatString: 0
+		lineageTag: 164586dd-9dad-4265-895d-856e3cb7d29f
+
+	measure diff_予実_21_rule = [予算_21]-[実績_21]
+		lineageTag: 8bbd4ce2-3ca7-42ea-886f-bca49f480d5c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure diff_予実_22 =
+			
+			VAR
+			_diff = [予算_22]-[実績_22]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _diff>=0,_diff,
+			    "▲"&FORMAT(_diff*-1,0)
+			)
+		formatString: 0
+		lineageTag: 65c8876a-6832-4036-ac9f-f4ea8281b5a4
+
+	measure diff_予実_23 =
+			
+			VAR
+			_diff = [予算_23]-[実績_23]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _diff>=0,_diff,
+			    "▲"&FORMAT(_diff*-1,0)
+			)
+		formatString: 0
+		lineageTag: 97b5d0cb-b225-4b8e-8c05-f41bc2e84680
+
+	partition 中計_実績_計画_マトリックス-11444e08-9344-405a-a42a-2376f5b934eb = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

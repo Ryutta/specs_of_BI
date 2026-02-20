@@ -1,0 +1,158 @@
+relationship AutoDetected_b9fced21-1e50-4516-bb9f-071f882ebba4
+	fromColumn: 機器台帳_推移.管理区分
+	toColumn: 順序_管理区分_Table.管理区分
+
+relationship f3d35bfb-3fd7-43d1-a891-c5f708dabc6f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_aafd8bc7-1a12-4942-83ba-f8ac3b09c4f4.Date
+
+relationship c62a69fa-cbdf-2612-27a5-6253a5e10262
+	fromColumn: Calendar.FY
+	toColumn: 横軸_年度.年度
+
+relationship AutoDetected_f4a6bb7c-a798-4a2e-86db-70ea5828810d
+	fromColumn: Query_2025.年度
+	toColumn: 横軸_年度.年度
+
+relationship 88ee5e1d-378e-0444-1392-2b85439a47ee
+	fromColumn: 期中取得/材修.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship AutoDetected_e609272d-d11e-49cf-9c9c-9ed16462b9d9
+	fromColumn: riskEva2026.管理区分
+	toColumn: 順序_管理区分_Table.管理区分
+
+relationship AutoDetected_4fd350c5-0580-4787-88a1-3bfc4c8ca8b4
+	fromColumn: riskEva2026.発生確率
+	toColumn: 発生確率.発生確率
+
+relationship ebc068e6-33af-c65d-a0ef-895034d4d1ac
+	fromColumn: riskEva2026._影響度
+	toColumn: 影響度.影響度
+
+relationship 606dc1a0-9c59-1736-c5ba-24f016190871
+	fromColumn: 予実管理.区分
+	toColumn: Dim_区分.区分
+
+relationship AutoDetected_fd81f3a4-4b0e-4566-aed3-c313fefd4dd4
+	fromColumn: riskEva2026.年度
+	toColumn: 横軸_年度.年度
+
+relationship e2120320-4d39-5176-880a-96b5ee85e978
+	fromColumn: riskEva2026.13分類rev
+	toColumn: 修繕費対応分類表.13分類rev
+
+relationship 4ad592db-b2ca-1164-de7f-c93678f8e237
+	fromColumn: riskEva2026.SE/QCD/法定/枠/その他
+	toColumn: Order_SE/QCD/法/枠/他.name
+
+relationship AutoDetected_eeb1018d-74c5-481c-b3b2-122869215087
+	fromColumn: Query_2024.管理区分
+	toColumn: 順序_管理区分_Table.管理区分
+
+relationship 50252e20-87fc-91d9-1527-ad74546b3f69
+	fromColumn: Query_2024.SE/QCD/法定/枠/その他
+	toColumn: Order_SE/QCD/法/枠/他.name
+
+relationship AutoDetected_dd937b1c-b7cc-4433-8d2f-99d7d33f53fc
+	fromColumn: Query_2024.年度
+	toColumn: 横軸_年度.年度
+
+relationship a88a294a-b6b7-15a4-54b2-bf24a16250bd
+	fromColumn: Query_2025.SE/QCD/法定/枠/その他
+	toColumn: Order_SE/QCD/法/枠/他.name
+
+relationship 9325f174-8547-fde6-53d3-9018aa4e1968
+	fromColumn: 購買明細.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship 1cc042a3-53cb-2ff6-58da-27239fee913d
+	fromColumn: Query_2025.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship f4cd0b76-7b4b-46b8-28b1-5b21c2582a1e
+	fromColumn: 購買明細.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship 6b7b4548-68fc-b5af-92a9-4436ebb07796
+	fromColumn: 予実管理.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship 2149dd1b-af42-a54b-d3a4-b37b12b760af
+	fromColumn: Query_2025.管理区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship b3e349e4-c0f6-adab-2f1b-3ca53c72c046
+	fromColumn: riskEva2026.管理区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship e009d770-973a-d236-86e2-218d96a0c06d
+	fromColumn: Query_2024.管理区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship 769f6339-ac92-9f14-e879-31b99937348e
+	fromColumn: riskEva2026.優先度
+	toColumn: 評価ランク_Table.評価ランク
+
+relationship 855d8bbf-fa54-7095-81cf-d631648d8b95
+	fromColumn: 期中取得/材修.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship 35ad61e7-4bb7-1614-e7f6-cd2931e89964
+	fromColumn: riskEva2026.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship aad08379-fc3e-f652-031b-f5ca272e4512
+	fromColumn: 予実管理.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship 741589ae-5bd2-5ee4-f0ee-08c3ff290281
+	fromColumn: Query_2024.原価センター
+	toColumn: プラント略号辞書.原価センタ
+
+relationship ad8591ac-ac7a-4699-a7d8-15188030cc4b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 購買明細.購買依頼日
+	toColumn: LocalDateTable_3fe42189-4189-4c15-b8de-c1c605d90329.Date
+
+relationship 9dd11051-aa9a-5f69-902e-da9a89e94193
+	fromColumn: 購買明細.購買依頼日2
+	toColumn: Calendar.Date
+
+relationship 9bf45919-d6d8-3a56-5a30-259a97eed326
+	fromColumn: Query_2025.13分類rev
+	toColumn: 修繕費対応分類表.13分類rev
+
+relationship c9c19369-f52a-4421-d770-3f00fc2a2b7f
+	fromColumn: 購買明細.13分類rev
+	toColumn: 修繕費対応分類表.13分類rev
+
+relationship b6095ca7-b0ba-08b5-e41c-a3fb03ae896a
+	fromColumn: 予実管理.13分類rev
+	toColumn: 修繕費対応分類表.13分類rev
+
+relationship d63b615b-d570-61eb-530d-00fb0b68c4d1
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship 797121d2-c057-2d04-d6fd-7afef742c879
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.13分類rev
+	toColumn: 修繕費対応分類表.13分類rev
+
+relationship c396d8e0-2baa-f763-e81c-37296d085c16
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship bff93949-0b74-4fa5-b9a9-47d63517669c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 予実管理.購買依頼日
+	toColumn: LocalDateTable_e412f6b5-b1b7-45f1-bcb5-42a4bb4c83f7.Date
+
+relationship e8409418-b343-c158-f2b1-e64aab02e5f1
+	fromColumn: 予実管理.date
+	toColumn: Calendar.Date
+

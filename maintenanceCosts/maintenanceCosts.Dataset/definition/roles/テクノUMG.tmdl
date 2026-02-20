@@ -1,0 +1,7 @@
+role テクノUMG
+	modelPermission: read
+
+	tablePermission プラント略号辞書 = [部名称] == "テクノＵＭＧ　大竹工場" || [部名称] == "テクノUMG"
+
+	annotation PBI_Id = 0f1fc294091646d5a85219a0f97e55b7
+

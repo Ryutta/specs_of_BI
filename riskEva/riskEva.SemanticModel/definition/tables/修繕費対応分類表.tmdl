@@ -1,0 +1,87 @@
+table 修繕費対応分類表
+	lineageTag: 45d65b05-e543-44a9-b86e-54746788d662
+
+	column 周期性
+		dataType: string
+		lineageTag: 64f0cc0c-5a0e-465d-a879-d09c3d8fe396
+		summarizeBy: none
+		sourceColumn: 周期性
+		sortByColumn: 周期性_順序
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類
+		dataType: string
+		lineageTag: fa7356da-b26e-4105-b763-2f4bd624f2f3
+		summarizeBy: none
+		sourceColumn: 13分類
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 11分類
+		dataType: string
+		lineageTag: 520b8c85-6345-4abd-8c7b-b78c27401fb0
+		summarizeBy: none
+		sourceColumn: 11分類
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類rev
+		dataType: string
+		lineageTag: e4fa4c6a-0285-49c7-be47-a93f2b197216
+		summarizeBy: none
+		sourceColumn: 13分類rev
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '13分類 名称'
+		dataType: string
+		lineageTag: ecfffdf7-bf56-47cd-ac06-d15383a20247
+		summarizeBy: none
+		sourceColumn: 13分類 名称
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 周期性_順序
+		dataType: string
+		lineageTag: b97058d5-5de3-432e-9292-0e62635f91c2
+		summarizeBy: none
+		sourceColumn: 周期性_順序
+
+		annotation SummarizationSetBy = Automatic
+
+	column 13分類_順序
+		dataType: string
+		lineageTag: bd507d0a-e947-47ea-99f9-a3ec475c0611
+		summarizeBy: none
+		sourceColumn: 13分類_順序
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 修繕費対応分類表-9f29a50d-6389-419d-a625-c023f29fff03 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jZLLTsJQEIbfhTUmFijq0kvUeI1BF0p4l1ZCLEgkasELYEUgVhPAQCO3Bh6GzjntilfwnLYHxJLgorOY+b+/c2YmGvXBrYoKis/vi6yTwAVJQK0s1J9RpYCUPs3ZX8z/W7tDcwESqLCgoKwGl0+uNvBHu8m0Rk+yHpskYqU64x60Cav4MoW2aYmzoWsYpI1hERKqbe73hbzyUybH7RQSqjNy3ivfoHKetq/0cL7iCsNe4SEVhqhvZgCvGqTyoLchnXOJFS9xREucPZkk6QHffcFbHBoDXGPQqhc6nr5WIoOEe9Fs6ZCousSalziYPFhWsFxGxZLR/4ZKEuU1F+KWvdQJo0ZicSTWjT7rieO84jNao8UlJnI2a3QES7xBwvso3sdKjahNVcIyXWZkl83L3TK7i6BzW4vwPYYjuWsmG5M1Bp38InyL4eTMrLKC9AzSPpyrYyb8/0zCc03GugSlB7OcGOtJZugcjXn1acVVKycYwzruZs2mbXXB+plbDtmjpTT5v9GpQSYHgweS3D+fjGG2wDtE7Ac=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [周期性 = _t, #"13分類" = _t, #"11分類" = _t, #"13分類 名称" = _t, 周期性_順序 = _t, #"13分類_順序" = _t]),
+				    追加された条件列 = Table.AddColumn(ソース, "13分類rev", each if [13分類] = "SD" then [13分類] & [11分類] else [13分類])
+				in
+				    追加された条件列
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

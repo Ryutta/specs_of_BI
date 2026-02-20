@@ -1,0 +1,74 @@
+table Calendar
+	lineageTag: 718d6dde-9668-4fc2-9dbc-79af96c9f8e8
+
+	column Date
+		formatString: General Date
+		lineageTag: b2a62aeb-b141-4ca1-b29b-aeeae9f8820e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: cdd94e64-4125-4c82-86f0-8c5ecd6339be
+			defaultHierarchy: LocalDateTable_bca5b4d5-c2f9-4500-9f80-a1518cf9ddbb.日付の階層
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = FORMAT('Calendar'[Date],"YYYY")
+		lineageTag: 1a4998c2-24ee-4c7c-b403-591c4dfe91d3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Calendar'[Date],"MM")
+		lineageTag: c9dd6564-1499-4466-bdbb-29bf0663caa2
+		summarizeBy: none
+		sortByColumn: 4月始まり
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number' = MONTH('Calendar'[Date])
+		formatString: 0
+		lineageTag: c6df0666-042b-4f02-9b90-b9678a354a07
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYYMM = FORMAT([Date],"YYYYMM")
+		lineageTag: 5d1f4cb7-fadf-4219-81b8-54370a03ec2a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 4月始まり =
+			
+			SWITCH(
+			    TRUE(),
+			    [Month Number]<=3,[Month Number]+9,
+			    [Month Number]<=12,[Month Number]-3
+			)
+		formatString: 0
+		lineageTag: a4bf393b-880f-4c24-9e71-eb1144970c72
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year' =
+			
+			IF(
+			    [Month Number] <= 3, VALUE([Year]) -1,
+			    VALUE([Year])
+			)
+		dataType: string
+		lineageTag: 72121e04-dd61-4124-a84c-80e76be41523
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar-3a3eabe7-b029-4878-b0aa-3d9cf7e28a63 = calculated
+		mode: import
+		source = CALENDAR(date(2017,4,1),DATE(2026,3,31))
+
+	annotation PBI_Id = 3abc5a584765402693c02aa98804d34c
+

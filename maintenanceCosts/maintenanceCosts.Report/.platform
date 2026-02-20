@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "maintenanceCosts"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "811abc07-ee9b-4c65-82b1-9c6dffef5f08"
+  }
+}

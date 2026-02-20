@@ -1,0 +1,79 @@
+relationship cdd94e64-4125-4c82-86f0-8c5ecd6339be
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_bca5b4d5-c2f9-4500-9f80-a1518cf9ddbb.Date
+
+relationship 090047e9-8a04-cb08-25ea-ef3a4ac8f727
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship d9fd91d3-51ef-c9d2-2f64-b2a0541858b1
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.予算区分2
+	toColumn: Dim_予算区分2.予算区分2
+
+relationship 109560a7-80b8-7a67-2b36-32e0bc633471
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship 53fa3a1d-9d76-40aa-2b33-e95bc04db1ab
+	securityFilteringBehavior: none
+	fromColumn: 起業費・修繕費.勘定名称
+	toColumn: Dim_勘定名称.勘定名称
+
+relationship d17da1a7-bad8-4d9f-9045-8bd7c8e2f3a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 購買明細.更新年月日
+	toColumn: LocalDateTable_d4e7c089-48aa-4beb-9e5c-a56f70f4b0d4.Date
+
+relationship 82f720bc-b5c6-ce74-1a49-b8360b9d5ce6
+	fromColumn: 購買明細.区分
+	toColumn: 区分_Table.区分
+
+relationship 28098936-bd45-a6e2-af76-7330df5b4fa4
+	fromColumn: 購買明細.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship fe536ebe-ca75-ee8d-fc82-b26429636e7d
+	fromColumn: 予実管理.原価センタ
+	toColumn: プラント略号辞書.原価センタ
+
+relationship c53d6eff-250e-fdb3-01f8-bca3b5451648
+	fromColumn: 予実管理.予算区分２
+	toColumn: Dim_予算区分2.予算区分2
+
+relationship d0137568-1319-7883-c4fe-61306cc01d03
+	fromColumn: 購買明細.予算区分２
+	toColumn: Dim_予算区分2.予算区分2
+
+relationship 1df7e866-71d3-a78e-b219-5de4e4024faa
+	fromColumn: 購買明細.勘定名称
+	toColumn: Dim_勘定名称.勘定名称
+
+relationship e2df1287-b57e-50f2-07a6-bb9b4444aa70
+	fromColumn: 予実管理.勘定名称
+	toColumn: Dim_勘定名称.勘定名称
+
+relationship 53cc8ec4-8d1a-1072-5d10-222140f87a0c
+	fromColumn: 予実管理.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship bcf964d7-ed51-8b96-2c39-f9a7addd9589
+	fromColumn: 購買明細.専門区分
+	toColumn: Dim_専門区分.専門区分
+
+relationship cfe0f1f1-645c-8709-db52-fc989c471ba0
+	fromColumn: 予実管理.区分
+	toColumn: 区分_Table.区分
+
+relationship 5ba9d8d8-5e8c-4dc8-9be0-1bb0f3f287cc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 購買明細.購買依頼日
+	toColumn: LocalDateTable_359d928f-83f0-416a-913f-86c20425cd5e.Date
+
+relationship aa2b6fb2-92e8-f4a3-0f57-c27f1a555036
+	fromColumn: 購買明細.購買依頼日2
+	toColumn: Calendar.Date
+

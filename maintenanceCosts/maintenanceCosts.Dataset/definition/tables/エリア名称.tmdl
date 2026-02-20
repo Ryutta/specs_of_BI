@@ -1,0 +1,40 @@
+table エリア名称
+	lineageTag: fde7455b-990f-4a19-891f-b31496524ac8
+
+	column 部署コード_部署名
+		dataType: string
+		lineageTag: b63aabba-0f0c-4929-aa63-e60ca1e3429e
+		summarizeBy: none
+		sourceColumn: 部署コード_部署名
+
+		annotation SummarizationSetBy = Automatic
+
+	column エリア
+		dataType: string
+		lineageTag: 1fa96b32-e237-4e81-9597-b44948d200b7
+		summarizeBy: none
+		sourceColumn: エリア
+		sortByColumn: order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column order
+		dataType: string
+		lineageTag: 3a9b9e4a-860f-4829-9f73-ba02dc45b400
+		summarizeBy: none
+		sourceColumn: order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition エリア名称 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("nZLLTsJAFIbfpWsW5eJtqZKYmLh0RUhfpcwIEWqQSENClLRACVUsSkBIy4APM8xMWfUVnFLTECyXuDudfv85Z/75MxlBFCU2eSRKfQlNISYQB5LhmBdxIRvLCMeiRDSHPRtue7aU9UjmXJQWKMfUKes3WaUQyVyIkmtaBNRpSXab1UgmKUrUtN07sGPWEd/26ZO0IOkXSd7EcEqqOXf4tvhuuCaKlJzwK6xOmK6y1zEtyvxXWPMOTNX4Vsuaws8TK0mKSx5q9L7iN9++TJwvY5fY2NrBXHIGWGykB+TCUWjHiiTTB1h0zS16eWfGnMI80QcYTDCwMSxgGD39NLy7qjG1/du5prC6Q/rGXh/4wzrKtmj4vhpd1rMP9/XsX5LQMw4EN/DQfdDHQ8W9HTYis+0lfRfBB4ZlD315yPJQF8tyMIVMOkQfcThkbm+u+GcyMCktYdDCYIphDsPeehZoY04HGm0MeJ0KMu7DIwzRii/7Beyth+KvJOFLZv6Iw3gxGZGjDSz7Aw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [部署コード_部署名 = _t, エリア = _t, order = _t])
+				in
+				    ソース
+
+	annotation PBI_ResultType = Table
+

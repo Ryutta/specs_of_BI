@@ -1,0 +1,17 @@
+table Dim_区分
+	lineageTag: 3bd0a352-a383-43df-8ab1-766077bb7ced
+
+	column 区分
+		lineageTag: 3ea19b44-ba20-44fb-babf-856d15249017
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 購買明細[区分]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_区分 = calculated
+		mode: import
+		source = VALUES('購買明細'[区分])
+
+	annotation PBI_Id = dac303545c3c477c95e00e63aecd51d5
+

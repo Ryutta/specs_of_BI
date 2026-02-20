@@ -1,0 +1,17 @@
+table Dim_勘定名称
+	lineageTag: 904655b6-ff96-4cb1-8ef4-de55a6c52e21
+
+	column 勘定名称
+		lineageTag: 51cf72fc-5cf3-45c3-9dfd-d4ed0ef698f7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 購買明細[勘定名称]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_勘定名称-842c4b41-498b-4241-af96-b6fdf6daa299 = calculated
+		mode: import
+		source = VALUES('購買明細'[勘定名称])
+
+	annotation PBI_Id = c19793f0ce4d4d85baadc1d928b72c40
+

@@ -1,0 +1,479 @@
+table QCD金額
+	lineageTag: 548cef05-d091-4d3b-9796-4bbd893932c7
+
+	measure QCD_A1_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "1"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 0033a8ce-9d77-4370-a297-0780343c612a
+
+	measure QCD_A2_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "1"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: f3023a7d-c9de-4c85-a100-14dc2d765a48
+
+	measure QCD_A3_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "2"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 77d75801-6056-4f0d-b5bb-3a43d68173cc
+
+	measure QCD_A4_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "2"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: c8acbe99-f71d-46b1-8102-fec02cbea968
+
+	measure QCD_A5_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "3"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 3d7a1a15-69ec-43c1-9720-c8b933f01dc9
+
+	measure QCD_A6_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "3"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 52fbb84f-478b-4eb0-ab44-70cd57674821
+
+	measure QCD_B1_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "1"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 15a8073f-afc3-4c0c-9fe4-1703004decfa
+
+	measure QCD_B2_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "2"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 6f6b975f-0ff2-47ca-a35a-c6925586f807
+
+	measure QCD_B3_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "3"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: c89d5f25-fdeb-4a71-927d-974f0d00e06d
+
+	measure QCD_B4_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "4"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: d1d85860-5e47-4051-af3c-40df5536cab0
+
+	measure QCD_B5_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "4"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 949b15ac-3bb1-43cb-bb0b-8424d1407a6e
+
+	measure QCD_C1_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "1"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 6b506018-e0b9-49a5-83b0-9f82f6a976b9
+
+	measure QCD_C2_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "2"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 9c186957-73b4-450b-9cfa-bbe4012036b6
+
+	measure QCD_C3_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "3"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: b77c865a-825c-44d9-b4fc-03c47ade88d8
+
+	measure QCD_C4_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "4"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 47b3ae32-a4ac-4a84-a18b-6a299d688e8b
+
+	measure QCD_C5_カット = ```
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [QCDカット],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "4"
+			            ),0
+			        )
+			        
+			    ),
+			    " )"
+			)
+			```
+		lineageTag: 38625ffe-8ce1-4684-9fa5-8bc523db9d06
+
+	measure QCD_A1_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: #,0
+		lineageTag: db138c33-22c1-4304-97b8-06baa7feedea
+
+	measure QCD_A2_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: #,0
+		lineageTag: d7cb0212-8c1c-43f0-b303-09aec834806b
+
+	measure QCD_A3_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 4e83212b-ecd4-46ca-a85b-7463bce6ef3d
+
+	measure QCD_A4_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: #,0
+		lineageTag: 7bf4fc76-05a5-4f77-957e-bfb57fc3fd18
+
+	measure QCD_A5_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: 850df6f7-e061-4892-bf63-906828a96138
+
+	measure QCD_A6_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: #,0
+		lineageTag: 00aadaa7-af44-428a-ac84-3e87e2076d8e
+
+	measure QCD_B1_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: 9e03ced8-626e-49b9-9df0-a0b3c9d94eeb
+
+	measure QCD_B2_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: f905bac4-4ad4-4ea4-aff1-fcfcb109fd39
+
+	measure QCD_B3_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: 9e1ecc5a-34b4-4ee6-b064-4d00177f9bda
+
+	measure QCD_B4_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: 3218c6a2-98dc-4535-b7ad-9515d0fc6e67
+
+	measure QCD_B5_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: cb98fc66-18b0-4445-afe9-273f2918d2ed
+
+	measure QCD_C1_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: fc907c8e-16ad-4921-9293-079f71af37e3
+
+	measure QCD_C2_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 414b9e62-d2f3-42f4-ab23-9713e6b52c27
+
+	measure QCD_C3_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: da062283-9207-4552-9c38-60eb38831910
+
+	measure QCD_C4_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: c6cd378f-4b87-4bb2-9867-afa411dee722
+
+	measure QCD_C5_申請 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: 2db58d32-4be5-4978-b714-7ac31a954022
+
+	partition QCD金額-03da2170-aceb-4ccb-b56b-06ff10763810 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

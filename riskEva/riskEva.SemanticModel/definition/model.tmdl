@@ -1,0 +1,96 @@
+model Model
+	culture: ja-JP
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ja-JP
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'ヘルパー クエリ'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Transform File from 機器台帳_推移'
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'Transform File from 機器台帳_推移\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup '機器台帳 からファイルを変換する'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup '機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup '【見直し後】機器台帳 からファイルを変換する'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup '【見直し後】機器台帳 からファイルを変換する\ヘルパー クエリ'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from fy2026'
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup 'Transform File from fy2026\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["カット内訳","テーブル","リスク評価結果","修繕費対応分類表","分類別","申請内訳","SE金額","QCD金額","推移","パラメーター9","サンプル ファイル (9)","ファイルの変換 (9)","適正化視点","順序_管理区分_Table","Order_SE/QCD/法/枠/他","横軸_年度","中計_実績_計画_マトリックス","故障呼出DAX","発生確率","影響度","QCD件数","SE件数","機器台帳_推移","Parameter2","Transform Sample File (2)","Sample File (2)","Transform File (2)","パラメーター11","サンプル ファイル (11)","ファイルの変換 (11)","サンプル ファイルの変換 (11)","パラメーター16","サンプル ファイル (16)","ファイルの変換 (16)","サンプル ファイルの変換 (16)","diff_fy","プラント略号辞書","購買明細","予実管理","Query_2025","期中取得/材修","riskEva2026","Query_2024","Transform Sample File","Parameter1","Sample File","Transform File","riskEva2026_自部門","DirectQuery to AS - MoneM_010_起業費・修繕費"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table カット内訳
+ref table リスク評価結果
+ref table 修繕費対応分類表
+ref table 分類別
+ref table 申請内訳
+ref table SE金額
+ref table QCD金額
+ref table 推移
+ref table 適正化視点
+ref table 順序_管理区分_Table
+ref table Order_SE/QCD/法/枠/他
+ref table 横軸_年度
+ref table 中計_実績_計画_マトリックス
+ref table 故障呼出DAX
+ref table 発生確率
+ref table 影響度
+ref table 評価ランク_Table
+ref table QCD件数
+ref table SE件数
+ref table 機器台帳_推移
+ref table 機器台帳_見直し前後
+ref table PMorBM_Table
+ref table diff_fy
+ref table プラント略号辞書
+ref table 購買明細
+ref table DateTableTemplate_58159cc1-85d2-417e-95d1-82f8dda45f05
+ref table 予実管理
+ref table Calendar
+ref table LocalDateTable_aafd8bc7-1a12-4942-83ba-f8ac3b09c4f4
+ref table Dim_区分
+ref table Query_2025
+ref table 期中取得/材修
+ref table Dim_専門区分
+ref table riskEva2026
+ref table Query_2024
+ref table LocalDateTable_3fe42189-4189-4c15-b8de-c1c605d90329
+ref table 起業費・修繕費
+ref table LocalDateTable_e412f6b5-b1b7-45f1-bcb5-42a4bb4c83f7
+
+ref role 設備技術部
+ref role 樹脂製造部
+
+ref cultureInfo ja-JP
+

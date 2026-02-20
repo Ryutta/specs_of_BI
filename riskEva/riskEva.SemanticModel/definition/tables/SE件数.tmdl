@@ -1,0 +1,463 @@
+table SE件数
+	lineageTag: b7a35da8-faf3-47e7-80d0-46cbeb945edc
+
+	measure SE_A1_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "1"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: f7021a0a-030b-45b8-995d-8921a2657dda
+
+	measure SE_A1_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: 683085e6-f1bd-4a84-b33c-13262ae1b984
+
+	measure SE_A2_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: baefc19e-2652-44ed-b8f6-3a142b9df587
+
+	measure SE_A3_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 76d4724f-a1e1-45cb-908d-a85cf9de0cba
+
+	measure SE_A4_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 60b2d5d0-ad6b-42b2-b45d-f423a57bffa2
+
+	measure SE_A5_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: a4036081-4610-4865-9ce5-528490d82f73
+
+	measure SE_A6_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: c2e5260c-6d87-428c-982a-37b129a327c6
+
+	measure SE_B1_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: 96b3ce65-95fe-4189-b195-b2b8060a2074
+
+	measure SE_B2_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 0a0473ab-50a4-4c28-b133-b9b2639c3a07
+
+	measure SE_B3_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: 10afdb4c-281a-4b55-a9d6-959d93ea8a1a
+
+	measure SE_B4_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "A",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: ee918ff7-021e-427c-8e9d-4c143cf649fb
+
+	measure SE_B5_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "B",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: 016160dc-84a1-45d1-9ba5-5140716e888f
+
+	measure SE_C1_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "1"
+			)
+		formatString: 0
+		lineageTag: 7fdb8d36-d8d1-4f69-8be2-0a5fb9f1ee75
+
+	measure SE_C2_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "2"
+			)
+		formatString: 0
+		lineageTag: 98785c0b-cb63-42ab-a50d-1bfba0e95f9b
+
+	measure SE_C3_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "3"
+			)
+		formatString: 0
+		lineageTag: 23505400-d72c-44d3-ab7d-dc3001a36f9b
+
+	measure SE_C4_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "C",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: 71978720-1e47-4965-be6b-431dd7888355
+
+	measure SE_C5_申請件数 =
+			
+			CALCULATE(
+			    [SE申請_件数],
+			    '発生確率'[発生確率] = "D",
+			    '影響度'[影響度] = "4"
+			)
+		formatString: 0
+		lineageTag: c6587db7-a12d-4aef-8583-fc60d4fb9b86
+
+	measure SE_A2_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "1"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 158043bd-2264-43a3-81bf-56ae20eec3f4
+
+	measure SE_A3_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "2"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 212f9530-094e-4553-9217-7f56fb856246
+
+	measure SE_A4_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "2"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: aaedc606-2027-40ba-887a-cf405c1477bd
+
+	measure SE_A5_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "3"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 7f7823a0-7fef-48f3-9b14-a33a48b9d3ab
+
+	measure SE_A6_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "3"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: fc8c0eb3-9eb0-4ab8-8af2-51dffd705c88
+
+	measure SE_B1_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "1"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 850c9cfe-7f00-43b6-88df-2970e294f176
+
+	measure SE_B2_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "2"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: d380b065-dd43-44da-b7f0-b7d743846d33
+
+	measure SE_B3_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "3"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: e3c54372-db4c-4611-a591-2016b34ff989
+
+	measure SE_B4_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "A",
+			                '影響度'[影響度] = "4"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 4d18131c-7d02-4262-8b4e-2b3f40207580
+
+	measure SE_B5_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "B",
+			                '影響度'[影響度] = "4"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: ef360214-cbf6-4bb8-a778-248832fd724d
+
+	measure SE_C1_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "1"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: d11223be-c6d0-414e-abc4-17897836e0cf
+
+	measure SE_C2_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "2"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: e70c6f92-2dea-433e-b3c7-f923e9fbbb87
+
+	measure SE_C3_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "3"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 687f0f91-76a7-4d01-a3b5-a0b17345c813
+
+	measure SE_C4_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "C",
+			                '影響度'[影響度] = "4"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: 5837a219-edf9-4417-bf78-c61ef4565894
+
+	measure SE_C5_カット件数 =
+			
+			CONCATENATE(
+			    CONCATENATE(
+			        "( ",
+			        FORMAT(
+			            CALCULATE(
+			                [SEカット_件数],
+			                '発生確率'[発生確率] = "D",
+			                '影響度'[影響度] = "4"
+			            ),
+			            0
+			        )
+			    ),
+			    " )"
+			)
+		lineageTag: da53156c-1ebf-46de-a03e-438aea8f2f2f
+
+	partition SE件数 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

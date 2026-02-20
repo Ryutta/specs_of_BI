@@ -1,0 +1,251 @@
+table 申請内訳
+	lineageTag: 76d8e6a9-0e30-49b0-8ad5-de59037851f0
+
+	measure SEカットライン以上 =
+			
+			CALCULATE(
+			    [SE申請],
+			    FILTER(
+			        'riskEva2026',
+			        RELATED('影響度'[影響度]) <= "3" &&
+			        RELATED('発生確率'[発生確率]) <= "B"
+			    )
+			)
+		formatString: 0
+		lineageTag: 38f86941-e3a8-4560-a1d4-c526592441e3
+
+	measure QCDカットライン以上 =
+			
+			CALCULATE(
+			    [QCD申請],
+			    FILTER(
+			        'riskEva2026',
+			        RELATED('影響度'[影響度]) <= "3" &&
+			        RELATED('発生確率'[発生確率]) <= "B"
+			    )
+			)
+		formatString: #,0
+		lineageTag: bd04bb3a-6f32-43e6-82ec-9b174731634c
+
+	measure SEカットライン未満 = [SE申請] - [SEカットライン以上]
+		formatString: #,0
+		lineageTag: ad95b82d-3eb5-48d7-a6ce-0dd69f344c3d
+
+	measure QCDカットライン未満 = [QCD申請] - [QCDカットライン以上]
+		formatString: 0
+		lineageTag: 0d7974b4-8280-4a16-bc6e-b93daf504185
+
+	measure 申請_対象 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[対象/対象外/法定]="対象"
+			)
+		formatString: #,0
+		lineageTag: 1d68520f-a737-4c03-b87a-759c0ccb974d
+
+	measure 申請_対象外 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[対象/対象外/法定]="対象外"
+			)
+		formatString: #,0
+		lineageTag: 9ce22423-7943-4114-8abd-ea0dca689061
+
+	measure 申請_法定 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[対象/対象外/法定] = "法定"
+			)
+		formatString: 0
+		lineageTag: 5bcf97a3-c33f-412f-99db-b78024e45c05
+
+	measure 申請_枠予算 = ```
+			
+			VAR
+			_waku = 
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[枠取り/その他] = "枠取り"
+			)
+			// VAR
+			// _other =
+			// CALCULATE(
+			//     [申請額],
+			//     'リスク評価表2025'[枠取り/その他] = "その他"
+			// )
+			RETURN
+			_waku
+			// _waku+_other
+			```
+		formatString: #,0
+		lineageTag: ef44cded-bafd-4c90-b104-b6a4b458d379
+
+	measure ratio_対象外 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_対象外],[申請額]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 1740d609-f991-4493-82f3-62689cab0bc3
+
+	measure ratio_対象 =
+			
+			var
+			_value = DIVIDE([申請_対象],[申請額])
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 1230a1a7-172f-4cac-ba48-670b9b805f82
+
+	measure 申請_その他 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[枠取り/その他] = "その他"
+			)
+		formatString: #,0
+		lineageTag: 15c2001a-3f3e-4875-bf8d-064119a70ca6
+
+	measure ratio_法定_2024 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_法定_2024],[_申請額_2024]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: d0899294-486e-483f-8a49-7990b4b0e24c
+
+	measure 申請_枠管理 =
+			
+			CALCULATE(
+			    [申請額],
+			    'riskEva2026'[枠取り/その他] = "枠取り"
+			)
+		formatString: #,0
+		lineageTag: 0080a112-0b91-4207-b5b4-9ca40f349031
+
+	measure 申請_対象_2024 =
+			
+			CALCULATE(
+			    [_申請額_2024],
+			    'Query_2024'[対象/対象外/法定]="対象"
+			)
+		lineageTag: 40cb3c85-e323-4ee5-8563-e409e9272df4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 申請_対象外_2024 =
+			
+			CALCULATE(
+			    [_申請額_2024],
+			    'Query_2024'[対象/対象外/法定]="対象外"
+			)
+		lineageTag: e6408b59-43a4-4414-a63c-a032296a551d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 申請_法定_2024 =
+			
+			CALCULATE(
+			    [_申請額_2024],
+			    'Query_2024'[対象/対象外/法定] = "法定"
+			)
+		lineageTag: e3c66f3c-09a0-42f1-ad78-cfcedabf0f62
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ratio_法定 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_法定],[申請額]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 1fa9b04a-f4cf-4161-8e61-f9daafe1b1ff
+
+	measure ratio_対象外_2024 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_対象外_2024],[_申請額_2024]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 59455937-8187-4a96-b59a-11f029a7cbde
+
+	measure ratio_対象_2024 =
+			
+			var
+			_value = DIVIDE([申請_対象_2024],[_申請額_2024])
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 27d679e7-595d-405d-a2d1-079757cbf32a
+
+	measure ratio_対象外_calc = DIVIDE([申請_枠予算],[申請額])
+		formatString: 0%;-0%;0%
+		lineageTag: 88e0631f-4f55-47b3-88e4-5c2c407b58d6
+
+	measure 申請_法定_2025 =
+			
+			CALCULATE(
+			    [_申請額_2025],
+			    'Query_2025'[対象/対象外/法定] = "法定"
+			)
+		lineageTag: 2bb01647-de4f-45b4-8129-16a76ba1d4f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ratio_法定_2025 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_法定_2025],[_申請額_2025]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: aa973a31-927b-4ff1-aa2e-f2bb7e98030b
+
+	measure 申請_対象_2025 =
+			
+			CALCULATE(
+			    [_申請額_2025],
+			    'Query_2025'[対象/対象外/法定]="対象"
+			)
+		lineageTag: 349d5001-d37f-4618-a8b0-5b03119cf85d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ratio_対象_2025 =
+			
+			var
+			_value = DIVIDE([申請_対象_2025],[_申請額_2025])
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 89482fb5-d49b-4c5c-9da8-f9fb8e356f12
+
+	measure 申請_対象外_2025 =
+			
+			CALCULATE(
+			    [_申請額_2025],
+			    'Query_2025'[対象/対象外/法定]="対象外"
+			)
+		lineageTag: 12041fd6-b369-46bb-9e55-91e1421aaaac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ratio_対象外_2025 =
+			
+			VAR
+			_value = FORMAT(DIVIDE([申請_対象外_2025],[_申請額_2025]),"0.00")
+			RETURN
+			"("&FORMAT(VALUE(_value)*100,"0")&"%)"
+		lineageTag: 94805390-c9c2-4ff9-ae87-0e0d50be7c74
+
+	partition 申請内訳-7c61f7be-20d6-4932-bd1e-7553e774e876 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

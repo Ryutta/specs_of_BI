@@ -1,0 +1,24 @@
+table DAX_明細
+	lineageTag: ad2cf568-a927-4a44-a555-7591ccdf753f
+
+	measure 計画予算from予実 =
+			
+			CALCULATE(
+			    SUM('予実管理'[計画予算金額]),
+			    TREATAS(VALUES('購買明細'[ID]),'予実管理'[ID])
+			)
+		formatString: #,0
+		lineageTag: 3f47ac65-80b9-44bb-bf2f-88d935a09eb8
+
+	partition DAX_明細-b636c83e-fe37-4a75-8d2d-705731d752a2 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [列1 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"列1", type text}}),
+				    削除された列 = Table.RemoveColumns(変更された型,{"列1"})
+				in
+				    削除された列
+
+	annotation PBI_ResultType = Table
+

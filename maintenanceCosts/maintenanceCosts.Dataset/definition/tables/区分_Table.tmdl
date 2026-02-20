@@ -1,0 +1,22 @@
+table 区分_Table
+	lineageTag: b4105875-55f4-4235-8f78-efbd6b44a9b9
+
+	column 区分
+		dataType: string
+		lineageTag: 1d56f3be-bf5d-443c-ac77-c55164c627a3
+		summarizeBy: none
+		sourceColumn: 区分
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 区分_Table-4d6fd227-71c8-410d-9ee7-7210a6211ac2 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WerJ/3fOdU19s2q0UqxOt9GzO/Cc71j7tn/Z033SwwJP9c5+2rnjWNfXF5nawwIut258tXasUGwsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [区分 = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"区分", type text}})
+				in
+				    変更された型
+
+	annotation PBI_ResultType = Table
+

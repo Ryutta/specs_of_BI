@@ -1,0 +1,24 @@
+table 予算区分1
+	lineageTag: 2a27c176-b10c-4a22-8089-dd855b9da128
+
+	column 予算区分１
+		dataType: string
+		lineageTag: cd0dc7cb-e9d6-4f93-abf5-404fbe20c96e
+		summarizeBy: none
+		sourceColumn: 予算区分１
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 予算区分1-774cdcc1-3ee8-42f8-bd93-2a7f48bb40f0 = m
+		mode: import
+		source =
+				let
+				    ソース = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjRUitUBUkYQyhhCmUAoUwhlBqaMICqNICqNgCpjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [予算区分１ = _t]),
+				    変更された型 = Table.TransformColumnTypes(ソース,{{"予算区分１", Int64.Type}})
+				in
+				    変更された型
+
+	annotation PBI_ResultType = Table
+
